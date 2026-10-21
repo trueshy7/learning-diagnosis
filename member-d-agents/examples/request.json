@@ -1,0 +1,21 @@
+{
+  "attempt_id": "attempt-demo-001",
+  "course_id": "course-ds",
+  "graded_answers": [
+    {"question_id": "q-stack-1", "knowledge_point_ids": ["kp-stack"], "correct": true},
+    {"question_id": "q-stack-2", "knowledge_point_ids": ["kp-stack"], "correct": false},
+    {"question_id": "q-stack-3", "knowledge_point_ids": ["kp-stack"], "correct": false},
+    {"question_id": "q-queue-1", "knowledge_point_ids": ["kp-queue"], "correct": true},
+    {"question_id": "q-queue-2", "knowledge_point_ids": ["kp-queue"], "correct": true},
+    {"question_id": "q-queue-3", "knowledge_point_ids": ["kp-queue"], "correct": true}
+  ],
+  "knowledge_points": [
+    {"id": "kp-stack", "name": "栈"},
+    {"id": "kp-queue", "name": "队列"}
+  ],
+  "resource_catalog": [
+    {"resource_id": "res-stack", "title": "栈示例材料", "knowledge_point_ids": ["kp-stack"]},
+    {"resource_id": "res-queue", "title": "队列示例材料", "knowledge_point_ids": ["kp-queue"]}
+  ]
+}
+

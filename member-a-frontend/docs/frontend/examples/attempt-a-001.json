@@ -1,0 +1,850 @@
+{
+  "code": "OK",
+  "message": "学生DTO不含标准答案",
+  "request_id": "sample-attempt",
+  "data": {
+    "attempt_id": "attempt-a-001",
+    "user_id": "student-a",
+    "course_id": "course-ds",
+    "kind": "initial",
+    "baseline_attempt_id": null,
+    "source_report_id": null,
+    "status": "submitted",
+    "snapshot_version": "seed-v1",
+    "created_at": "2026-10-01T02:00:00.000Z",
+    "submitted_at": "2026-10-01T02:00:00.000Z",
+    "questions": [
+      {
+        "question_id": "q-linear-01",
+        "type": "single_choice",
+        "stem": "顺序表按合法下标访问一个元素的时间复杂度是？",
+        "options": [
+          {
+            "option_id": "q-linear-01-0",
+            "label": "A",
+            "text": "O(1)"
+          },
+          {
+            "option_id": "q-linear-01-1",
+            "label": "B",
+            "text": "O(n)"
+          },
+          {
+            "option_id": "q-linear-01-2",
+            "label": "C",
+            "text": "O(n²)"
+          },
+          {
+            "option_id": "q-linear-01-3",
+            "label": "D",
+            "text": "O(log n)"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linear"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-linear-02",
+        "type": "single_choice",
+        "stem": "长度为 n 的顺序表在首部插入元素，最坏需要移动多少个原元素？",
+        "options": [
+          {
+            "option_id": "q-linear-02-0",
+            "label": "A",
+            "text": "0"
+          },
+          {
+            "option_id": "q-linear-02-1",
+            "label": "B",
+            "text": "1"
+          },
+          {
+            "option_id": "q-linear-02-2",
+            "label": "C",
+            "text": "n"
+          },
+          {
+            "option_id": "q-linear-02-3",
+            "label": "D",
+            "text": "n²"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linear"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-linear-03",
+        "type": "multiple_choice",
+        "stem": "关于渐进复杂度，哪些表述正确？",
+        "options": [
+          {
+            "option_id": "q-linear-03-0",
+            "label": "A",
+            "text": "忽略固定常数因子"
+          },
+          {
+            "option_id": "q-linear-03-1",
+            "label": "B",
+            "text": "描述规模增长趋势"
+          },
+          {
+            "option_id": "q-linear-03-2",
+            "label": "C",
+            "text": "保证任意机器用时相同"
+          },
+          {
+            "option_id": "q-linear-03-3",
+            "label": "D",
+            "text": "O(n) 一定只执行 n 条指令"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linear"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-linked-01",
+        "type": "single_choice",
+        "stem": "在单链表结点 p 后插入新结点 s，正确操作次序是？",
+        "options": [
+          {
+            "option_id": "q-linked-01-0",
+            "label": "A",
+            "text": "先 s.next=p.next，再 p.next=s"
+          },
+          {
+            "option_id": "q-linked-01-1",
+            "label": "B",
+            "text": "先 p.next=s，再 s.next=p.next"
+          },
+          {
+            "option_id": "q-linked-01-2",
+            "label": "C",
+            "text": "只需 p=s"
+          },
+          {
+            "option_id": "q-linked-01-3",
+            "label": "D",
+            "text": "将所有结点地址加一"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linked"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-linked-02",
+        "type": "single_choice",
+        "stem": "单链表从头寻找第 n 个结点，最坏时间复杂度是？",
+        "options": [
+          {
+            "option_id": "q-linked-02-0",
+            "label": "A",
+            "text": "O(1)"
+          },
+          {
+            "option_id": "q-linked-02-1",
+            "label": "B",
+            "text": "O(log n)"
+          },
+          {
+            "option_id": "q-linked-02-2",
+            "label": "C",
+            "text": "O(n)"
+          },
+          {
+            "option_id": "q-linked-02-3",
+            "label": "D",
+            "text": "O(n²)"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linked"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-linked-03",
+        "type": "multiple_choice",
+        "stem": "关于带头结点单链表，哪些说法正确？",
+        "options": [
+          {
+            "option_id": "q-linked-03-0",
+            "label": "A",
+            "text": "可统一首元素插入操作"
+          },
+          {
+            "option_id": "q-linked-03-1",
+            "label": "B",
+            "text": "头结点不一定存放有效业务数据"
+          },
+          {
+            "option_id": "q-linked-03-2",
+            "label": "C",
+            "text": "一定能 O(1) 定位任意结点"
+          },
+          {
+            "option_id": "q-linked-03-3",
+            "label": "D",
+            "text": "不再需要空表判断"
+          }
+        ],
+        "knowledge_point_ids": ["kp-linked"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-stack-01",
+        "type": "single_choice",
+        "stem": "栈遵循的访问原则是？",
+        "options": [
+          {
+            "option_id": "q-stack-01-0",
+            "label": "A",
+            "text": "先进先出"
+          },
+          {
+            "option_id": "q-stack-01-1",
+            "label": "B",
+            "text": "后进先出"
+          },
+          {
+            "option_id": "q-stack-01-2",
+            "label": "C",
+            "text": "按值大小"
+          },
+          {
+            "option_id": "q-stack-01-3",
+            "label": "D",
+            "text": "随机取出"
+          }
+        ],
+        "knowledge_point_ids": ["kp-stack"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-stack-02",
+        "type": "single_choice",
+        "stem": "1、2、3 依次入栈后连续全部出栈，结果是？",
+        "options": [
+          {
+            "option_id": "q-stack-02-0",
+            "label": "A",
+            "text": "1 2 3"
+          },
+          {
+            "option_id": "q-stack-02-1",
+            "label": "B",
+            "text": "2 1 3"
+          },
+          {
+            "option_id": "q-stack-02-2",
+            "label": "C",
+            "text": "3 2 1"
+          },
+          {
+            "option_id": "q-stack-02-3",
+            "label": "D",
+            "text": "1 3 2"
+          }
+        ],
+        "knowledge_point_ids": ["kp-stack"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-stack-03",
+        "type": "multiple_choice",
+        "stem": "哪些应用通常适合使用栈？",
+        "options": [
+          {
+            "option_id": "q-stack-03-0",
+            "label": "A",
+            "text": "括号匹配"
+          },
+          {
+            "option_id": "q-stack-03-1",
+            "label": "B",
+            "text": "函数调用返回地址管理"
+          },
+          {
+            "option_id": "q-stack-03-2",
+            "label": "C",
+            "text": "按到达顺序排队服务"
+          },
+          {
+            "option_id": "q-stack-03-3",
+            "label": "D",
+            "text": "直接按下标随机访问所有元素"
+          }
+        ],
+        "knowledge_point_ids": ["kp-stack"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-queue-01",
+        "type": "single_choice",
+        "stem": "队列通常遵循什么原则？",
+        "options": [
+          {
+            "option_id": "q-queue-01-0",
+            "label": "A",
+            "text": "后进先出"
+          },
+          {
+            "option_id": "q-queue-01-1",
+            "label": "B",
+            "text": "先进先出"
+          },
+          {
+            "option_id": "q-queue-01-2",
+            "label": "C",
+            "text": "小值优先"
+          },
+          {
+            "option_id": "q-queue-01-3",
+            "label": "D",
+            "text": "随机"
+          }
+        ],
+        "knowledge_point_ids": ["kp-queue"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-queue-02",
+        "type": "single_choice",
+        "stem": "A、B、C 依次入队后第一次出队得到？",
+        "options": [
+          {
+            "option_id": "q-queue-02-0",
+            "label": "A",
+            "text": "A"
+          },
+          {
+            "option_id": "q-queue-02-1",
+            "label": "B",
+            "text": "B"
+          },
+          {
+            "option_id": "q-queue-02-2",
+            "label": "C",
+            "text": "C"
+          },
+          {
+            "option_id": "q-queue-02-3",
+            "label": "D",
+            "text": "无法确定"
+          }
+        ],
+        "knowledge_point_ids": ["kp-queue"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-queue-03",
+        "type": "multiple_choice",
+        "stem": "采用牺牲一格的循环队列，哪些表述正确？",
+        "options": [
+          {
+            "option_id": "q-queue-03-0",
+            "label": "A",
+            "text": "front=rear 表示空"
+          },
+          {
+            "option_id": "q-queue-03-1",
+            "label": "B",
+            "text": "(rear+1)%capacity=front 表示满"
+          },
+          {
+            "option_id": "q-queue-03-2",
+            "label": "C",
+            "text": "可存 capacity 个元素"
+          },
+          {
+            "option_id": "q-queue-03-3",
+            "label": "D",
+            "text": "永远不需要取模"
+          }
+        ],
+        "knowledge_point_ids": ["kp-queue"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-tree-01",
+        "type": "single_choice",
+        "stem": "非空树有 n 个结点，其边数为？",
+        "options": [
+          {
+            "option_id": "q-tree-01-0",
+            "label": "A",
+            "text": "n"
+          },
+          {
+            "option_id": "q-tree-01-1",
+            "label": "B",
+            "text": "n-1"
+          },
+          {
+            "option_id": "q-tree-01-2",
+            "label": "C",
+            "text": "n+1"
+          },
+          {
+            "option_id": "q-tree-01-3",
+            "label": "D",
+            "text": "2n"
+          }
+        ],
+        "knowledge_point_ids": ["kp-tree"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-tree-02",
+        "type": "single_choice",
+        "stem": "二叉树先序遍历的访问次序是？",
+        "options": [
+          {
+            "option_id": "q-tree-02-0",
+            "label": "A",
+            "text": "左根右"
+          },
+          {
+            "option_id": "q-tree-02-1",
+            "label": "B",
+            "text": "左右根"
+          },
+          {
+            "option_id": "q-tree-02-2",
+            "label": "C",
+            "text": "根左右"
+          },
+          {
+            "option_id": "q-tree-02-3",
+            "label": "D",
+            "text": "右左根"
+          }
+        ],
+        "knowledge_point_ids": ["kp-tree"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-tree-03",
+        "type": "multiple_choice",
+        "stem": "关于二叉树，哪些说法正确？",
+        "options": [
+          {
+            "option_id": "q-tree-03-0",
+            "label": "A",
+            "text": "每个结点至多两个孩子"
+          },
+          {
+            "option_id": "q-tree-03-1",
+            "label": "B",
+            "text": "左孩子与右孩子有次序"
+          },
+          {
+            "option_id": "q-tree-03-2",
+            "label": "C",
+            "text": "每个结点必须两个孩子"
+          },
+          {
+            "option_id": "q-tree-03-3",
+            "label": "D",
+            "text": "空树不能属于二叉树"
+          }
+        ],
+        "knowledge_point_ids": ["kp-tree"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-graph-01",
+        "type": "single_choice",
+        "stem": "无向图中所有顶点度数之和等于？",
+        "options": [
+          {
+            "option_id": "q-graph-01-0",
+            "label": "A",
+            "text": "边数"
+          },
+          {
+            "option_id": "q-graph-01-1",
+            "label": "B",
+            "text": "边数的两倍"
+          },
+          {
+            "option_id": "q-graph-01-2",
+            "label": "C",
+            "text": "顶点数"
+          },
+          {
+            "option_id": "q-graph-01-3",
+            "label": "D",
+            "text": "总为零"
+          }
+        ],
+        "knowledge_point_ids": ["kp-graph"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-graph-02",
+        "type": "single_choice",
+        "stem": "广度优先遍历 BFS 通常使用？",
+        "options": [
+          {
+            "option_id": "q-graph-02-0",
+            "label": "A",
+            "text": "队列"
+          },
+          {
+            "option_id": "q-graph-02-1",
+            "label": "B",
+            "text": "只有排序数组"
+          },
+          {
+            "option_id": "q-graph-02-2",
+            "label": "C",
+            "text": "单个计数器即可"
+          },
+          {
+            "option_id": "q-graph-02-3",
+            "label": "D",
+            "text": "只需随机选点"
+          }
+        ],
+        "knowledge_point_ids": ["kp-graph"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-graph-03",
+        "type": "multiple_choice",
+        "stem": "关于图遍历，哪些说法正确？",
+        "options": [
+          {
+            "option_id": "q-graph-03-0",
+            "label": "A",
+            "text": "访问标记可避免重复处理"
+          },
+          {
+            "option_id": "q-graph-03-1",
+            "label": "B",
+            "text": "DFS 可使用递归或显式栈"
+          },
+          {
+            "option_id": "q-graph-03-2",
+            "label": "C",
+            "text": "非连通图从任一点必覆盖全部顶点"
+          },
+          {
+            "option_id": "q-graph-03-3",
+            "label": "D",
+            "text": "BFS 必须使用后进先出结构"
+          }
+        ],
+        "knowledge_point_ids": ["kp-graph"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-search-01",
+        "type": "single_choice",
+        "stem": "二分查找常见的前提是？",
+        "options": [
+          {
+            "option_id": "q-search-01-0",
+            "label": "A",
+            "text": "序列有序且支持随机访问"
+          },
+          {
+            "option_id": "q-search-01-1",
+            "label": "B",
+            "text": "序列必须无序"
+          },
+          {
+            "option_id": "q-search-01-2",
+            "label": "C",
+            "text": "一定使用循环链表"
+          },
+          {
+            "option_id": "q-search-01-3",
+            "label": "D",
+            "text": "元素总数必须为偶数"
+          }
+        ],
+        "knowledge_point_ids": ["kp-search"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-search-02",
+        "type": "single_choice",
+        "stem": "在有序数组上二分查找的最坏时间复杂度是？",
+        "options": [
+          {
+            "option_id": "q-search-02-0",
+            "label": "A",
+            "text": "O(n²)"
+          },
+          {
+            "option_id": "q-search-02-1",
+            "label": "B",
+            "text": "O(n)"
+          },
+          {
+            "option_id": "q-search-02-2",
+            "label": "C",
+            "text": "O(log n)"
+          },
+          {
+            "option_id": "q-search-02-3",
+            "label": "D",
+            "text": "O(2ⁿ)"
+          }
+        ],
+        "knowledge_point_ids": ["kp-search"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-search-03",
+        "type": "multiple_choice",
+        "stem": "关于查找，哪些说法正确？",
+        "options": [
+          {
+            "option_id": "q-search-03-0",
+            "label": "A",
+            "text": "顺序查找可用于无序序列"
+          },
+          {
+            "option_id": "q-search-03-1",
+            "label": "B",
+            "text": "散列冲突需要处理"
+          },
+          {
+            "option_id": "q-search-03-2",
+            "label": "C",
+            "text": "二分查找任意无序数组都正确"
+          },
+          {
+            "option_id": "q-search-03-3",
+            "label": "D",
+            "text": "哈希函数可保证所有输入绝无冲突"
+          }
+        ],
+        "knowledge_point_ids": ["kp-search"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-sort-01",
+        "type": "single_choice",
+        "stem": "稳定排序要求什么？",
+        "options": [
+          {
+            "option_id": "q-sort-01-0",
+            "label": "A",
+            "text": "相同关键字元素相对次序不变"
+          },
+          {
+            "option_id": "q-sort-01-1",
+            "label": "B",
+            "text": "每次用时完全相同"
+          },
+          {
+            "option_id": "q-sort-01-2",
+            "label": "C",
+            "text": "绝不使用辅助空间"
+          },
+          {
+            "option_id": "q-sort-01-3",
+            "label": "D",
+            "text": "输入必须有序"
+          }
+        ],
+        "knowledge_point_ids": ["kp-sort"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-sort-02",
+        "type": "single_choice",
+        "stem": "归并排序典型的时间复杂度是？",
+        "options": [
+          {
+            "option_id": "q-sort-02-0",
+            "label": "A",
+            "text": "O(1)"
+          },
+          {
+            "option_id": "q-sort-02-1",
+            "label": "B",
+            "text": "O(n)"
+          },
+          {
+            "option_id": "q-sort-02-2",
+            "label": "C",
+            "text": "O(n log n)"
+          },
+          {
+            "option_id": "q-sort-02-3",
+            "label": "D",
+            "text": "O(2ⁿ)"
+          }
+        ],
+        "knowledge_point_ids": ["kp-sort"],
+        "difficulty": "easy"
+      },
+      {
+        "question_id": "q-sort-03",
+        "type": "multiple_choice",
+        "stem": "哪些排序通常是稳定排序？",
+        "options": [
+          {
+            "option_id": "q-sort-03-0",
+            "label": "A",
+            "text": "直接插入排序"
+          },
+          {
+            "option_id": "q-sort-03-1",
+            "label": "B",
+            "text": "归并排序"
+          },
+          {
+            "option_id": "q-sort-03-2",
+            "label": "C",
+            "text": "典型原地快速排序"
+          },
+          {
+            "option_id": "q-sort-03-3",
+            "label": "D",
+            "text": "堆排序"
+          }
+        ],
+        "knowledge_point_ids": ["kp-sort"],
+        "difficulty": "easy"
+      }
+    ],
+    "result": {
+      "attempt_id": "attempt-a-001",
+      "rule_version": "mock-rule-v1",
+      "graded_answers": [
+        {
+          "question_id": "q-linear-01",
+          "selected_option_ids": ["q-linear-01-0"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-linear-02",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-linear-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-linked-01",
+          "selected_option_ids": ["q-linked-01-0"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-linked-02",
+          "selected_option_ids": ["q-linked-02-2"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-linked-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-stack-01",
+          "selected_option_ids": ["q-stack-01-1"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-stack-02",
+          "selected_option_ids": ["q-stack-02-2"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-stack-03",
+          "selected_option_ids": ["q-stack-03-0", "q-stack-03-1"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-queue-01",
+          "selected_option_ids": ["q-queue-01-1"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-queue-02",
+          "selected_option_ids": ["q-queue-02-0"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-queue-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-tree-01",
+          "selected_option_ids": ["q-tree-01-1"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-tree-02",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-tree-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-graph-01",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-graph-02",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-graph-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-search-01",
+          "selected_option_ids": ["q-search-01-0"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-search-02",
+          "selected_option_ids": ["q-search-02-2"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-search-03",
+          "selected_option_ids": ["q-search-03-0", "q-search-03-1"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-sort-01",
+          "selected_option_ids": ["q-sort-01-0"],
+          "is_correct": true
+        },
+        {
+          "question_id": "q-sort-02",
+          "selected_option_ids": [],
+          "is_correct": false
+        },
+        {
+          "question_id": "q-sort-03",
+          "selected_option_ids": [],
+          "is_correct": false
+        }
+      ],
+      "score": {
+        "correct_count": 13,
+        "total_count": 24,
+        "raw_score": 13,
+        "max_score": 24,
+        "percentage": 54.166666666666664
+      }
+    },
+    "diagnosis_task_id": "task-a-001",
+    "report_id": "report-a-001"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "code": "OK",
+  "message": "模拟契约样例",
+  "request_id": "sample-a-004",
+  "data": {
+    "report_id": "report-a-004",
+    "attempt_id": "attempt-a-004",
+    "user_id": "student-a",
+    "course_id": "course-ds",
+    "generated_at": "2026-10-04T02:00:00.000Z",
+    "report_version": "mock-report-v1",
+    "rule_version": "mock-rule-v1",
+    "data_version": "mock-data-v1",
+    "source_mode": "mock",
+    "explanation_mode": "rule_template",
+    "is_degraded": false,
+    "degraded_reasons": [],
+    "retrieval_status": "not_requested",
+    "score": {
+      "correct_count": 2,
+      "total_count": 2,
+      "raw_score": 2,
+      "max_score": 2,
+      "percentage": 100
+    },
+    "summary": "本报告为本地模拟规则结果。结合题量阅读知识点状态，再按建议完成复习与复测；不代表对整体学习能力的判断。",
+    "knowledge_points": [
+      {
+        "knowledge_point_id": "kp-linear",
+        "name": "顺序表与复杂度",
+        "correct_count": 2,
+        "question_count": 2,
+        "correct_rate": 1,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "too_few_questions",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-linked",
+        "name": "链表",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-stack",
+        "name": "栈",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-queue",
+        "name": "队列",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-tree",
+        "name": "树与二叉树",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-graph",
+        "name": "图的基本概念与遍历",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-search",
+        "name": "查找",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      },
+      {
+        "knowledge_point_id": "kp-sort",
+        "name": "排序",
+        "correct_count": 0,
+        "question_count": 0,
+        "correct_rate": null,
+        "mastery_score": null,
+        "mastery_status": "insufficient_evidence",
+        "coverage_reason": "not_tested",
+        "wrong_question_ids": [],
+        "explanation": "本次覆盖题量不足，暂不判断掌握程度。",
+        "evidence_ids": []
+      }
+    ],
+    "evidences": [],
+    "recommendations": [],
+    "comparison": null,
+    "agent_steps": [],
+    "actions": {
+      "can_retest": true,
+      "can_practice": false
+    }
+  }
+}

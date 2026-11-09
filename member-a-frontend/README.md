@@ -1,95 +1,90 @@
-# 成员 A · 前端与交互初始工程
+# 成员 A · LearnMate 前端交付
 
-项目：**基于 RAG 与多智能体协作的个性化学习诊断与推荐系统**。
+本目录已整合原有完整前端，并适配组仓库当前 B/C/D 协议。默认入口调用真实 B 后端；完整示例环境独立保留，不会在后端失败时自动切换示例。
 
-本目录是可以继续开发的前端骨架，包含登录、课程测验、知识点报告、引用证据、学习推荐、历史复测和教师概况。默认采用**本地样例数据**，不需要 B、C、D 服务或模型密钥。它是课程设计起点，诊断逻辑、检索能力和管理功能仍需各成员继续完成。
+## 启动真实流程
 
-## 1. 环境与启动
+在组仓库根目录准备 Python 3.11+ 和 Node >=22.12：
 
-建议 Node.js 22 LTS、npm 10 或以上。在本目录运行：
+```powershell
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.venv\Scripts\python.exe scripts/start_services.py
+```
 
-```sh
-npm install
+另开终端：
+
+```powershell
+cd member-a-frontend
+npm ci
 npm run dev
 ```
 
-打开 `http://127.0.0.1:5173`。本地样例账号：`student / demo12345`、`teacher / demo12345`。安装成功后应提交生成的 `package-lock.json`，以后使用 `npm ci` 保持依赖一致。
+访问 http://127.0.0.1:5173/#/login 。本地起步服务账号 student / demo12345、teacher / demo12345；这些是公开教学样例，禁止用于正式生产。页面不显示或预填密码。
 
-构建与预览：
+当前机器没有 npm 启动器，可以在 A 目录使用：
 
-```sh
+```powershell
+node ../../code/.tools/package/bin/npm-cli.js ci
+node ../../code/.tools/package/bin/npm-cli.js run dev
+```
+
+该本机替代路径不随组仓库交付；其他同学使用标准 npm。
+
+## 模式与功能边界
+
+| 命令               | 端口 | 用途                                                                            |
+| ------------------ | ---- | ------------------------------------------------------------------------------- |
+| npm run dev        | 5173 | 组仓库 group-v0：真实登录、单选测验、报告、引用、历史、复测、教师概况和文本导入 |
+| npm run dev:mock   | 5175 | 完整功能示例：原有学生/教师页面、多选、图表、维护和文件上传模拟                 |
+| npm run dev:debug  | 5176 | 完整示例的本地故障与重置控制，不对外发布                                        |
+| npm run dev:real   | 5174 | full-v1 扩展协议开发入口；当前 B 尚未实现，不能作为现有后端的启动入口           |
+| npm run build      | —    | 类型检查并构建组仓库真实入口，输出 dist/group                                   |
+| npm run preview    | 4175 | 预览组接口构建；B/C/D 仍需运行                                                  |
+| npm run build:mock | —    | 构建完整示例，输出 dist/mock                                                    |
+
+完整 mock 账号 demo_student_a / Demo123!、demo_student_b / Demo123!、demo_teacher / Demo123! 与真实骨架账号不同。不同端口、协议使用独立会话/草稿。默认组入口不依赖缺失的 /auth/me，也不伪造令牌过期时间。
+
+可覆盖 .env.group.local 设置 BACKEND_PROXY_TARGET，默认 http://127.0.0.1:8000；API 请求通过同源 /api/v1 代理。VITE_* 会进入浏览器，严禁放秘密。旧骨架的 VITE_USE_MOCK 已不再用于模式选择。
+
+## 当前实现
+
+- 按 B 的数值 code=0、小写 bearer、用户和课程字段进行运行时校验。
+- 从课程题目接口取题；一次 POST /attempts 提交，使用真实成绩与内嵌报告。
+- 会话内保存草稿、提交键和锁定答案；刷新后恢复，相同提交重试复用 Idempotency-Key。用户退出清除草稿。题目内容变化则不沿用旧草稿；遇到不确定提交先核对历史。
+- 诊断不可用仍显示已保存成绩；支持刷新和 POST /attempts/{id}/report 重新生成。不虚构异步进度。
+- 解析 Unix 秒时间；比较比例转换为百分点；保留空值和证据不足。
+- 历史当前由后端整表返回，前端每页显示 10 条；大数据场景需 B 提供服务端分页。
+- 教师可查看概况、导入课程文本到 C。重复网络重试保持资源/文档 ID，但后端尚未提供导入幂等契约，不能保证并发重复提交语义。
+- 服务端退出撤销会话；401 清会话并回登录。服务错误不直接回显路径、堆栈或原始字段。
+- 普通页面隐藏内部 ID、模式枚举和原始执行轨迹；规则模板、非 LLM 的分析来源如实标识。
+
+当前 B 不提供完整课程/题库 CRUD、学生报告管理、文件上传下载、独立任务和个性化练习组卷。真实入口不会显示无效按钮；这些已有前端功能保留在完整示例中，待扩展接口确认后接入。文本导入不会自动更新 B 的硬编码资源推荐目录，需 B/C 后续完善。
+
+## 验证
+
+```powershell
+npm run typecheck
+npm run lint
+npm run format:check
+npm run test:unit
 npm run build
-npm run preview
+npm run check:group-artifacts
+npx playwright install chromium
+npm run test:e2e:group
+npm run test:e2e
+npm run test:e2e:showcase
 ```
 
-`build` 会先检查 TypeScript，再产生 `dist/`。`preview` 在 `http://127.0.0.1:4173` 本地预览构建结果。不要把 `node_modules/` 或 `.env.local` 提交到仓库。
+真实浏览器测试需根目录 .venv 的 Python 依赖，可用 GROUP_PYTHON 指定 Python。它启动临时数据库和索引的 B/C/D（19280—19282）与 Vite（5183），不会连接日常数据库。测试输出按模式分目录；完整示例测试使用 5180/5182。
 
-## 2. 连接 B 的真实后端
+## 目录与交接
 
-复制 `.env.example` 为 `.env.local`，修改为：
+- src/group：当前组协议对应的真实入口、页面、校验和 API。
+- src/full-main.ts、src/views 等：原有完整功能与 full-v1 扩展接口。
+- docs/group-integration.md：当前实际接口、前端适配及后端待办，优先用于本次联调。
+- docs/frontend/backend-api-alignment.md：完整功能扩展提案，不是现有 B 已全部提供的协议。
+- docs/group-baseline：组长原始骨架文档存档，内含尚未适配时的状态，仅供历史参考。
+- docs/testing/frontend/group-adaptation-results.md：本轮验证记录。
 
-```dotenv
-VITE_USE_MOCK=false
-VITE_API_BASE_URL=http://127.0.0.1:8000/api/v1
-```
-
-重新启动前端；B 的后端需要允许来源 `http://127.0.0.1:5173`。前端只访问 B 的接口，不直接访问 C、D。切换模式后请退出并重新登录，避免带着本地样例 token 调用真实后端。若后端未启动，会显示连接失败，不会自动转成本地样例。
-
-`VITE_*` 是会进入浏览器代码的公开配置，不能放模型密钥、数据库密码或服务私钥。前端默认 mock 的开关是 `VITE_USE_MOCK !== 'false'`，只有明确写 `false` 才会连接真实接口。
-
-## 3. 目录与职责
-
-```text
-src/
-  components/       加载状态、知识点表格、引用证据等可复用组件
-  views/            登录、课程、作答、报告、历史、教师概况六类页面
-  services/api.ts   统一 HTTP 请求、Bearer token、错误与 30 秒超时
-  services/mock.ts  完整的本地样例分支
-  services/session.ts  会话读取与保存
-  stores/auth.ts    Pinia 登录状态
-  types/api.ts     与 B 一致的数据类型
-  router/          Vue Router 与页面权限导航
-  style.css        基础样式与移动端布局
-  App.vue          页面框架、导航、运行模式提示
-```
-
-详细开发步骤、页面边界、接口和六周接续建议见 [开发说明](docs/开发说明.md)。
-
-## 4. 当前可演示的内容
-
-- 学生与教师样例账号登录、退出，Bearer 请求头接入点。
-- 课程列表、单选作答、完整性检查、防重复提交；失败重试沿用同一幂等键和答案快照。
-- 报告中的分数、知识点、推荐、引用字段、处理轨迹和降级状态展示；诊断服务未就绪时仍展示已保存成绩。
-- 测验历史、选择基线复测、后端返回的正确率变化展示。
-- 教师概况入口与路由角色控制。
-- 本地样例数据和真实后端模式明确区分；空正确率显示“证据不足”。
-
-本地样例中每个知识点仅有一道题，因此全部标记证据不足。样例历史保存在当前浏览器 `localStorage`，按账号区分；登录会话保存在 `sessionStorage`。关闭标签页通常会清除会话。清空站点数据会删除本地历史。真实模式的数据持久化由 B 实现。请勿在样例里录入真实学生敏感资料。
-
-### 提交重试与幂等键
-
-进入一次测验时生成一个随机 `Idempotency-Key`。首次点击提交后锁定答案快照；网络失败时“重试提交”会继续使用原答案和同一提交键。B 对同一键和相同答案返回已保存记录，对同一键但不同答案返回 HTTP 409。本地样例也提供同样的重试语义。
-
-成功跳转报告后，再开始新测验会生成新键。当前键只在该测验页面内保留，**刷新、关闭页面或离开后重新进入会生成新键**；超时后请先点重试或到历史查看，避免无意开始另一轮。跨刷新恢复可在后续迭代中用会话草稿实现。返回错误后答案保持锁定，避免与服务端已保存内容不一致。
-
-## 5. 下一步协作
-
-- **A**：补充作答草稿、图表和可访问性；完成管理界面之前先约定接口。
-- **B**：负责账号权限、课程题库、测验评分、历史存储和统一错误格式，提供端口 `8000`。
-- **C**：经 B 返回引用材料与检索元数据。A 只显示返回的出处，不补造链接与引用。
-- **D**：经 B 返回知识点诊断、推荐原因、复测比较和轨迹；A 展示真实运行模式与降级原因。
-
-## 6. 尚未实现
-
-尚未接入 B 的报告重新生成按钮（`POST /attempts/{id}/report`）；重新查看历史记录只读取已有结果，不会自动触发生成。当前退出按钮清理浏览器会话，B 的服务端会话撤销接口 `POST /auth/logout` 留待认证流程迭代时接入。
-
-没有真实注册、用户管理、文档上传、题库编辑、模型调用、生产认证方案或统计图。路由权限只影响交互，实际权限必须由 B 校验。当前会话存储方式仅适合教学开发，正式部署应与 B 共同设计安全会话方案。
-
-## 7. 官方文档
-
-- [Vue 文档](https://vuejs.org/guide/introduction.html)
-- [Vue Router](https://router.vuejs.org/guide/)
-- [Pinia 状态管理](https://pinia.vuejs.org/core-concepts/)
-- [Vite 环境变量](https://vite.dev/guide/env-and-mode)
-
-依赖采用固定版本，是可复现的起始基线。计划升级时先阅读对应版本的迁移说明并重新构建验证。
+依赖统一使用 npm 和 package-lock.json；不保留过期 pnpm 锁文件。node_modules、dist、本地环境文件和测试输出均不提交。完整示例截图仅含原创样例；公开仓库需自行复核截图内容。

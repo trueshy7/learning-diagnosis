@@ -1,0 +1,654 @@
+{
+  "code": "OK",
+  "message": "模拟契约样例",
+  "request_id": "sample-a-002",
+  "data": {
+    "report_id": "report-a-002",
+    "attempt_id": "attempt-a-002",
+    "user_id": "student-a",
+    "course_id": "course-ds",
+    "generated_at": "2026-10-02T02:00:00.000Z",
+    "report_version": "mock-report-v1",
+    "rule_version": "mock-rule-v1",
+    "data_version": "mock-data-v1",
+    "source_mode": "mock",
+    "explanation_mode": "rule_template",
+    "is_degraded": false,
+    "degraded_reasons": [],
+    "retrieval_status": "available",
+    "score": {
+      "correct_count": 19,
+      "total_count": 24,
+      "raw_score": 19,
+      "max_score": 24,
+      "percentage": 79.16666666666666
+    },
+    "summary": "本报告为本地模拟规则结果。结合题量阅读知识点状态，再按建议完成复习与复测；不代表对整体学习能力的判断。",
+    "knowledge_points": [
+      {
+        "knowledge_point_id": "kp-linear",
+        "name": "顺序表与复杂度",
+        "correct_count": 2,
+        "question_count": 3,
+        "correct_rate": 0.6666666666666666,
+        "mastery_score": 0.6666666666666666,
+        "mastery_status": "consolidating",
+        "coverage_reason": null,
+        "wrong_question_ids": ["q-linear-06"],
+        "explanation": "本次 3 道有效题答对 2 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-linear"]
+      },
+      {
+        "knowledge_point_id": "kp-linked",
+        "name": "链表",
+        "correct_count": 3,
+        "question_count": 3,
+        "correct_rate": 1,
+        "mastery_score": 1,
+        "mastery_status": "mastered",
+        "coverage_reason": null,
+        "wrong_question_ids": [],
+        "explanation": "本次 3 道有效题答对 3 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-linked"]
+      },
+      {
+        "knowledge_point_id": "kp-stack",
+        "name": "栈",
+        "correct_count": 3,
+        "question_count": 3,
+        "correct_rate": 1,
+        "mastery_score": 1,
+        "mastery_status": "mastered",
+        "coverage_reason": null,
+        "wrong_question_ids": [],
+        "explanation": "本次 3 道有效题答对 3 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-stack"]
+      },
+      {
+        "knowledge_point_id": "kp-queue",
+        "name": "队列",
+        "correct_count": 3,
+        "question_count": 3,
+        "correct_rate": 1,
+        "mastery_score": 1,
+        "mastery_status": "mastered",
+        "coverage_reason": null,
+        "wrong_question_ids": [],
+        "explanation": "本次 3 道有效题答对 3 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-queue"]
+      },
+      {
+        "knowledge_point_id": "kp-tree",
+        "name": "树与二叉树",
+        "correct_count": 2,
+        "question_count": 3,
+        "correct_rate": 0.6666666666666666,
+        "mastery_score": 0.6666666666666666,
+        "mastery_status": "consolidating",
+        "coverage_reason": null,
+        "wrong_question_ids": ["q-tree-06"],
+        "explanation": "本次 3 道有效题答对 2 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-tree"]
+      },
+      {
+        "knowledge_point_id": "kp-graph",
+        "name": "图的基本概念与遍历",
+        "correct_count": 1,
+        "question_count": 3,
+        "correct_rate": 0.3333333333333333,
+        "mastery_score": 0.3333333333333333,
+        "mastery_status": "weak",
+        "coverage_reason": null,
+        "wrong_question_ids": ["q-graph-05", "q-graph-06"],
+        "explanation": "本次 3 道有效题答对 1 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-graph"]
+      },
+      {
+        "knowledge_point_id": "kp-search",
+        "name": "查找",
+        "correct_count": 3,
+        "question_count": 3,
+        "correct_rate": 1,
+        "mastery_score": 1,
+        "mastery_status": "mastered",
+        "coverage_reason": null,
+        "wrong_question_ids": [],
+        "explanation": "本次 3 道有效题答对 3 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-search"]
+      },
+      {
+        "knowledge_point_id": "kp-sort",
+        "name": "排序",
+        "correct_count": 2,
+        "question_count": 3,
+        "correct_rate": 0.6666666666666666,
+        "mastery_score": 0.6666666666666666,
+        "mastery_status": "consolidating",
+        "coverage_reason": null,
+        "wrong_question_ids": ["q-sort-06"],
+        "explanation": "本次 3 道有效题答对 2 道，请结合错题核对操作过程。",
+        "evidence_ids": ["ev-report-a-002-kp-sort"]
+      }
+    ],
+    "evidences": [
+      {
+        "evidence_id": "ev-report-a-002-kp-linear",
+        "resource_id": "res-linear-1",
+        "document_id": "doc-res-linear-1",
+        "chunk_id": "chunk-doc-res-linear-1-1",
+        "document_title": "顺序表与复杂度 · 概念笔记",
+        "knowledge_point_ids": ["kp-linear"],
+        "text": "顺序表用连续空间保存线性序列，按下标访问为 O(1)。中间插入需要移动后续元素，最坏为 O(n)。复杂度关注规模增长趋势，不能直接等同于实际运行秒数。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-linked",
+        "resource_id": "res-linked-1",
+        "document_id": "doc-res-linked-1",
+        "chunk_id": "chunk-doc-res-linked-1-1",
+        "document_title": "链表 · 概念笔记",
+        "knowledge_point_ids": ["kp-linked"],
+        "text": "单链表结点包含数据域和后继指针。已知前驱结点时可以在常数时间修改链接完成插入。寻找指定位置仍可能线性遍历。修改指针前先保存后继，避免丢失后半条链。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-stack",
+        "resource_id": "res-stack-1",
+        "document_id": "doc-res-stack-1",
+        "chunk_id": "chunk-doc-res-stack-1-1",
+        "document_title": "栈 · 概念笔记",
+        "knowledge_point_ids": ["kp-stack"],
+        "text": "栈仅在栈顶插入和删除，遵循后进先出。顺序入栈 1、2、3，再连续出栈得到 3、2、1。括号匹配时左括号入栈，右括号与栈顶匹配；结束时栈须为空。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-queue",
+        "resource_id": "res-queue-1",
+        "document_id": "doc-res-queue-1",
+        "chunk_id": "chunk-doc-res-queue-1-1",
+        "document_title": "队列 · 概念笔记",
+        "knowledge_point_ids": ["kp-queue"],
+        "text": "队列从队尾入队、队头出队，遵循先进先出。循环队列通过取模复用空间。采用牺牲一个存储单元的约定时，空为 front=rear，满为 (rear+1)%capacity=front。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-tree",
+        "resource_id": "res-tree-1",
+        "document_id": "doc-res-tree-1",
+        "chunk_id": "chunk-doc-res-tree-1-1",
+        "document_title": "树与二叉树 · 概念笔记",
+        "knowledge_point_ids": ["kp-tree"],
+        "text": "二叉树每个结点至多有两个孩子，左右有次序。先序是根左右，中序是左根右，后序是左右根。含 n 个结点的非空树有 n-1 条边。层序遍历通常借助队列。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-graph",
+        "resource_id": "res-graph-1",
+        "document_id": "doc-res-graph-1",
+        "chunk_id": "chunk-doc-res-graph-1-1",
+        "document_title": "图的基本概念与遍历 · 概念笔记",
+        "knowledge_point_ids": ["kp-graph"],
+        "text": "图由顶点与边构成，可表达多对多关系。BFS 使用队列逐层扩展，DFS 使用递归或栈深入。访问标记避免环导致重复处理。非连通图需要从尚未访问的顶点多次启动遍历。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-search",
+        "resource_id": "res-search-1",
+        "document_id": "doc-res-search-1",
+        "chunk_id": "chunk-doc-res-search-1-1",
+        "document_title": "查找 · 概念笔记",
+        "knowledge_point_ids": ["kp-search"],
+        "text": "顺序查找无需有序前提。二分查找通常要求有序且可随机访问，比较中点后缩小一半区间，时间为 O(log n)。散列冲突表示不同关键字映射到同一位置，需要单独处理。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      },
+      {
+        "evidence_id": "ev-report-a-002-kp-sort",
+        "resource_id": "res-sort-1",
+        "document_id": "doc-res-sort-1",
+        "chunk_id": "chunk-doc-res-sort-1-1",
+        "document_title": "排序 · 概念笔记",
+        "knowledge_point_ids": ["kp-sort"],
+        "text": "稳定排序保持相等关键字原有相对次序。直接插入排序适合小规模或近乎有序序列。归并排序典型时间 O(n log n)，需要辅助空间。快速排序最坏时间 O(n²)，不能保证始终均衡划分。",
+        "location": {
+          "page_start": null,
+          "page_end": null,
+          "section": "概念与边界"
+        },
+        "source_label": "课程设计自编演示资料",
+        "resource_version": "mock-data-v1",
+        "availability": "available"
+      }
+    ],
+    "recommendations": [
+      {
+        "recommendation_id": "rec-report-a-002-kp-linear",
+        "knowledge_point_id": "kp-linear",
+        "priority": 1,
+        "reason": "本次该知识点答对 2/3，建议先复习定义，再独立完成练习。",
+        "next_step": "阅读 顺序表与复杂度 资料，记录一处易错边界，再尝试练习。",
+        "estimated_minutes": 15,
+        "evidence_ids": ["ev-report-a-002-kp-linear"],
+        "resources": [
+          {
+            "resource_id": "res-linear-1",
+            "course_id": "course-ds",
+            "title": "顺序表与复杂度 · 概念笔记",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-linear"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 1 个知识点的原创学习资料。",
+            "document_id": "doc-res-linear-1",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 概念与边界\n\n顺序表用连续空间保存线性序列，按下标访问为 O(1)。中间插入需要移动后续元素，最坏为 O(n)。复杂度关注规模增长趋势，不能直接等同于实际运行秒数。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "概念与边界"
+            }
+          },
+          {
+            "resource_id": "res-linear-2",
+            "course_id": "course-ds",
+            "title": "顺序表与复杂度 · 操作与例题",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-linear"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 1 个知识点的原创学习资料。",
+            "document_id": "doc-res-linear-2",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 操作与自检\n\n学习 顺序表与复杂度 时，先画出初始状态，再逐步标记每一步的变化。\n\n顺序表用连续空间保存线性序列，按下标访问为 O(1)。中间插入需要移动后续元素，最坏为 O(n)。复杂度关注规模增长趋势，不能直接等同于实际运行秒数。\n\n自检练习：用三个元素构造一个例子，写出操作前后的结构，并解释空结构和末尾位置应如何处理。对复杂度问题，分别数清单次操作与重复操作。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "操作与自检"
+            }
+          }
+        ],
+        "practice_questions": [
+          {
+            "question_id": "q-linear-07",
+            "title": "顺序表尾部已有剩余容量，追加一个元素不扩容，时间复杂度是？",
+            "type": "single_choice"
+          },
+          {
+            "question_id": "q-linear-08",
+            "title": "比较顺序表和链表，哪些说法成立？",
+            "type": "multiple_choice"
+          }
+        ]
+      },
+      {
+        "recommendation_id": "rec-report-a-002-kp-tree",
+        "knowledge_point_id": "kp-tree",
+        "priority": 2,
+        "reason": "本次该知识点答对 2/3，建议先复习定义，再独立完成练习。",
+        "next_step": "阅读 树与二叉树 资料，记录一处易错边界，再尝试练习。",
+        "estimated_minutes": 15,
+        "evidence_ids": ["ev-report-a-002-kp-tree"],
+        "resources": [
+          {
+            "resource_id": "res-tree-1",
+            "course_id": "course-ds",
+            "title": "树与二叉树 · 概念笔记",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-tree"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 5 个知识点的原创学习资料。",
+            "document_id": "doc-res-tree-1",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 概念与边界\n\n二叉树每个结点至多有两个孩子，左右有次序。先序是根左右，中序是左根右，后序是左右根。含 n 个结点的非空树有 n-1 条边。层序遍历通常借助队列。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "概念与边界"
+            }
+          },
+          {
+            "resource_id": "res-tree-2",
+            "course_id": "course-ds",
+            "title": "树与二叉树 · 操作与例题",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-tree"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 5 个知识点的原创学习资料。",
+            "document_id": "doc-res-tree-2",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 操作与自检\n\n学习 树与二叉树 时，先画出初始状态，再逐步标记每一步的变化。\n\n二叉树每个结点至多有两个孩子，左右有次序。先序是根左右，中序是左根右，后序是左右根。含 n 个结点的非空树有 n-1 条边。层序遍历通常借助队列。\n\n自检练习：用三个元素构造一个例子，写出操作前后的结构，并解释空结构和末尾位置应如何处理。对复杂度问题，分别数清单次操作与重复操作。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "操作与自检"
+            }
+          }
+        ],
+        "practice_questions": [
+          {
+            "question_id": "q-queue-07",
+            "title": "循环队列复用空间主要解决什么问题？",
+            "type": "single_choice"
+          },
+          {
+            "question_id": "q-tree-07",
+            "title": "二叉树层序遍历通常借助什么结构？",
+            "type": "single_choice"
+          }
+        ]
+      },
+      {
+        "recommendation_id": "rec-report-a-002-kp-graph",
+        "knowledge_point_id": "kp-graph",
+        "priority": 3,
+        "reason": "本次该知识点答对 1/3，建议先复习定义，再独立完成练习。",
+        "next_step": "阅读 图的基本概念与遍历 资料，记录一处易错边界，再尝试练习。",
+        "estimated_minutes": 15,
+        "evidence_ids": ["ev-report-a-002-kp-graph"],
+        "resources": [
+          {
+            "resource_id": "res-graph-1",
+            "course_id": "course-ds",
+            "title": "图的基本概念与遍历 · 概念笔记",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-graph"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 6 个知识点的原创学习资料。",
+            "document_id": "doc-res-graph-1",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 概念与边界\n\n图由顶点与边构成，可表达多对多关系。BFS 使用队列逐层扩展，DFS 使用递归或栈深入。访问标记避免环导致重复处理。非连通图需要从尚未访问的顶点多次启动遍历。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "概念与边界"
+            }
+          },
+          {
+            "resource_id": "res-graph-2",
+            "course_id": "course-ds",
+            "title": "图的基本概念与遍历 · 操作与例题",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-graph"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 6 个知识点的原创学习资料。",
+            "document_id": "doc-res-graph-2",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 操作与自检\n\n学习 图的基本概念与遍历 时，先画出初始状态，再逐步标记每一步的变化。\n\n图由顶点与边构成，可表达多对多关系。BFS 使用队列逐层扩展，DFS 使用递归或栈深入。访问标记避免环导致重复处理。非连通图需要从尚未访问的顶点多次启动遍历。\n\n自检练习：用三个元素构造一个例子，写出操作前后的结构，并解释空结构和末尾位置应如何处理。对复杂度问题，分别数清单次操作与重复操作。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "操作与自检"
+            }
+          }
+        ],
+        "practice_questions": [
+          {
+            "question_id": "q-graph-07",
+            "title": "有向图中顶点的入度表示？",
+            "type": "single_choice"
+          },
+          {
+            "question_id": "q-graph-08",
+            "title": "关于稀疏图的存储，哪些说法正确？",
+            "type": "multiple_choice"
+          }
+        ]
+      },
+      {
+        "recommendation_id": "rec-report-a-002-kp-sort",
+        "knowledge_point_id": "kp-sort",
+        "priority": 4,
+        "reason": "本次该知识点答对 2/3，建议先复习定义，再独立完成练习。",
+        "next_step": "阅读 排序 资料，记录一处易错边界，再尝试练习。",
+        "estimated_minutes": 15,
+        "evidence_ids": ["ev-report-a-002-kp-sort"],
+        "resources": [
+          {
+            "resource_id": "res-sort-1",
+            "course_id": "course-ds",
+            "title": "排序 · 概念笔记",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-sort"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 8 个知识点的原创学习资料。",
+            "document_id": "doc-res-sort-1",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 概念与边界\n\n稳定排序保持相等关键字原有相对次序。直接插入排序适合小规模或近乎有序序列。归并排序典型时间 O(n log n)，需要辅助空间。快速排序最坏时间 O(n²)，不能保证始终均衡划分。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "概念与边界"
+            }
+          },
+          {
+            "resource_id": "res-sort-2",
+            "course_id": "course-ds",
+            "title": "排序 · 操作与例题",
+            "kind": "note",
+            "knowledge_point_ids": ["kp-sort"],
+            "difficulty": "easy",
+            "active": true,
+            "availability": "available",
+            "source_label": "课程设计自编演示资料",
+            "description": "第 8 个知识点的原创学习资料。",
+            "document_id": "doc-res-sort-2",
+            "resource_version": "mock-data-v1",
+            "text_content": "# 操作与自检\n\n学习 排序 时，先画出初始状态，再逐步标记每一步的变化。\n\n稳定排序保持相等关键字原有相对次序。直接插入排序适合小规模或近乎有序序列。归并排序典型时间 O(n log n)，需要辅助空间。快速排序最坏时间 O(n²)，不能保证始终均衡划分。\n\n自检练习：用三个元素构造一个例子，写出操作前后的结构，并解释空结构和末尾位置应如何处理。对复杂度问题，分别数清单次操作与重复操作。",
+            "external_url": null,
+            "file_available": false,
+            "location": {
+              "page_start": null,
+              "page_end": null,
+              "section": "操作与自检"
+            }
+          }
+        ],
+        "practice_questions": [
+          {
+            "question_id": "q-sort-07",
+            "title": "比较排序的决策树下界通常对应？",
+            "type": "single_choice"
+          },
+          {
+            "question_id": "q-sort-08",
+            "title": "选择排序方案时应考虑哪些因素？",
+            "type": "multiple_choice"
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "baseline_attempt_id": "attempt-a-001",
+      "current_attempt_id": "attempt-a-002",
+      "baseline_rule_version": "mock-rule-v1",
+      "current_rule_version": "mock-rule-v1",
+      "overall_comparable": true,
+      "overall_reason": null,
+      "overall_delta_percentage_points": 24.999999999999993,
+      "knowledge_points": [
+        {
+          "knowledge_point_id": "kp-linear",
+          "name": "顺序表与复杂度",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0.3333333333333333,
+          "current_correct_rate": 0.6666666666666666,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.33333333333333,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-linked",
+          "name": "链表",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0.6666666666666666,
+          "current_correct_rate": 1,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.333333333333336,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-stack",
+          "name": "栈",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 1,
+          "current_correct_rate": 1,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 0,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-queue",
+          "name": "队列",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0.6666666666666666,
+          "current_correct_rate": 1,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.333333333333336,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-tree",
+          "name": "树与二叉树",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0.3333333333333333,
+          "current_correct_rate": 0.6666666666666666,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.33333333333333,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-graph",
+          "name": "图的基本概念与遍历",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0,
+          "current_correct_rate": 0.3333333333333333,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.33333333333333,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-search",
+          "name": "查找",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 1,
+          "current_correct_rate": 1,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 0,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        },
+        {
+          "knowledge_point_id": "kp-sort",
+          "name": "排序",
+          "comparable": true,
+          "reason": null,
+          "baseline_correct_rate": 0.3333333333333333,
+          "current_correct_rate": 0.6666666666666666,
+          "baseline_question_count": 3,
+          "current_question_count": 3,
+          "delta_percentage_points": 33.33333333333333,
+          "difficulty_note": "原创演示题均为基础难度；不同题目仍可能存在难度差异，变化不代表教学因果效果。"
+        }
+      ]
+    },
+    "agent_steps": [],
+    "actions": {
+      "can_retest": true,
+      "can_practice": true
+    }
+  }
+}

@@ -1,24 +1,75 @@
 {
   "name": "learning-diagnosis-frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.0.0" },
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort"
+    "dev": "vite --mode group --host 127.0.0.1 --port 5173 --strictPort",
+    "dev:real": "vite --mode real --host 127.0.0.1 --port 5174 --strictPort",
+    "dev:debug": "vite --mode debug --host 127.0.0.1 --port 5176 --strictPort",
+    "dev:e2e": "vite --mode e2e --host 127.0.0.1 --port 5180 --strictPort",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:real": "playwright test --config playwright.real.config.ts",
+    "test:e2e:showcase": "playwright test --config playwright.showcase.config.ts",
+    "docs:api": "tsx scripts/export-api-reference.ts",
+    "build": "vue-tsc --noEmit && vite build --mode group",
+    "build:real": "vite build --mode real",
+    "build:mock": "vite build --mode mock",
+    "preview:real": "vite preview --mode real --outDir dist/real --host 127.0.0.1 --port 4173 --strictPort",
+    "preview:mock": "vite preview --mode mock --outDir dist/mock --host 127.0.0.1 --port 4174 --strictPort",
+    "check:real-artifacts": "node scripts/check-real-artifacts.mjs",
+    "check:showcase-artifacts": "node scripts/check-showcase-artifacts.mjs",
+    "check:fixtures": "tsx scripts/check-fixtures.ts",
+    "dev:mock": "vite --mode mock --host 127.0.0.1 --port 5175 --strictPort",
+    "build:group": "vite build --mode group",
+    "preview": "vite preview --mode group --outDir dist/group --host 127.0.0.1 --port 4175 --strictPort",
+    "test:e2e:group": "playwright test --config playwright.group.config.ts",
+    "check:group-artifacts": "node scripts/check-group-artifacts.mjs"
   },
   "dependencies": {
-    "pinia": "2.3.1",
-    "vue": "3.5.13",
-    "vue-router": "4.5.0"
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0",
+    "pinia": "^3.0.0",
+    "element-plus": "^2.11.0",
+    "echarts": "^6.0.0",
+    "axios": "^1.12.0",
+    "zod": "^4.1.0",
+    "msw": "^2.11.0",
+    "idb": "^8.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.13.4",
-    "@vitejs/plugin-vue": "5.2.1",
-    "typescript": "5.7.3",
-    "vite": "6.1.0",
-    "vue-tsc": "2.2.0"
+    "vite": "^7.1.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "typescript": "~5.9.0",
+    "vue-tsc": "^3.0.0",
+    "vitest": "^3.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^26.1.0",
+    "@playwright/test": "^1.55.0",
+    "tsx": "^4.20.0",
+    "eslint": "^9.35.0",
+    "@eslint/js": "^9.35.0",
+    "typescript-eslint": "^8.42.0",
+    "eslint-plugin-vue": "^10.4.0",
+    "vue-eslint-parser": "^10.2.0",
+    "prettier": "^3.6.0",
+    "@types/node": "^24.0.0"
+  },
+  "allowScripts": {
+    "msw@2.15.0": true,
+    "esbuild@0.28.2": true
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

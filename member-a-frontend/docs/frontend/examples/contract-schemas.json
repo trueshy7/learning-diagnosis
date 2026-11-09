@@ -1,0 +1,3221 @@
+{
+  "UserDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1
+      },
+      "display_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "role": {
+        "type": "string",
+        "enum": ["student", "teacher"]
+      }
+    },
+    "required": ["user_id", "username", "display_name", "role"],
+    "additionalProperties": false
+  },
+  "LoginRequest": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "password": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    },
+    "required": ["username", "password"],
+    "additionalProperties": false
+  },
+  "LoginResponse": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "access_token": {
+        "type": "string",
+        "minLength": 1
+      },
+      "token_type": {
+        "type": "string",
+        "const": "Bearer"
+      },
+      "expires_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "enum": ["student", "teacher"]
+          }
+        },
+        "required": ["user_id", "username", "display_name", "role"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["access_token", "token_type", "expires_at", "user"],
+    "additionalProperties": false
+  },
+  "KnowledgePointDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "knowledge_point_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "sort_order": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "knowledge_point_id",
+      "course_id",
+      "name",
+      "description",
+      "sort_order",
+      "active"
+    ],
+    "additionalProperties": false
+  },
+  "CourseDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "knowledge_points": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "knowledge_point_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "course_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 3000
+            },
+            "sort_order": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "active": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "knowledge_point_id",
+            "course_id",
+            "name",
+            "description",
+            "sort_order",
+            "active"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "latest_attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "active_attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "latest_report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "course_id",
+      "title",
+      "description",
+      "knowledge_points",
+      "latest_attempt_id",
+      "active_attempt_id",
+      "latest_report_id"
+    ],
+    "additionalProperties": false
+  },
+  "OptionDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "option_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "text": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "required": ["option_id", "label", "text"],
+    "additionalProperties": false
+  },
+  "StudentQuestionDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "question_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "type": {
+        "type": "string",
+        "enum": ["single_choice", "multiple_choice"]
+      },
+      "stem": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "options": {
+        "minItems": 2,
+        "maxItems": 6,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "option_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          },
+          "required": ["option_id", "label", "text"],
+          "additionalProperties": false
+        }
+      },
+      "knowledge_point_ids": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      }
+    },
+    "required": [
+      "question_id",
+      "type",
+      "stem",
+      "options",
+      "knowledge_point_ids",
+      "difficulty"
+    ],
+    "additionalProperties": false
+  },
+  "AnswerDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "question_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "selected_option_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "required": ["question_id", "selected_option_ids"],
+    "additionalProperties": false
+  },
+  "ScoreDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "correct_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "total_count": {
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991
+      },
+      "raw_score": {
+        "type": "number",
+        "minimum": 0
+      },
+      "max_score": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "percentage": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "required": [
+      "correct_count",
+      "total_count",
+      "raw_score",
+      "max_score",
+      "percentage"
+    ],
+    "additionalProperties": false
+  },
+  "AttemptResultDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "score": {
+        "type": "object",
+        "properties": {
+          "correct_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total_count": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "raw_score": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max_score": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "percentage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "correct_count",
+          "total_count",
+          "raw_score",
+          "max_score",
+          "percentage"
+        ],
+        "additionalProperties": false
+      },
+      "graded_answers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "selected_option_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "is_correct": {
+              "type": "boolean"
+            }
+          },
+          "required": ["question_id", "selected_option_ids", "is_correct"],
+          "additionalProperties": false
+        }
+      },
+      "rule_version": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["attempt_id", "score", "graded_answers", "rule_version"],
+    "additionalProperties": false
+  },
+  "AttemptDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["initial", "practice", "retest"]
+      },
+      "baseline_attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "source_report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "status": {
+        "type": "string",
+        "enum": ["in_progress", "submitted"]
+      },
+      "snapshot_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      },
+      "submitted_at": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "questions": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "type": "string",
+              "enum": ["single_choice", "multiple_choice"]
+            },
+            "stem": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "options": {
+              "minItems": 2,
+              "maxItems": 6,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "option_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                },
+                "required": ["option_id", "label", "text"],
+                "additionalProperties": false
+              }
+            },
+            "knowledge_point_ids": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "difficulty": {
+              "type": "string",
+              "enum": ["easy", "medium", "hard"]
+            }
+          },
+          "required": [
+            "question_id",
+            "type",
+            "stem",
+            "options",
+            "knowledge_point_ids",
+            "difficulty"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "result": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "attempt_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "score": {
+                "type": "object",
+                "properties": {
+                  "correct_count": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "total_count": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "raw_score": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "max_score": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  }
+                },
+                "required": [
+                  "correct_count",
+                  "total_count",
+                  "raw_score",
+                  "max_score",
+                  "percentage"
+                ],
+                "additionalProperties": false
+              },
+              "graded_answers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "question_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "selected_option_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "is_correct": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "question_id",
+                    "selected_option_ids",
+                    "is_correct"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "attempt_id",
+              "score",
+              "graded_answers",
+              "rule_version"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "diagnosis_task_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "attempt_id",
+      "user_id",
+      "course_id",
+      "kind",
+      "baseline_attempt_id",
+      "source_report_id",
+      "status",
+      "snapshot_version",
+      "created_at",
+      "submitted_at",
+      "questions",
+      "result",
+      "diagnosis_task_id",
+      "report_id"
+    ],
+    "additionalProperties": false
+  },
+  "CreateAttemptRequest": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["initial", "practice", "retest"]
+      },
+      "client_request_id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "baseline_attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source_report_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "question_ids": {
+        "minItems": 1,
+        "maxItems": 200,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "required": ["course_id", "kind", "client_request_id"],
+    "additionalProperties": false
+  },
+  "SubmitAttemptRequest": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "snapshot_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "answers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "selected_option_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": ["question_id", "selected_option_ids"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["snapshot_version", "answers"],
+    "additionalProperties": false
+  },
+  "SubmitAttemptResponse": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "submitted_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      },
+      "result": {
+        "type": "object",
+        "properties": {
+          "attempt_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "score": {
+            "type": "object",
+            "properties": {
+              "correct_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "total_count": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "raw_score": {
+                "type": "number",
+                "minimum": 0
+              },
+              "max_score": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "correct_count",
+              "total_count",
+              "raw_score",
+              "max_score",
+              "percentage"
+            ],
+            "additionalProperties": false
+          },
+          "graded_answers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "question_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "selected_option_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "is_correct": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["question_id", "selected_option_ids", "is_correct"],
+              "additionalProperties": false
+            }
+          },
+          "rule_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["attempt_id", "score", "graded_answers", "rule_version"],
+        "additionalProperties": false
+      },
+      "diagnosis_task_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["attempt_id", "submitted_at", "result", "diagnosis_task_id"],
+    "additionalProperties": false
+  },
+  "TaskDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "task_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["diagnosis", "document_ingestion"]
+      },
+      "status": {
+        "type": "string",
+        "enum": ["queued", "running", "completed", "failed"]
+      },
+      "attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "document_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "progress": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "current_step": {
+        "type": ["string", "null"]
+      },
+      "error_code": {
+        "type": ["string", "null"]
+      },
+      "error_message": {
+        "type": ["string", "null"]
+      },
+      "can_retry": {
+        "type": "boolean"
+      },
+      "retry_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      }
+    },
+    "required": [
+      "task_id",
+      "kind",
+      "status",
+      "attempt_id",
+      "document_id",
+      "report_id",
+      "progress",
+      "current_step",
+      "error_code",
+      "error_message",
+      "can_retry",
+      "retry_count",
+      "created_at",
+      "updated_at"
+    ],
+    "additionalProperties": false
+  },
+  "KnowledgePointResultDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "knowledge_point_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "correct_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "question_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "correct_rate": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "mastery_score": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "mastery_status": {
+        "type": "string",
+        "enum": ["weak", "consolidating", "mastered", "insufficient_evidence"]
+      },
+      "coverage_reason": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": ["not_tested", "too_few_questions"]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "wrong_question_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "explanation": {
+        "type": "string"
+      },
+      "evidence_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "required": [
+      "knowledge_point_id",
+      "name",
+      "correct_count",
+      "question_count",
+      "correct_rate",
+      "mastery_score",
+      "mastery_status",
+      "coverage_reason",
+      "wrong_question_ids",
+      "explanation",
+      "evidence_ids"
+    ],
+    "additionalProperties": false
+  },
+  "EvidenceDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "evidence_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "resource_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "document_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "chunk_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "document_title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "knowledge_point_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "text": {
+        "type": "string"
+      },
+      "location": {
+        "type": "object",
+        "properties": {
+          "page_start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "page_end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "section": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["page_start", "page_end", "section"],
+        "additionalProperties": false
+      },
+      "source_label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "resource_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "availability": {
+        "type": "string",
+        "enum": ["available", "removed", "unknown"]
+      }
+    },
+    "required": [
+      "evidence_id",
+      "resource_id",
+      "document_id",
+      "chunk_id",
+      "document_title",
+      "knowledge_point_ids",
+      "text",
+      "location",
+      "source_label",
+      "resource_version",
+      "availability"
+    ],
+    "additionalProperties": false
+  },
+  "ResourceSummaryDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "resource_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["note", "document", "external"]
+      },
+      "knowledge_point_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "availability": {
+        "type": "string",
+        "enum": ["available", "processing", "failed", "removed"]
+      },
+      "source_label": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "resource_id",
+      "course_id",
+      "title",
+      "kind",
+      "knowledge_point_ids",
+      "difficulty",
+      "active",
+      "availability",
+      "source_label"
+    ],
+    "additionalProperties": false
+  },
+  "ResourceDetailDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "resource_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["note", "document", "external"]
+      },
+      "knowledge_point_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "availability": {
+        "type": "string",
+        "enum": ["available", "processing", "failed", "removed"]
+      },
+      "source_label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "document_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "resource_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "text_content": {
+        "type": ["string", "null"]
+      },
+      "external_url": {
+        "type": ["string", "null"]
+      },
+      "file_available": {
+        "type": "boolean"
+      },
+      "filename": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "location": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "page_start": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "page_end": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "section": {
+                "type": ["string", "null"]
+              }
+            },
+            "required": ["page_start", "page_end", "section"],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "resource_id",
+      "course_id",
+      "title",
+      "kind",
+      "knowledge_point_ids",
+      "difficulty",
+      "active",
+      "availability",
+      "source_label",
+      "description",
+      "document_id",
+      "resource_version",
+      "text_content",
+      "external_url",
+      "file_available",
+      "location"
+    ],
+    "additionalProperties": false
+  },
+  "RecommendationDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "recommendation_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "knowledge_point_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "priority": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "reason": {
+        "type": "string"
+      },
+      "next_step": {
+        "type": "string"
+      },
+      "estimated_minutes": {
+        "anyOf": [
+          {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "evidence_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "resources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "resource_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "course_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "kind": {
+              "type": "string",
+              "enum": ["note", "document", "external"]
+            },
+            "knowledge_point_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "difficulty": {
+              "type": "string",
+              "enum": ["easy", "medium", "hard"]
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "availability": {
+              "type": "string",
+              "enum": ["available", "processing", "failed", "removed"]
+            },
+            "source_label": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "resource_id",
+            "course_id",
+            "title",
+            "kind",
+            "knowledge_point_ids",
+            "difficulty",
+            "active",
+            "availability",
+            "source_label"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "practice_questions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "type": "string",
+              "enum": ["single_choice", "multiple_choice"]
+            }
+          },
+          "required": ["question_id", "title", "type"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "recommendation_id",
+      "knowledge_point_id",
+      "priority",
+      "reason",
+      "next_step",
+      "estimated_minutes",
+      "evidence_ids",
+      "resources",
+      "practice_questions"
+    ],
+    "additionalProperties": false
+  },
+  "ComparisonPointDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "knowledge_point_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "comparable": {
+        "type": "boolean"
+      },
+      "reason": {
+        "type": ["string", "null"]
+      },
+      "baseline_correct_rate": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "current_correct_rate": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "baseline_question_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "current_question_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "delta_percentage_points": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "difficulty_note": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "knowledge_point_id",
+      "name",
+      "comparable",
+      "reason",
+      "baseline_correct_rate",
+      "current_correct_rate",
+      "baseline_question_count",
+      "current_question_count",
+      "delta_percentage_points",
+      "difficulty_note"
+    ],
+    "additionalProperties": false
+  },
+  "ComparisonDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "baseline_attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "current_attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "baseline_rule_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "current_rule_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "overall_comparable": {
+        "type": "boolean"
+      },
+      "overall_reason": {
+        "type": ["string", "null"]
+      },
+      "overall_delta_percentage_points": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "knowledge_points": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "knowledge_point_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "comparable": {
+              "type": "boolean"
+            },
+            "reason": {
+              "type": ["string", "null"]
+            },
+            "baseline_correct_rate": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "current_correct_rate": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "baseline_question_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "current_question_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "delta_percentage_points": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": -100,
+                  "maximum": 100
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "difficulty_note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "knowledge_point_id",
+            "name",
+            "comparable",
+            "reason",
+            "baseline_correct_rate",
+            "current_correct_rate",
+            "baseline_question_count",
+            "current_question_count",
+            "delta_percentage_points",
+            "difficulty_note"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "baseline_attempt_id",
+      "current_attempt_id",
+      "baseline_rule_version",
+      "current_rule_version",
+      "overall_comparable",
+      "overall_reason",
+      "overall_delta_percentage_points",
+      "knowledge_points"
+    ],
+    "additionalProperties": false
+  },
+  "ReportDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "report_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "generated_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      },
+      "report_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "rule_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "data_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "source_mode": {
+        "type": "string",
+        "enum": ["mock", "backend"]
+      },
+      "explanation_mode": {
+        "type": "string",
+        "enum": ["llm", "rule_template", "cached"]
+      },
+      "cached_from": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "report_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "report_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "generated_at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+              }
+            },
+            "required": ["report_id", "report_version", "generated_at"],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "is_degraded": {
+        "type": "boolean"
+      },
+      "degraded_reasons": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "retrieval_status": {
+        "type": "string",
+        "enum": ["available", "empty", "failed", "not_requested"]
+      },
+      "score": {
+        "type": "object",
+        "properties": {
+          "correct_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total_count": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "raw_score": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max_score": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "percentage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "correct_count",
+          "total_count",
+          "raw_score",
+          "max_score",
+          "percentage"
+        ],
+        "additionalProperties": false
+      },
+      "summary": {
+        "type": "string"
+      },
+      "knowledge_points": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "knowledge_point_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "correct_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "question_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "correct_rate": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mastery_score": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mastery_status": {
+              "type": "string",
+              "enum": [
+                "weak",
+                "consolidating",
+                "mastered",
+                "insufficient_evidence"
+              ]
+            },
+            "coverage_reason": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": ["not_tested", "too_few_questions"]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "wrong_question_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "explanation": {
+              "type": "string"
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "knowledge_point_id",
+            "name",
+            "correct_count",
+            "question_count",
+            "correct_rate",
+            "mastery_score",
+            "mastery_status",
+            "coverage_reason",
+            "wrong_question_ids",
+            "explanation",
+            "evidence_ids"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "evidences": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "evidence_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "resource_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "document_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "chunk_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "document_title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "knowledge_point_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "text": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "page_start": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "page_end": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "section": {
+                  "type": ["string", "null"]
+                }
+              },
+              "required": ["page_start", "page_end", "section"],
+              "additionalProperties": false
+            },
+            "source_label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "resource_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "availability": {
+              "type": "string",
+              "enum": ["available", "removed", "unknown"]
+            }
+          },
+          "required": [
+            "evidence_id",
+            "resource_id",
+            "document_id",
+            "chunk_id",
+            "document_title",
+            "knowledge_point_ids",
+            "text",
+            "location",
+            "source_label",
+            "resource_version",
+            "availability"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "recommendation_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "knowledge_point_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "priority": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "reason": {
+              "type": "string"
+            },
+            "next_step": {
+              "type": "string"
+            },
+            "estimated_minutes": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "resources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "resource_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "course_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": ["note", "document", "external"]
+                  },
+                  "knowledge_point_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "difficulty": {
+                    "type": "string",
+                    "enum": ["easy", "medium", "hard"]
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "availability": {
+                    "type": "string",
+                    "enum": ["available", "processing", "failed", "removed"]
+                  },
+                  "source_label": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "resource_id",
+                  "course_id",
+                  "title",
+                  "kind",
+                  "knowledge_point_ids",
+                  "difficulty",
+                  "active",
+                  "availability",
+                  "source_label"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "practice_questions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["single_choice", "multiple_choice"]
+                  }
+                },
+                "required": ["question_id", "title", "type"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "recommendation_id",
+            "knowledge_point_id",
+            "priority",
+            "reason",
+            "next_step",
+            "estimated_minutes",
+            "evidence_ids",
+            "resources",
+            "practice_questions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "comparison": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "baseline_attempt_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current_attempt_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "baseline_rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "current_rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "overall_comparable": {
+                "type": "boolean"
+              },
+              "overall_reason": {
+                "type": ["string", "null"]
+              },
+              "overall_delta_percentage_points": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": -100,
+                    "maximum": 100
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "knowledge_points": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "knowledge_point_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "comparable": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": ["string", "null"]
+                    },
+                    "baseline_correct_rate": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "current_correct_rate": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "baseline_question_count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "current_question_count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "delta_percentage_points": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": -100,
+                          "maximum": 100
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "difficulty_note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "knowledge_point_id",
+                    "name",
+                    "comparable",
+                    "reason",
+                    "baseline_correct_rate",
+                    "current_correct_rate",
+                    "baseline_question_count",
+                    "current_question_count",
+                    "delta_percentage_points",
+                    "difficulty_note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "baseline_attempt_id",
+              "current_attempt_id",
+              "baseline_rule_version",
+              "current_rule_version",
+              "overall_comparable",
+              "overall_reason",
+              "overall_delta_percentage_points",
+              "knowledge_points"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "agent_steps": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "step": {
+              "type": "string",
+              "enum": ["diagnosis", "retrieval", "recommendation"]
+            },
+            "status": {
+              "type": "string",
+              "enum": ["completed", "skipped", "failed"]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "duration_ms": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": ["step", "status", "summary", "duration_ms"],
+          "additionalProperties": false
+        }
+      },
+      "actions": {
+        "type": "object",
+        "properties": {
+          "can_retest": {
+            "type": "boolean"
+          },
+          "can_practice": {
+            "type": "boolean"
+          }
+        },
+        "required": ["can_retest", "can_practice"],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "report_id",
+      "attempt_id",
+      "user_id",
+      "course_id",
+      "generated_at",
+      "report_version",
+      "rule_version",
+      "data_version",
+      "source_mode",
+      "explanation_mode",
+      "is_degraded",
+      "degraded_reasons",
+      "retrieval_status",
+      "score",
+      "summary",
+      "knowledge_points",
+      "evidences",
+      "recommendations",
+      "comparison",
+      "agent_steps",
+      "actions"
+    ],
+    "additionalProperties": false
+  },
+  "HistoryItemDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "attempt_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["initial", "practice", "retest"]
+      },
+      "baseline_attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "submitted_at": {
+        "anyOf": [
+          {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "score": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "correct_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "total_count": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "raw_score": {
+                "type": "number",
+                "minimum": 0
+              },
+              "max_score": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "correct_count",
+              "total_count",
+              "raw_score",
+              "max_score",
+              "percentage"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "diagnosis_task_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "diagnosis_status": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": ["queued", "running", "completed", "failed"]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "attempt_id",
+      "report_id",
+      "kind",
+      "baseline_attempt_id",
+      "submitted_at",
+      "score",
+      "diagnosis_task_id",
+      "diagnosis_status"
+    ],
+    "additionalProperties": false
+  },
+  "TeacherQuestionDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "question_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "type": {
+        "type": "string",
+        "enum": ["single_choice", "multiple_choice"]
+      },
+      "stem": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "options": {
+        "minItems": 2,
+        "maxItems": 6,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "option_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          },
+          "required": ["option_id", "label", "text"],
+          "additionalProperties": false
+        }
+      },
+      "knowledge_point_ids": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "correct_option_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "explanation": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "version": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "question_id",
+      "type",
+      "stem",
+      "options",
+      "knowledge_point_ids",
+      "difficulty",
+      "course_id",
+      "correct_option_ids",
+      "explanation",
+      "active",
+      "version"
+    ],
+    "additionalProperties": false
+  },
+  "CourseWriteDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      }
+    },
+    "required": ["title", "description"],
+    "additionalProperties": false
+  },
+  "KnowledgePointWriteDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "sort_order": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "required": ["course_id", "name", "description", "sort_order", "active"],
+    "additionalProperties": false
+  },
+  "TeacherQuestionWriteDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "type": {
+        "type": "string",
+        "enum": ["single_choice", "multiple_choice"]
+      },
+      "stem": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "options": {
+        "minItems": 2,
+        "maxItems": 6,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "option_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "client_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          },
+          "required": ["option_id", "client_key", "label", "text"],
+          "additionalProperties": false
+        }
+      },
+      "correct_option_keys": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "knowledge_point_ids": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "explanation": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "course_id",
+      "type",
+      "stem",
+      "options",
+      "correct_option_keys",
+      "knowledge_point_ids",
+      "difficulty",
+      "explanation",
+      "active"
+    ],
+    "additionalProperties": false
+  },
+  "ResourceWriteDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["note", "external", "document"]
+      },
+      "knowledge_point_ids": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "text_content": {
+        "type": ["string", "null"]
+      },
+      "external_url": {
+        "type": ["string", "null"]
+      }
+    },
+    "required": [
+      "course_id",
+      "title",
+      "description",
+      "kind",
+      "knowledge_point_ids",
+      "difficulty",
+      "active",
+      "text_content",
+      "external_url"
+    ],
+    "additionalProperties": false
+  },
+  "UploadMetadataDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "knowledge_point_ids": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "required": ["course_id", "title", "knowledge_point_ids"],
+    "additionalProperties": false
+  },
+  "DocumentDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "document_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "resource_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "filename": {
+        "type": "string",
+        "minLength": 1
+      },
+      "size_bytes": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "content_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "task_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["queued", "running", "completed", "failed"]
+      },
+      "error_code": {
+        "type": ["string", "null"]
+      },
+      "error_message": {
+        "type": ["string", "null"]
+      },
+      "created_at": {
+        "type": "string",
+        "format": "date-time",
+        "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+      }
+    },
+    "required": [
+      "document_id",
+      "resource_id",
+      "course_id",
+      "filename",
+      "size_bytes",
+      "content_type",
+      "version",
+      "task_id",
+      "status",
+      "error_code",
+      "error_message",
+      "created_at"
+    ],
+    "additionalProperties": false
+  },
+  "TeacherResourceListItemDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "resource_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["note", "document", "external"]
+      },
+      "knowledge_point_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "difficulty": {
+        "type": "string",
+        "enum": ["easy", "medium", "hard"]
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "availability": {
+        "type": "string",
+        "enum": ["available", "processing", "failed", "removed"]
+      },
+      "source_label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "document_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "ingestion_task_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "error_code": {
+        "type": ["string", "null"]
+      },
+      "error_message": {
+        "type": ["string", "null"]
+      }
+    },
+    "required": [
+      "resource_id",
+      "course_id",
+      "title",
+      "kind",
+      "knowledge_point_ids",
+      "difficulty",
+      "active",
+      "availability",
+      "source_label",
+      "document_id",
+      "ingestion_task_id",
+      "error_code",
+      "error_message"
+    ],
+    "additionalProperties": false
+  },
+  "OverviewDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "course_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "student_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "submitted_attempt_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "average_percentage": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "recent_attempts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "attempt_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "report_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "kind": {
+              "type": "string",
+              "enum": ["initial", "practice", "retest"]
+            },
+            "baseline_attempt_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "submitted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "score": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "correct_count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "raw_score": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "max_score": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "percentage": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "correct_count",
+                    "total_count",
+                    "raw_score",
+                    "max_score",
+                    "percentage"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "diagnosis_task_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "diagnosis_status": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": ["queued", "running", "completed", "failed"]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "attempt_id",
+            "report_id",
+            "kind",
+            "baseline_attempt_id",
+            "submitted_at",
+            "score",
+            "diagnosis_task_id",
+            "diagnosis_status"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "course_id",
+      "student_count",
+      "submitted_attempt_count",
+      "average_percentage",
+      "recent_attempts"
+    ],
+    "additionalProperties": false
+  },
+  "TeacherStudentDTO": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "display_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "submitted_attempt_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "latest_attempt_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "latest_report_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "user_id",
+      "display_name",
+      "submitted_attempt_count",
+      "latest_attempt_id",
+      "latest_report_id"
+    ],
+    "additionalProperties": false
+  }
+}

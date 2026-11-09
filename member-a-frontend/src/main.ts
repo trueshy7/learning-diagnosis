@@ -1,7 +1,9 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-import { router } from './router'
-import './style.css'
-
-createApp(App).use(createPinia()).use(router).mount('#app')
+if (import.meta.env.VITE_BACKEND_CONTRACT === 'group-v0') {
+  import('./group/main').catch(showError);
+} else {
+  import('./full-main').catch(showError);
+}
+function showError() {
+  const root = document.getElementById('app');
+  if (root) root.textContent = '应用暂时无法启动，请刷新重试。';
+}

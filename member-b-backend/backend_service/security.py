@@ -6,7 +6,7 @@ from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 from .database import get_db
-from .models import LoginSession, User
+from .models import LoginSession, User, Course, TeacherCourse, StudentCourse
 
 bearer = HTTPBearer(auto_error=False)
 
@@ -38,3 +38,22 @@ def teacher_user(user: User = Depends(current_user)):
     if user.role != 'teacher':
         raise HTTPException(403, '需要教师权限')
     return user
+
+def teacher_course(db: Session, user: User, course_id: str) -> Course:
+    course = db.get(Course, course_id)
+    if course is None:
+        raise HTTPException(404, '课程不存在')
+    if db.get(TeacherCourse, (user.id, course_id)) is None:
+        raise HTTPException(403, '没有该课程的教师权限')
+    return course
+
+def course_access(db: Session, user: User, course_id: str) -> Course:
+    course = db.get(Course, course_id)
+    if course is None:
+        raise HTTPException(404, '课程不存在')
+    if user.role == 'teacher':
+        if db.get(TeacherCourse, (user.id, course_id)) is None:
+            raise HTTPException(403, '没有该课程的教师权限')
+    elif db.get(StudentCourse, (user.id, course_id)) is None:
+        raise HTTPException(403, '尚未获得该课程的学习权限')
+    return course

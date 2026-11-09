@@ -21,3 +21,15 @@ async def ingest(payload):
         response = await client.post(config.RAG_URL+'/internal/ingest', json=payload)
         response.raise_for_status()
         return response.json()
+
+async def delete_resource(resource_id):
+    async with httpx.AsyncClient(timeout=config.SERVICE_TIMEOUT, trust_env=False) as client:
+        response = await client.delete(config.RAG_URL+'/internal/resources/'+resource_id)
+        response.raise_for_status()
+        return response.json()
+
+async def retrieve(payload):
+    async with httpx.AsyncClient(timeout=config.SERVICE_TIMEOUT, trust_env=False) as client:
+        response = await client.post(config.RAG_URL+'/internal/retrieve', json=payload)
+        response.raise_for_status()
+        return response.json()

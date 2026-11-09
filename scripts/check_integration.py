@@ -68,8 +68,36 @@ def main():
                 assert get('/teacher/overview',t_auth)['attempt_count']==2
                 ingested=post('/teacher/resources',{'course_id':'course-ds','resource_id':'res-test','document_id':'doc-test','title':'联调自编文本','knowledge_point_ids':['kp-stack'],'text':'栈是后进先出的线性结构。压栈与弹栈均在栈顶进行。','source':'集成测试自编资料'},t_auth)
                 assert ingested['chunks']>=1
+                resources=get('/teacher/resources?course_id=course-ds',t_auth)['items']
+                assert any(item['resource_id']=='res-test' and item['status']=='indexed' for item in resources)
+                answer=post('/courses/course-ds/ask',{'query':'栈是什么？','knowledge_point_ids':['kp-stack']},auth)
+                assert answer['status']=='answered' and answer['citations'] and answer['answer']
+                assert {item['resource_id'] for item in answer['citations']} <= {item['resource_id'] for item in resources}
                 assert http.get(base+'/attempts/'+first['id'],headers=t_auth).status_code==403
-                print(json.dumps({'result':'passed','checks':['login','answer_hiding','scoring','real_c_http_evidence','catalog_recommendations','retest_comparison','history','teacher_permission','teacher_ingest','record_ownership'],'evidence_count':len(report['evidence']),'comparison_count':len(second['report']['comparison'])},ensure_ascii=False))
+                full_base=f'http://127.0.0.1:{b_port}/api/v2'
+                full_login=http.post(full_base+'/auth/login',json={'username':'student','password':'demo12345'})
+                full_login.raise_for_status();full_auth={'Authorization':'Bearer '+full_login.json()['data']['access_token']}
+                full_course=http.get(full_base+'/courses/course-ds',headers=full_auth)
+                full_course.raise_for_status();assert full_course.json()['data']['course_id']=='course-ds'
+                created=http.post(full_base+'/attempts',json={'course_id':'course-ds','kind':'initial',
+                                  'client_request_id':'integration-full-create'},headers=full_auth)
+                created.raise_for_status();created=created.json()['data']
+                full_answers=[{'question_id':q['question_id'],'selected_option_ids':['B']} for q in created['questions']]
+                full_submit=http.post(full_base+'/attempts/'+created['attempt_id']+'/submit',json={
+                    'snapshot_version':created['snapshot_version'],'answers':full_answers},
+                    headers={**full_auth,'Idempotency-Key':'integration-full-submit'})
+                full_submit.raise_for_status();submitted=full_submit.json()['data']
+                full_task=http.get(full_base+'/tasks/'+submitted['diagnosis_task_id'],headers=full_auth)
+                full_task.raise_for_status();full_task=full_task.json()['data']
+                assert full_task['status']=='completed',full_task
+                full_report=http.get(full_base+'/reports/'+full_task['report_id'],headers=full_auth)
+                full_report.raise_for_status();full_report=full_report.json()['data']
+                if os.getenv('FULL_CONTRACT_DUMP'):
+                    Path(os.environ['FULL_CONTRACT_DUMP']).write_text(json.dumps(full_report,ensure_ascii=False))
+                assert full_report['report_id']==full_task['report_id']
+                assert full_report['score']['total_count']==len(created['questions'])
+                assert full_report['evidences'] and full_report['source_mode']=='backend'
+                print(json.dumps({'result':'passed','checks':['login','answer_hiding','scoring','real_c_http_evidence','catalog_recommendations','retest_comparison','history','teacher_permission','teacher_ingest','resource_catalog','cited_course_answer','record_ownership','full_v1_snapshot','full_v1_diagnosis_task','full_v1_report'],'evidence_count':len(report['evidence']),'comparison_count':len(second['report']['comparison'])},ensure_ascii=False))
         except Exception:
             for log in logs:
                 log.flush();log.seek(0);print(log.read(),file=sys.stderr)

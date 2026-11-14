@@ -35,6 +35,10 @@ class Resource(Model):
     resource_id: str = Field(min_length=1)
     title: str = Field(min_length=1)
     knowledge_point_ids: list[str]
+    course_id: str | None = None
+    available: bool = True
+    difficulty: int | None = Field(default=None, ge=1, le=5)
+    estimated_minutes: int | None = Field(default=None, ge=1, le=240)
 
 
 def classify(sample_count: int, correct_count: int) -> Status:
@@ -80,6 +84,7 @@ class DiagnoseRequest(Model):
     graded_answers: list[GradedAnswer]
     knowledge_points: list[KnowledgePoint]
     resource_catalog: list[Resource]
+    recent_resource_ids: list[str] = Field(default_factory=list)
     baseline: Baseline | None = None
 
     @model_validator(mode="after")
@@ -129,6 +134,9 @@ class Recommendation(Model):
     resource_id: str
     title: str
     reason: str
+    evidence_ids: list[str] = Field(default_factory=list)
+    next_step: str = "阅读资源后完成对应练习或复测"
+    estimated_minutes: int | None = None
 
 
 class Comparison(Model):
@@ -145,11 +153,13 @@ class TraceStep(Model):
 
 class Report(Model):
     attempt_id: str
-    mode: Literal["rule_template_demo"] = "rule_template_demo"
+    mode: Literal["rule_template_demo", "grounded_llm"] = "rule_template_demo"
     knowledge_points: list[KnowledgePointStat]
     evidence: list[Evidence]
     recommendations: list[Recommendation]
     explanation: str
+    model_explanation: str | None = None
+    model_evidence_ids: list[str] = Field(default_factory=list)
     comparison: list[Comparison]
     trace: list[TraceStep]
     fallback_status: str | None

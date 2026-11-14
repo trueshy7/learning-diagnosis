@@ -53,8 +53,13 @@ def main():
                 assert len(questions)==6 and all('correct_option_ids' not in q for q in questions)
                 first=post('/attempts',{'course_id':'course-ds','answers':[{'question_id':q['id'],'selected_option_ids':['B']} for q in questions]},auth)
                 assert first['score']==0 and first['max_score']==6 and first['ai_status']=='completed',first
-                report=first['report'];assert report and len(report['trace'])==3
+                report=first['report'];assert report and len(report['trace']) >= 3
                 assert len(report['evidence'])>=1 and report['fallback_status'] is None,report
+                if os.getenv('EXPECT_REAL_MODEL') == '1':
+                    assert report['mode'] == 'grounded_llm', report
+                    assert report['model_explanation'] and report['model_evidence_ids'], report
+                    assert any(step['agent'] == 'model_explanation' and step['status'] == 'completed' for step in report['trace']), report
+                    assert not any(e['source'].startswith('builtin_mock') for e in report['evidence']), report
                 assert all(e['document_id'] in {'doc-stack','doc-queue'} for e in report['evidence'])
                 assert all(not e['source'].startswith('builtin_mock') for e in report['evidence'])
                 assert {r['resource_id'] for r in report['recommendations']} <= {'res-stack','res-queue'}
@@ -69,7 +74,7 @@ def main():
                 ingested=post('/teacher/resources',{'course_id':'course-ds','resource_id':'res-test','document_id':'doc-test','title':'联调自编文本','knowledge_point_ids':['kp-stack'],'text':'栈是后进先出的线性结构。压栈与弹栈均在栈顶进行。','source':'集成测试自编资料'},t_auth)
                 assert ingested['chunks']>=1
                 assert http.get(base+'/attempts/'+first['id'],headers=t_auth).status_code==403
-                print(json.dumps({'result':'passed','checks':['login','answer_hiding','scoring','real_c_http_evidence','catalog_recommendations','retest_comparison','history','teacher_permission','teacher_ingest','record_ownership'],'evidence_count':len(report['evidence']),'comparison_count':len(second['report']['comparison'])},ensure_ascii=False))
+                print(json.dumps({'result':'passed','checks':['login','answer_hiding','scoring','real_c_http_evidence','catalog_recommendations','retest_comparison','history','teacher_permission','teacher_ingest','record_ownership'],'evidence_count':len(report['evidence']),'comparison_count':len(second['report']['comparison']),'model_mode':report['mode'],'model_evidence_ids':report.get('model_evidence_ids',[])},ensure_ascii=False))
         except Exception:
             for log in logs:
                 log.flush();log.seek(0);print(log.read(),file=sys.stderr)

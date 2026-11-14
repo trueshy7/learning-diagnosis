@@ -2,6 +2,7 @@ from fastapi import Depends, FastAPI
 from dotenv import load_dotenv
 
 from .models import DiagnoseRequest, Report
+from .llm_client import get_llm_client
 from .orchestrator import run_pipeline
 from .rag_client import get_retriever
 
@@ -16,6 +17,6 @@ def health():
 
 
 @app.post("/internal/diagnose-and-recommend", response_model=Report)
-async def diagnose_and_recommend(request: DiagnoseRequest, retriever=Depends(get_retriever)):
-    return await run_pipeline(request, retriever)
+async def diagnose_and_recommend(request: DiagnoseRequest, retriever=Depends(get_retriever), llm=Depends(get_llm_client)):
+    return await run_pipeline(request, retriever, llm)
 

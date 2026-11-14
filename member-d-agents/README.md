@@ -54,3 +54,27 @@ python -m pytest -q
 
 覆盖规则阈值、少样本、重复题去重、矛盾输入拒绝、合法资源 ID、检索异常及复测比较。详细目录、数据流、接口边界、六周计划见 [开发说明](docs/开发说明.md)。服务默认仅监听本机，内部接口没有鉴权，不能直接面向公网部署。
 
+
+## 2026-11-14 中期增量
+
+当前默认仍为规则模板演示。若自行配置兼容 Chat Completions 的模型服务，可设置 `LLM_MODE=openai_compatible`、`LLM_BASE_URL`、`LLM_MODEL`、`LLM_API_KEY` 和 `LLM_TIMEOUT_SECONDS`。只有通过输出校验的本次调用才标记 `grounded_llm`；密钥只保存在本地环境，不提交。此适配器目前通过模拟响应测试，**尚无真实模型调用证据**。新增的资源过滤、证据校验、评测方法与待联调字段见 [中期实现说明](docs/中期实现说明.md)。
+
+## DeepSeek 真实模型闭环（待持有密钥者执行）
+
+本服务内置 DeepSeek Chat Completions 配置，默认模型 `deepseek-flash`。在 `member-d-agents/` 中复制 `.env.example` 为 `.env`，把 `LLM_MODE` 改为 `deepseek`，在**本机** `.env` 中增加 `DEEPSEEK_API_KEY=你的密钥`。该文件已被 `.gitignore` 排除，不要提交、截图或在群聊发送密钥。可选调整 `DEEPSEEK_MODEL` 和 `LLM_TIMEOUT_SECONDS`。密钥由运行机器提供，报告和日志不记录原始请求或密钥。
+
+从仓库根目录启动真实闭环检查（需本机可访问 `api.deepseek.com`，会产生一次真实 API 调用及相应费用）：
+
+```bash
+# macOS / Linux / Git Bash
+EXPECT_REAL_MODEL=1 python scripts/check_integration.py
+```
+
+```powershell
+# Windows PowerShell
+$env:EXPECT_REAL_MODEL="1"
+python scripts/check_integration.py
+Remove-Item Env:EXPECT_REAL_MODEL
+```
+
+脚本在临时环境启动 C、D、B，完成登录、评分、C 的 HTTP 检索、D 的规则诊断和 DeepSeek 解释。成功时必须返回 `model_mode=grounded_llm`、非空的 `model_evidence_ids` 和 `result=passed`；失败不会把规则回退误报为真实模型成功。仅保存脱敏的检查结果和调用时间，再对照人工量表评价建议。当前仓库未包含真实调用记录，持有密钥者执行后才可在报告中标记完成。

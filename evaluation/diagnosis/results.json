@@ -1,0 +1,114 @@
+{
+  "scenario_count": 12,
+  "passed": 12,
+  "cases": [
+    {
+      "case": "zero",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "sample_count": 0,
+      "actual_accuracy": null,
+      "recommendation_count": 0,
+      "passed": true
+    },
+    {
+      "case": "two_wrong",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "sample_count": 2,
+      "actual_accuracy": 0.0,
+      "recommendation_count": 0,
+      "passed": true
+    },
+    {
+      "case": "two_right",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "sample_count": 2,
+      "actual_accuracy": 1.0,
+      "recommendation_count": 0,
+      "passed": true
+    },
+    {
+      "case": "three_weak",
+      "expected_status": "weak",
+      "actual_status": "weak",
+      "sample_count": 3,
+      "actual_accuracy": 0.333333,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "five_below_60",
+      "expected_status": "weak",
+      "actual_status": "weak",
+      "sample_count": 5,
+      "actual_accuracy": 0.4,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "five_at_60",
+      "expected_status": "needs_practice",
+      "actual_status": "needs_practice",
+      "sample_count": 5,
+      "actual_accuracy": 0.6,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "ten_below_80",
+      "expected_status": "needs_practice",
+      "actual_status": "needs_practice",
+      "sample_count": 10,
+      "actual_accuracy": 0.7,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "five_at_80",
+      "expected_status": "mastered",
+      "actual_status": "mastered",
+      "sample_count": 5,
+      "actual_accuracy": 0.8,
+      "recommendation_count": 0,
+      "passed": true
+    },
+    {
+      "case": "all_right",
+      "expected_status": "mastered",
+      "actual_status": "mastered",
+      "sample_count": 3,
+      "actual_accuracy": 1.0,
+      "recommendation_count": 0,
+      "passed": true
+    },
+    {
+      "case": "all_wrong",
+      "expected_status": "weak",
+      "actual_status": "weak",
+      "sample_count": 5,
+      "actual_accuracy": 0.0,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "duplicate_question",
+      "expected_status": "weak",
+      "actual_status": "weak",
+      "sample_count": 3,
+      "actual_accuracy": 0.333333,
+      "recommendation_count": 1,
+      "passed": true
+    },
+    {
+      "case": "multiple_knowledge_points",
+      "expected_status": "weak",
+      "actual_status": "weak",
+      "sample_count": 3,
+      "actual_accuracy": 0.333333,
+      "recommendation_count": 1,
+      "passed": true
+    }
+  ]
+}

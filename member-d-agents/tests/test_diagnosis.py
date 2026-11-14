@@ -8,6 +8,7 @@ from diagnosis_service.diagnosis import diagnose
 from diagnosis_service.main import app
 from diagnosis_service.models import DiagnoseRequest
 from diagnosis_service.rag_client import HttpRetriever, MockRetriever, get_retriever
+from diagnosis_service.llm_client import get_llm_client
 
 
 @pytest.fixture(autouse=True)
@@ -145,7 +146,7 @@ def test_http_unavailable_does_not_switch_to_mock(payload, monkeypatch):
     assert "mock_fixture" not in [step["status"] for step in report["trace"]]
 
 
-def test_http_preserves_evidence_but_never_invents_catalog_ids(payload, monkeypatch):
+def test_http_rejects_evidence_outside_catalog(payload, monkeypatch):
     calls = []
     evidence = {
         "evidence_id": "ev-real", "document_id": "doc-real", "resource_id": "not-in-catalog",
@@ -163,10 +164,10 @@ def test_http_preserves_evidence_but_never_invents_catalog_ids(payload, monkeypa
     report = TestClient(app).post("/internal/diagnose-and-recommend", json=payload).json()
     assert calls[0][0] == "http://example.test/internal/retrieve"
     assert calls[0][1]["knowledge_point_ids"] == ["kp-stack"]
-    assert report["evidence"] == [evidence]
+    assert report["evidence"] == []
     assert report["recommendations"][0]["resource_id"] == "res-stack"
-    assert report["fallback_status"] is None
-    assert report["trace"][1]["status"] == "completed:test_fixture:v1"
+    assert report["fallback_status"] == "rag_invalid_evidence"
+    assert report["trace"][1]["status"] == "filtered_invalid_evidence"
 
 
 @pytest.mark.parametrize("body,status,expected", [
@@ -183,3 +184,81 @@ def test_invalid_or_failed_http_response(payload, monkeypatch, body, status, exp
     assert result.fallback_status == expected
     assert result.evidence == []
 
+
+class FixedRetriever:
+    async def retrieve(self, request, targets):
+        from diagnosis_service.models import Evidence
+        from diagnosis_service.rag_client import RetrievalResult
+        return RetrievalResult(evidence=[Evidence(evidence_id="ev-1", document_id="doc-1", chunk_id="chunk-1",
+            resource_id="res-stack", knowledge_point_ids=["kp-stack"], text="栈的基本操作及适用场景。",
+            score=0.7, source="course-fixture", title="示例", location="第1节")], status="completed:fixture:v1")
+
+class FixedLLM:
+    def __init__(self, response):
+        self.response = response
+        self.calls = 0
+    async def generate(self, *, system, user):
+        self.calls += 1
+        return self.response
+
+def test_model_prose_separate_from_diagnostic_facts(payload):
+    from diagnosis_service.orchestrator import run_pipeline
+    payload["graded_answers"] = answers(0, 3)
+    llm = FixedLLM('{"summary":"先对照课程材料复习栈的基本操作，再用新题检验理解。","evidence_ids":["ev-1"]}')
+    report = asyncio.run(run_pipeline(DiagnoseRequest.model_validate(payload), FixedRetriever(), llm))
+    assert report.mode == "grounded_llm" and report.knowledge_points[0].correct_count == 0
+    assert report.model_explanation.startswith("先对照")
+    assert report.recommendations[0].evidence_ids == ["ev-1"]
+
+@pytest.mark.parametrize("raw", [
+    '{"summary":"先复习课程基本概念，再完成新练习任务。","evidence_ids":["invented"]}',
+    '{"summary":"正确率提高了50%，证明教学有效。","evidence_ids":[]}',
+    'not json',
+])
+def test_invalid_model_output_falls_back(payload, raw):
+    from diagnosis_service.orchestrator import run_pipeline
+    payload["graded_answers"] = answers(0, 3)
+    report = asyncio.run(run_pipeline(DiagnoseRequest.model_validate(payload), FixedRetriever(), FixedLLM(raw)))
+    assert report.mode == "rule_template_demo" and report.model_explanation is None
+    assert report.fallback_status == "llm_invalid_or_unavailable"
+    assert report.knowledge_points[0].status == "weak"
+
+def test_resources_filtered_and_recent_deprioritized(payload):
+    from diagnosis_service.orchestrator import run_pipeline
+    payload["graded_answers"] = answers(0, 3)
+    payload["recent_resource_ids"] = ["res-stack"]
+    payload["resource_catalog"] += [
+        {"resource_id": "res-new", "title": "新材料", "knowledge_point_ids": ["kp-stack"], "course_id": "course-ds", "estimated_minutes": 15},
+        {"resource_id": "res-off", "title": "失效", "knowledge_point_ids": ["kp-stack"], "available": False},
+        {"resource_id": "res-other", "title": "他课", "knowledge_point_ids": ["kp-stack"], "course_id": "other"},
+    ]
+    report = asyncio.run(run_pipeline(DiagnoseRequest.model_validate(payload), FixedRetriever()))
+    assert [r.resource_id for r in report.recommendations] == ["res-new", "res-stack"]
+    assert report.recommendations[0].estimated_minutes == 15
+
+def test_mock_evidence_not_sent_to_model(payload):
+    from diagnosis_service.orchestrator import run_pipeline
+    payload["graded_answers"] = answers(0, 3)
+    llm = FixedLLM('{"summary":"先复习已有材料再完成新练习任务。","evidence_ids":[]}')
+    report = asyncio.run(run_pipeline(DiagnoseRequest.model_validate(payload), MockRetriever(), llm))
+    assert llm.calls == 0 and report.mode == "rule_template_demo"
+
+def test_deepseek_config_and_json_request(monkeypatch):
+    from diagnosis_service.llm_client import OpenAICompatibleClient, get_llm_client
+    monkeypatch.setenv("LLM_MODE", "deepseek")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-only-key")
+    monkeypatch.setenv("DEEPSEEK_MODEL", "deepseek-flash")
+    client = get_llm_client()
+    assert isinstance(client, OpenAICompatibleClient) and client.deepseek
+    calls = []
+    async def post(self, url, *, headers, json):
+        calls.append((url, headers, json))
+        return httpx.Response(200, json={"choices": [{"finish_reason": "stop", "message": {"content": '{"summary":"先复习资料，再做新练习任务。","evidence_ids":["ev-1"]}'}}]}, request=httpx.Request("POST", url))
+    monkeypatch.setattr(httpx.AsyncClient, "post", post)
+    raw = asyncio.run(client.generate(system="请返回 JSON", user="测试"))
+    assert raw.startswith('{')
+    assert calls[0][0] == "https://api.deepseek.com/chat/completions"
+    assert calls[0][1]["Authorization"] == "Bearer test-only-key"
+    assert calls[0][2]["response_format"] == {"type": "json_object"}
+    assert calls[0][2]["thinking"] == {"type": "disabled"}
+    assert calls[0][2]["model"] == "deepseek-flash"

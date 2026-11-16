@@ -1,2 +1,3 @@
-# 只在主动开展向量检索扩展时安装；默认服务不依赖此文件。
-chromadb>=0.5,<2
+-r requirements.txt
+chromadb==1.3.4
+fastembed==0.7.3

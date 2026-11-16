@@ -1,6 +1,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from contextlib import ExitStack
 
 from fastapi.testclient import TestClient
 
@@ -14,7 +15,9 @@ class ApiTests(unittest.TestCase):
         self.temporary = TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.settings = Settings(Path(self.temporary.name) / "index.json")
-        self.client = self.enterContext(TestClient(create_app(self.settings)))
+        stack = ExitStack()
+        self.addCleanup(stack.close)
+        self.client = stack.enter_context(TestClient(create_app(self.settings)))
 
     def test_health_and_seed_retrieval_contract(self):
         health = self.client.get("/health")
@@ -28,7 +31,7 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["mode"], "keyword_demo")
-        self.assertEqual(data["index_version"], "demo-1")
+        self.assertTrue(data["index_version"].startswith("rag-"))
         self.assertEqual(len(data["evidence"]), 1)
         self.assertEqual(set(data["evidence"][0]), {
             "evidence_id", "document_id", "resource_id", "chunk_id", "knowledge_point_ids",

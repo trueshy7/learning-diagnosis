@@ -1,4 +1,4 @@
-"""可选实验适配器；默认 HTTP 服务尚未接入此类，不会自动创建向量模型。"""
+"""保留初始实验接口。当前正式向量链路见 chroma_store.py 和 embeddings.py。"""
 from typing import Protocol
 
 

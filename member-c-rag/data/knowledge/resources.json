@@ -1,0 +1,462 @@
+[
+  {
+    "resource_id": "c-note-stack-lifo",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "后进先出与栈顶栈底",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "file": "texts/stack-lifo.md",
+    "source": "项目自编教学摘要 texts/stack-lifo.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-sequence",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "交错入栈与出栈序列",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "file": "texts/stack-sequence.md",
+    "source": "项目自编教学摘要 texts/stack-sequence.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-call",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "函数调用栈与递归返回",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "file": "texts/stack-call.md",
+    "source": "项目自编教学摘要 texts/stack-call.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-undo",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "撤销与重做的双栈模型",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "file": "texts/stack-undo.md",
+    "source": "项目自编教学摘要 texts/stack-undo.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-expression",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "表达式求值中的操作数栈",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "file": "texts/stack-expression.md",
+    "source": "项目自编教学摘要 texts/stack-expression.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-api",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "push pop peek 的区别",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "file": "texts/stack-api.md",
+    "source": "项目自编教学摘要 texts/stack-api.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-array",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "顺序栈的 top 与容量检查",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "file": "texts/stack-array.md",
+    "source": "项目自编教学摘要 texts/stack-array.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-linked",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "链栈为什么在链表头部操作",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "file": "texts/stack-linked.md",
+    "source": "项目自编教学摘要 texts/stack-linked.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-brackets",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "括号匹配与不匹配定位",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "file": "texts/stack-brackets.md",
+    "source": "项目自编教学摘要 texts/stack-brackets.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-stack-errors",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "空栈异常与状态不变条件",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "file": "texts/stack-errors.md",
+    "source": "项目自编教学摘要 texts/stack-errors.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/StackADT.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-fifo",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "先进先出与队头队尾",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "file": "texts/queue-fifo.md",
+    "source": "项目自编教学摘要 texts/queue-fifo.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-bfs",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "广度优先搜索为什么使用队列",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "file": "texts/queue-bfs.md",
+    "source": "项目自编教学摘要 texts/queue-bfs.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-schedule",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "任务缓冲与生产者消费者",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "file": "texts/queue-schedule.md",
+    "source": "项目自编教学摘要 texts/queue-schedule.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-deque",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "普通队列与双端队列的边界",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "file": "texts/queue-deque.md",
+    "source": "项目自编教学摘要 texts/queue-deque.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-compare",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "栈与队列的顺序对照",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "file": "texts/queue-compare.md",
+    "source": "项目自编教学摘要 texts/queue-compare.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-api",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "enqueue dequeue 与读取队头",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "file": "texts/queue-api.md",
+    "source": "项目自编教学摘要 texts/queue-api.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-circular",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "循环队列保留空位的判空判满",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "file": "texts/queue-circular.md",
+    "source": "项目自编教学摘要 texts/queue-circular.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-count",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "使用计数器的循环队列",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "file": "texts/queue-count.md",
+    "source": "项目自编教学摘要 texts/queue-count.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-linked",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "链队列最后一个元素出队",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "file": "texts/queue-linked.md",
+    "source": "项目自编教学摘要 texts/queue-linked.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-queue-length",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "循环队列长度与跨尾计算",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "file": "texts/queue-length.md",
+    "source": "项目自编教学摘要 texts/queue-length.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "confirmed",
+    "difficulty": "basic",
+    "reference_urls": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Queue.html"
+    ]
+  },
+  {
+    "resource_id": "c-note-array-access",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "数组随机访问与连续存储",
+    "knowledge_point_ids": [
+      "proposed-kp-array"
+    ],
+    "file": "texts/array-access.md",
+    "source": "项目自编教学摘要 texts/array-access.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-array-insert",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "顺序表插入的移动成本",
+    "knowledge_point_ids": [
+      "proposed-kp-array"
+    ],
+    "file": "texts/array-insert.md",
+    "source": "项目自编教学摘要 texts/array-insert.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-linked-insert",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "单链表插入与前驱节点",
+    "knowledge_point_ids": [
+      "proposed-kp-linked-list"
+    ],
+    "file": "texts/linked-insert.md",
+    "source": "项目自编教学摘要 texts/linked-insert.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-linked-delete",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "链表删除的指针顺序",
+    "knowledge_point_ids": [
+      "proposed-kp-linked-list"
+    ],
+    "file": "texts/linked-delete.md",
+    "source": "项目自编教学摘要 texts/linked-delete.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-tree-traversal",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "二叉树的三种深度遍历",
+    "knowledge_point_ids": [
+      "proposed-kp-tree"
+    ],
+    "file": "texts/tree-traversal.md",
+    "source": "项目自编教学摘要 texts/tree-traversal.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-tree-level",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "二叉树层序遍历与队列",
+    "knowledge_point_ids": [
+      "proposed-kp-tree"
+    ],
+    "file": "texts/tree-level.md",
+    "source": "项目自编教学摘要 texts/tree-level.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-graph-visited",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "图遍历的访问标记",
+    "knowledge_point_ids": [
+      "proposed-kp-graph"
+    ],
+    "file": "texts/graph-visited.md",
+    "source": "项目自编教学摘要 texts/graph-visited.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  },
+  {
+    "resource_id": "c-note-graph-storage",
+    "resource_version": 1,
+    "course_id": "demo-course-ds-teacher-2",
+    "title": "邻接表与邻接矩阵",
+    "knowledge_point_ids": [
+      "proposed-kp-graph"
+    ],
+    "file": "texts/graph-storage.md",
+    "source": "项目自编教学摘要 texts/graph-storage.md",
+    "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+    "status": "proposed",
+    "difficulty": "basic",
+    "reference_urls": []
+  }
+]

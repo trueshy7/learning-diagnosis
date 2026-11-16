@@ -1,6 +1,362 @@
 [
-  {"id": "q-stack-1", "query": "栈为什么是后进先出", "expected_resource_id": "res-stack"},
-  {"id": "q-stack-2", "query": "括号匹配使用什么结构", "expected_resource_id": "res-stack"},
-  {"id": "q-queue-1", "query": "队列的入队和出队顺序", "expected_resource_id": "res-queue"},
-  {"id": "q-queue-2", "query": "循环队列如何判断队满", "expected_resource_id": "res-queue"}
+  {
+    "id": "Q01",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "最近放进去的元素先取出来，这种结构遵循什么规则？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-lifo",
+        "start": 64,
+        "end": 82,
+        "excerpt": "后进先出表示最近压入的元素最先被弹出"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q02",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "输入123时为什么输出312不是合法的栈输出？",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-sequence",
+        "start": 214,
+        "end": 239,
+        "excerpt": "弹出 3 后栈顶是 2，不能越过 2 直接弹出 1"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q03",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "递归函数为什么会按最近调用的层次先返回？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-call",
+        "start": 63,
+        "end": 83,
+        "excerpt": "当前调用完成后，先恢复最近尚未完成的调用"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q04",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "编辑器的撤销和重做可以怎样用两个栈组织？",
+    "knowledge_point_ids": [
+      "demo-kp-stack-concept"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-undo",
+        "start": 67,
+        "end": 93,
+        "excerpt": "从撤销栈弹出最近操作，执行其逆操作，再把它压入重做栈"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q05",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "后缀表达式中遇到减号时，先弹出的数是左操作数还是右操作数？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-expression",
+        "start": 71,
+        "end": 86,
+        "excerpt": "先弹出右操作数，再弹出左操作数"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q06",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "peek读取栈顶后，栈中的元素会被删除吗？",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-api",
+        "start": 59,
+        "end": 75,
+        "excerpt": "peek 只读取当前栈顶而不删除"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q07",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "top指向当前有效栈顶且从-1开始，固定容量顺序栈怎样判满？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-array",
+        "start": 97,
+        "end": 116,
+        "excerpt": "top 是否等于 capacity-1"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q08",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "单链表做链栈时为什么一般选择头节点作为栈顶？",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-linked",
+        "start": 225,
+        "end": 238,
+        "excerpt": "头部压入和删除都不需要遍历"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q09",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "括号数量相同为什么仍可能不匹配，例如([)]？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-brackets",
+        "start": 164,
+        "end": 181,
+        "excerpt": "遇到 ) 时栈顶是 [，类型不匹配"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q10",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "空栈执行失败的pop之后，元素数量和栈顶状态应该怎样？",
+    "knowledge_point_ids": [
+      "demo-kp-stack-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-stack-errors",
+        "start": 69,
+        "end": 92,
+        "excerpt": "失败操作不应减少元素数、移动栈顶或覆盖有效元素"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q11",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "排队等待时较早到达的人先处理，对应哪种顺序原则？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-fifo",
+        "start": 49,
+        "end": 71,
+        "excerpt": "先进先出表示较早进入且尚未移除的元素优先离开"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q12",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "为什么广度优先搜索能先处理同层顶点而不是直接深入下一层？",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-bfs",
+        "start": 63,
+        "end": 84,
+        "excerpt": "FIFO 队列保存已经发现但尚未展开的顶点"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q13",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "FIFO队列的任务出队有序，多个消费者时完成顺序一定相同吗？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-schedule",
+        "start": 206,
+        "end": 222,
+        "excerpt": "取出顺序和完成顺序是两个不同事件"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q14",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "双端队列在同一端追加和弹出时，会表现为队列还是栈？",
+    "knowledge_point_ids": [
+      "demo-kp-queue-concept"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-deque",
+        "start": 133,
+        "end": 154,
+        "excerpt": "都在尾部追加和弹出，则得到 LIFO 行为"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q15",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "同样依次加入123，栈和普通队列全部移除时顺序有何不同？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-compare",
+        "start": 130,
+        "end": 150,
+        "excerpt": "栈输出 3、2、1，队列输出 1、2、3"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q16",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "dequeue和读取队头front的区别是什么？",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-api",
+        "start": 71,
+        "end": 93,
+        "excerpt": "front 或 peek 只读取队头，不删除"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q17",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "保留一个空位且rear指向下一写入位置的循环队列如何判满？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-circular",
+        "start": 101,
+        "end": 135,
+        "excerpt": "队满为 (rear + 1) % capacity == front"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q18",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "循环队列增加count后，能不能用满整个数组，空满如何判断？",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-count",
+        "start": 50,
+        "end": 84,
+        "excerpt": "空队列为 count==0，满队列为 count==capacity"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  },
+  {
+    "id": "Q19",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "没有哨兵的链队列最后一个元素出队后，尾指针需要怎样处理？",
+    "knowledge_point_ids": [],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-linked",
+        "start": 155,
+        "end": 174,
+        "excerpt": "应把 head 和 tail 都置为空"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "course_only"
+  },
+  {
+    "id": "Q20",
+    "course_id": "demo-course-ds-teacher-2",
+    "query": "循环数组front为6、rear为2、容量8，队列长度怎么算？",
+    "knowledge_point_ids": [
+      "demo-kp-queue-operations"
+    ],
+    "expected": [
+      {
+        "resource_id": "c-note-queue-length",
+        "start": 64,
+        "end": 104,
+        "excerpt": "当前长度可用 (rear-front+capacity)%capacity 计算"
+      }
+    ],
+    "reviewer": null,
+    "review_status": "pending_peer_review",
+    "filter_mode": "knowledge_point"
+  }
 ]

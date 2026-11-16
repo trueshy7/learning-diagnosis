@@ -2,10 +2,10 @@
 import json
 
 from rag_service.config import Settings
-from rag_service.index import LocalIndex
+from rag_service.catalog import KnowledgeIndex
 
 
 if __name__ == "__main__":
     settings = Settings.from_env()
-    result = LocalIndex(settings.data_path, settings.chunk_size, settings.chunk_overlap).rebuild()
+    result = KnowledgeIndex(settings).rebuild()
     print(json.dumps(result, ensure_ascii=False, indent=2))

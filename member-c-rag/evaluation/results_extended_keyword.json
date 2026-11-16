@@ -1,0 +1,1656 @@
+{
+  "generated_at": 1794836900,
+  "python": "3.10.6",
+  "dataset": "extended_proposal_20",
+  "review_status": "pending_peer_review",
+  "results": [
+    {
+      "backend": "keyword",
+      "chunk_size": 400,
+      "chunk_overlap": 60,
+      "build_ms": 114.379,
+      "index": {
+        "documents": 28,
+        "chunks": 29,
+        "tombstones": 0,
+        "index_version": "rag-49a3fa9ded4309001070",
+        "mode": "keyword_demo",
+        "storage_signature": "keyword-v2",
+        "built_at": 1794836900,
+        "requires_rebuild": false,
+        "chunk_size": 400,
+        "chunk_overlap": 60
+      },
+      "hits": 19,
+      "denominator": 20,
+      "hit_at_5": 0.95,
+      "target_passed": true,
+      "citation_valid": 39,
+      "citation_total": 39,
+      "citation_valid_rate": 1.0,
+      "latency_ms_mean": 2.011,
+      "latency_ms_p95": 3.164,
+      "questions": [
+        {
+          "id": "Q01",
+          "query": "最近放进去的元素先取出来，这种结构遵循什么规则？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-lifo",
+              "start": 64,
+              "end": 82,
+              "excerpt": "后进先出表示最近压入的元素最先被弹出"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-fifo",
+              "chunk_id": "chunk-84af86565dbc53252cae5d7c",
+              "score": 0.25,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 302,
+                "chapter": "先进先出与队头队尾"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-lifo",
+              "chunk_id": "chunk-aed198c4e3a6be1ed5068161",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 349,
+                "chapter": "后进先出与栈顶栈底"
+              }
+            }
+          ],
+          "elapsed_ms": 3.164
+        },
+        {
+          "id": "Q02",
+          "query": "输入123时为什么输出312不是合法的栈输出？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-sequence",
+              "start": 214,
+              "end": 239,
+              "excerpt": "弹出 3 后栈顶是 2，不能越过 2 直接弹出 1"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "chunk_id": "chunk-445e6c18be565d46ffa15f47",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "表达式求值中的操作数栈"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-sequence",
+              "chunk_id": "chunk-55680d8343169b2f038b7b39",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 330,
+                "chapter": "交错入栈与出栈序列"
+              }
+            }
+          ],
+          "elapsed_ms": 1.582
+        },
+        {
+          "id": "Q03",
+          "query": "递归函数为什么会按最近调用的层次先返回？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-call",
+              "start": 63,
+              "end": 83,
+              "excerpt": "当前调用完成后，先恢复最近尚未完成的调用"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-call",
+              "chunk_id": "chunk-cad097eca2816b6f9cc6f073",
+              "score": 0.277778,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 374,
+                "chapter": "函数调用栈与递归返回"
+              }
+            }
+          ],
+          "elapsed_ms": 1.592
+        },
+        {
+          "id": "Q04",
+          "query": "编辑器的撤销和重做可以怎样用两个栈组织？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-undo",
+              "start": 67,
+              "end": 93,
+              "excerpt": "从撤销栈弹出最近操作，执行其逆操作，再把它压入重做栈"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-undo",
+              "chunk_id": "chunk-fe076d7afea5503251c9e6b4",
+              "score": 0.333333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 322,
+                "chapter": "撤销与重做的双栈模型"
+              }
+            }
+          ],
+          "elapsed_ms": 2.515
+        },
+        {
+          "id": "Q05",
+          "query": "后缀表达式中遇到减号时，先弹出的数是左操作数还是右操作数？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "start": 71,
+              "end": 86,
+              "excerpt": "先弹出右操作数，再弹出左操作数"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "chunk_id": "chunk-445e6c18be565d46ffa15f47",
+              "score": 0.521739,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "表达式求值中的操作数栈"
+              }
+            }
+          ],
+          "elapsed_ms": 1.699
+        },
+        {
+          "id": "Q06",
+          "query": "peek读取栈顶后，栈中的元素会被删除吗？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-api",
+              "start": 59,
+              "end": 75,
+              "excerpt": "peek 只读取当前栈顶而不删除"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-api",
+              "chunk_id": "chunk-ac34aeb7292e9ee24cadc2e0",
+              "score": 0.428571,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 352,
+                "chapter": "push pop peek 的区别"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            }
+          ],
+          "elapsed_ms": 1.588
+        },
+        {
+          "id": "Q07",
+          "query": "top指向当前有效栈顶且从-1开始，固定容量顺序栈怎样判满？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-array",
+              "start": 97,
+              "end": 116,
+              "excerpt": "top 是否等于 capacity-1"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-9102dda6e972f1a49d10c206",
+              "score": 0.454545,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 309,
+                "chapter": "顺序栈的 top 与容量检查"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-71a168e32f7de21e20979a71",
+              "score": 0.363636,
+              "location": {
+                "kind": "text",
+                "start": 249,
+                "end": 406,
+                "chapter": "状态推演"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-circular",
+              "chunk_id": "chunk-a8896bd3d23bb13725615c83",
+              "score": 0.227273,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 386,
+                "chapter": "循环队列保留空位的判空判满"
+              }
+            }
+          ],
+          "elapsed_ms": 1.762
+        },
+        {
+          "id": "Q08",
+          "query": "单链表做链栈时为什么一般选择头节点作为栈顶？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-linked",
+              "start": 225,
+              "end": 238,
+              "excerpt": "头部压入和删除都不需要遍历"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.5,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 1.655
+        },
+        {
+          "id": "Q09",
+          "query": "括号数量相同为什么仍可能不匹配，例如([)]？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-brackets",
+              "start": 164,
+              "end": 181,
+              "excerpt": "遇到 ) 时栈顶是 [，类型不匹配"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-brackets",
+              "chunk_id": "chunk-5162ceee56c00d27c81acb46",
+              "score": 0.4,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 318,
+                "chapter": "括号匹配与不匹配定位"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.266667,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 2.245
+        },
+        {
+          "id": "Q10",
+          "query": "空栈执行失败的pop之后，元素数量和栈顶状态应该怎样？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-errors",
+              "start": 69,
+              "end": 92,
+              "excerpt": "失败操作不应减少元素数、移动栈顶或覆盖有效元素"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.4,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-9102dda6e972f1a49d10c206",
+              "score": 0.3,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 309,
+                "chapter": "顺序栈的 top 与容量检查"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-api",
+              "chunk_id": "chunk-ac34aeb7292e9ee24cadc2e0",
+              "score": 0.3,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 352,
+                "chapter": "push pop peek 的区别"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 1.844
+        },
+        {
+          "id": "Q11",
+          "query": "排队等待时较早到达的人先处理，对应哪种顺序原则？",
+          "hit": false,
+          "expected": [
+            {
+              "resource_id": "c-note-queue-fifo",
+              "start": 49,
+              "end": 71,
+              "excerpt": "先进先出表示较早进入且尚未移除的元素优先离开"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-schedule",
+              "chunk_id": "chunk-081c6ed8f26bfab5d093564f",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 320,
+                "chapter": "任务缓冲与生产者消费者"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-call",
+              "chunk_id": "chunk-cad097eca2816b6f9cc6f073",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 374,
+                "chapter": "函数调用栈与递归返回"
+              }
+            }
+          ],
+          "elapsed_ms": 1.686
+        },
+        {
+          "id": "Q12",
+          "query": "为什么广度优先搜索能先处理同层顶点而不是直接深入下一层？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "start": 63,
+              "end": 84,
+              "excerpt": "FIFO 队列保存已经发现但尚未展开的顶点"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "chunk_id": "chunk-d8bb5bf5bc82a5f878ff8303",
+              "score": 0.461538,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 321,
+                "chapter": "广度优先搜索为什么使用队列"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-compare",
+              "chunk_id": "chunk-38cbbc52a7e8532f0124316c",
+              "score": 0.346154,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 276,
+                "chapter": "栈与队列的顺序对照"
+              }
+            }
+          ],
+          "elapsed_ms": 1.55
+        },
+        {
+          "id": "P01",
+          "query": "数组按下标随机访问通常是什么复杂度？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-array-access",
+              "start": 65,
+              "end": 77,
+              "excerpt": "随机访问通常为 O(1)"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-array-access",
+              "chunk_id": "chunk-f3a29d7b6261e95e7d219d88",
+              "score": 0.5625,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 106,
+                "chapter": "数组随机访问与连续存储"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-deque",
+              "chunk_id": "chunk-8e6f1e735b5b998d799e4251",
+              "score": 0.25,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 323,
+                "chapter": "普通队列与双端队列的边界"
+              }
+            }
+          ],
+          "elapsed_ms": 2.232
+        },
+        {
+          "id": "P02",
+          "query": "顺序表表头插入为什么最坏需要线性时间？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-array-insert",
+              "start": 58,
+              "end": 73,
+              "excerpt": "在表头插入可能移动 n 个元素"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-array-insert",
+              "chunk_id": "chunk-2edf3b088129af81ecbb916c",
+              "score": 0.411765,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 107,
+                "chapter": "顺序表插入的移动成本"
+              }
+            }
+          ],
+          "elapsed_ms": 1.659
+        },
+        {
+          "id": "P03",
+          "query": "已知前驱时链表插入与只给位置时的成本有何区别？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-linked-insert",
+              "start": 87,
+              "end": 95,
+              "excerpt": "寻找前驱需要遍历"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-linked-insert",
+              "chunk_id": "chunk-15e3973451e3830cc15d5e94",
+              "score": 0.428571,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 114,
+                "chapter": "单链表插入与前驱节点"
+              }
+            }
+          ],
+          "elapsed_ms": 1.728
+        },
+        {
+          "id": "P04",
+          "query": "删除单链表前驱后面的节点应怎样改变next指针？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-linked-delete",
+              "start": 46,
+              "end": 61,
+              "excerpt": "让 p.next=q.next"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-linked-delete",
+              "chunk_id": "chunk-f8652ddda1c6efbd3bcf545e",
+              "score": 0.5,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 120,
+                "chapter": "链表删除的指针顺序"
+              }
+            },
+            {
+              "resource_id": "c-note-linked-insert",
+              "chunk_id": "chunk-15e3973451e3830cc15d5e94",
+              "score": 0.277778,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 114,
+                "chapter": "单链表插入与前驱节点"
+              }
+            }
+          ],
+          "elapsed_ms": 1.574
+        },
+        {
+          "id": "P05",
+          "query": "二叉树中序遍历按什么次序访问根和左右子树？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-tree-traversal",
+              "start": 29,
+              "end": 39,
+              "excerpt": "中序遍历按左、根、右"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-tree-traversal",
+              "chunk_id": "chunk-f91b6c1149ff6fdb86f91819",
+              "score": 0.368421,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 92,
+                "chapter": "二叉树的三种深度遍历"
+              }
+            },
+            {
+              "resource_id": "c-note-tree-level",
+              "chunk_id": "chunk-d87e654a6cc4b2c2845a5d03",
+              "score": 0.263158,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 86,
+                "chapter": "二叉树层序遍历与队列"
+              }
+            }
+          ],
+          "elapsed_ms": 1.612
+        },
+        {
+          "id": "P06",
+          "query": "二叉树层序遍历怎样使用队列？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-tree-level",
+              "start": 42,
+              "end": 64,
+              "excerpt": "每次出队访问，再依次把非空左孩子和右孩子入队"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-tree-level",
+              "chunk_id": "chunk-d87e654a6cc4b2c2845a5d03",
+              "score": 0.583333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 86,
+                "chapter": "二叉树层序遍历与队列"
+              }
+            },
+            {
+              "resource_id": "c-note-tree-traversal",
+              "chunk_id": "chunk-f91b6c1149ff6fdb86f91819",
+              "score": 0.333333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 92,
+                "chapter": "二叉树的三种深度遍历"
+              }
+            }
+          ],
+          "elapsed_ms": 2.736
+        },
+        {
+          "id": "P07",
+          "query": "图的广度优先搜索为什么应在顶点入队时做访问标记？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-graph-visited",
+              "start": 43,
+              "end": 55,
+              "excerpt": "避免重复展开甚至无限循环"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "chunk_id": "chunk-d8bb5bf5bc82a5f878ff8303",
+              "score": 0.681818,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 321,
+                "chapter": "广度优先搜索为什么使用队列"
+              }
+            },
+            {
+              "resource_id": "c-note-graph-visited",
+              "chunk_id": "chunk-49614ace9a8c5aa6d5a0e0ae",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 105,
+                "chapter": "图遍历的访问标记"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-compare",
+              "chunk_id": "chunk-38cbbc52a7e8532f0124316c",
+              "score": 0.227273,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 276,
+                "chapter": "栈与队列的顺序对照"
+              }
+            }
+          ],
+          "elapsed_ms": 3.171
+        },
+        {
+          "id": "P08",
+          "query": "稀疏图使用邻接表比邻接矩阵的空间优势是什么？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-graph-storage",
+              "start": 58,
+              "end": 73,
+              "excerpt": "邻接表空间通常为 O(V+E)"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-graph-storage",
+              "chunk_id": "chunk-975a7deab97c8f8b2dc79f60",
+              "score": 0.368421,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 101,
+                "chapter": "邻接表与邻接矩阵"
+              }
+            }
+          ],
+          "elapsed_ms": 2.632
+        }
+      ],
+      "failed_question_ids": [
+        "Q11"
+      ],
+      "unanswerable": [
+        {
+          "id": "N1",
+          "query": "火星环绕周期是多少天",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        },
+        {
+          "id": "N2",
+          "query": "化学反应活化能的实验数据",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        },
+        {
+          "id": "N3",
+          "query": "本班期末考试具体时间及教室",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        }
+      ]
+    },
+    {
+      "backend": "keyword",
+      "chunk_size": 700,
+      "chunk_overlap": 100,
+      "build_ms": 117.548,
+      "index": {
+        "documents": 28,
+        "chunks": 28,
+        "tombstones": 0,
+        "index_version": "rag-ae54daf7aef9a9fe666d",
+        "mode": "keyword_demo",
+        "storage_signature": "keyword-v2",
+        "built_at": 1794836901,
+        "requires_rebuild": false,
+        "chunk_size": 700,
+        "chunk_overlap": 100
+      },
+      "hits": 19,
+      "denominator": 20,
+      "hit_at_5": 0.95,
+      "target_passed": true,
+      "citation_valid": 39,
+      "citation_total": 39,
+      "citation_valid_rate": 1.0,
+      "latency_ms_mean": 2.084,
+      "latency_ms_p95": 2.983,
+      "questions": [
+        {
+          "id": "Q01",
+          "query": "最近放进去的元素先取出来，这种结构遵循什么规则？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-lifo",
+              "start": 64,
+              "end": 82,
+              "excerpt": "后进先出表示最近压入的元素最先被弹出"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-fifo",
+              "chunk_id": "chunk-84af86565dbc53252cae5d7c",
+              "score": 0.25,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 302,
+                "chapter": "先进先出与队头队尾"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-lifo",
+              "chunk_id": "chunk-aed198c4e3a6be1ed5068161",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 349,
+                "chapter": "后进先出与栈顶栈底"
+              }
+            }
+          ],
+          "elapsed_ms": 1.866
+        },
+        {
+          "id": "Q02",
+          "query": "输入123时为什么输出312不是合法的栈输出？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-sequence",
+              "start": 214,
+              "end": 239,
+              "excerpt": "弹出 3 后栈顶是 2，不能越过 2 直接弹出 1"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "chunk_id": "chunk-445e6c18be565d46ffa15f47",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "表达式求值中的操作数栈"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-sequence",
+              "chunk_id": "chunk-55680d8343169b2f038b7b39",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 330,
+                "chapter": "交错入栈与出栈序列"
+              }
+            }
+          ],
+          "elapsed_ms": 1.584
+        },
+        {
+          "id": "Q03",
+          "query": "递归函数为什么会按最近调用的层次先返回？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-call",
+              "start": 63,
+              "end": 83,
+              "excerpt": "当前调用完成后，先恢复最近尚未完成的调用"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-call",
+              "chunk_id": "chunk-cad097eca2816b6f9cc6f073",
+              "score": 0.277778,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 374,
+                "chapter": "函数调用栈与递归返回"
+              }
+            }
+          ],
+          "elapsed_ms": 2.119
+        },
+        {
+          "id": "Q04",
+          "query": "编辑器的撤销和重做可以怎样用两个栈组织？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-undo",
+              "start": 67,
+              "end": 93,
+              "excerpt": "从撤销栈弹出最近操作，执行其逆操作，再把它压入重做栈"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-undo",
+              "chunk_id": "chunk-fe076d7afea5503251c9e6b4",
+              "score": 0.333333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 322,
+                "chapter": "撤销与重做的双栈模型"
+              }
+            }
+          ],
+          "elapsed_ms": 1.767
+        },
+        {
+          "id": "Q05",
+          "query": "后缀表达式中遇到减号时，先弹出的数是左操作数还是右操作数？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "start": 71,
+              "end": 86,
+              "excerpt": "先弹出右操作数，再弹出左操作数"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-expression",
+              "chunk_id": "chunk-445e6c18be565d46ffa15f47",
+              "score": 0.521739,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "表达式求值中的操作数栈"
+              }
+            }
+          ],
+          "elapsed_ms": 1.763
+        },
+        {
+          "id": "Q06",
+          "query": "peek读取栈顶后，栈中的元素会被删除吗？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-api",
+              "start": 59,
+              "end": 75,
+              "excerpt": "peek 只读取当前栈顶而不删除"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-api",
+              "chunk_id": "chunk-ac34aeb7292e9ee24cadc2e0",
+              "score": 0.428571,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 352,
+                "chapter": "push pop peek 的区别"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.214286,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            }
+          ],
+          "elapsed_ms": 1.643
+        },
+        {
+          "id": "Q07",
+          "query": "top指向当前有效栈顶且从-1开始，固定容量顺序栈怎样判满？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-array",
+              "start": 97,
+              "end": 116,
+              "excerpt": "top 是否等于 capacity-1"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-9c95784b833e1c7515fe9c1d",
+              "score": 0.545455,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 406,
+                "chapter": "顺序栈的 top 与容量检查"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-circular",
+              "chunk_id": "chunk-a8896bd3d23bb13725615c83",
+              "score": 0.227273,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 386,
+                "chapter": "循环队列保留空位的判空判满"
+              }
+            }
+          ],
+          "elapsed_ms": 2.021
+        },
+        {
+          "id": "Q08",
+          "query": "单链表做链栈时为什么一般选择头节点作为栈顶？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-linked",
+              "start": 225,
+              "end": 238,
+              "excerpt": "头部压入和删除都不需要遍历"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.5,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 2.4
+        },
+        {
+          "id": "Q09",
+          "query": "括号数量相同为什么仍可能不匹配，例如([)]？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-brackets",
+              "start": 164,
+              "end": 181,
+              "excerpt": "遇到 ) 时栈顶是 [，类型不匹配"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-brackets",
+              "chunk_id": "chunk-5162ceee56c00d27c81acb46",
+              "score": 0.4,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 318,
+                "chapter": "括号匹配与不匹配定位"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.266667,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 1.967
+        },
+        {
+          "id": "Q10",
+          "query": "空栈执行失败的pop之后，元素数量和栈顶状态应该怎样？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-stack-errors",
+              "start": 69,
+              "end": 92,
+              "excerpt": "失败操作不应减少元素数、移动栈顶或覆盖有效元素"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-stack-errors",
+              "chunk_id": "chunk-e5173f9622587f896aea466a",
+              "score": 0.4,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 308,
+                "chapter": "空栈异常与状态不变条件"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-9c95784b833e1c7515fe9c1d",
+              "score": 0.3,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 406,
+                "chapter": "顺序栈的 top 与容量检查"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-api",
+              "chunk_id": "chunk-ac34aeb7292e9ee24cadc2e0",
+              "score": 0.3,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 352,
+                "chapter": "push pop peek 的区别"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-linked",
+              "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 317,
+                "chapter": "链栈为什么在链表头部操作"
+              }
+            }
+          ],
+          "elapsed_ms": 1.7
+        },
+        {
+          "id": "Q11",
+          "query": "排队等待时较早到达的人先处理，对应哪种顺序原则？",
+          "hit": false,
+          "expected": [
+            {
+              "resource_id": "c-note-queue-fifo",
+              "start": 49,
+              "end": 71,
+              "excerpt": "先进先出表示较早进入且尚未移除的元素优先离开"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-schedule",
+              "chunk_id": "chunk-081c6ed8f26bfab5d093564f",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 320,
+                "chapter": "任务缓冲与生产者消费者"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-call",
+              "chunk_id": "chunk-cad097eca2816b6f9cc6f073",
+              "score": 0.2,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 374,
+                "chapter": "函数调用栈与递归返回"
+              }
+            }
+          ],
+          "elapsed_ms": 1.806
+        },
+        {
+          "id": "Q12",
+          "query": "为什么广度优先搜索能先处理同层顶点而不是直接深入下一层？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "start": 63,
+              "end": 84,
+              "excerpt": "FIFO 队列保存已经发现但尚未展开的顶点"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "chunk_id": "chunk-d8bb5bf5bc82a5f878ff8303",
+              "score": 0.461538,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 321,
+                "chapter": "广度优先搜索为什么使用队列"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-compare",
+              "chunk_id": "chunk-38cbbc52a7e8532f0124316c",
+              "score": 0.346154,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 276,
+                "chapter": "栈与队列的顺序对照"
+              }
+            }
+          ],
+          "elapsed_ms": 2.81
+        },
+        {
+          "id": "P01",
+          "query": "数组按下标随机访问通常是什么复杂度？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-array-access",
+              "start": 65,
+              "end": 77,
+              "excerpt": "随机访问通常为 O(1)"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-array-access",
+              "chunk_id": "chunk-f3a29d7b6261e95e7d219d88",
+              "score": 0.5625,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 106,
+                "chapter": "数组随机访问与连续存储"
+              }
+            },
+            {
+              "resource_id": "c-note-stack-array",
+              "chunk_id": "chunk-9c95784b833e1c7515fe9c1d",
+              "score": 0.3125,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 406,
+                "chapter": "顺序栈的 top 与容量检查"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-deque",
+              "chunk_id": "chunk-8e6f1e735b5b998d799e4251",
+              "score": 0.25,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 323,
+                "chapter": "普通队列与双端队列的边界"
+              }
+            }
+          ],
+          "elapsed_ms": 3.136
+        },
+        {
+          "id": "P02",
+          "query": "顺序表表头插入为什么最坏需要线性时间？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-array-insert",
+              "start": 58,
+              "end": 73,
+              "excerpt": "在表头插入可能移动 n 个元素"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-array-insert",
+              "chunk_id": "chunk-2edf3b088129af81ecbb916c",
+              "score": 0.411765,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 107,
+                "chapter": "顺序表插入的移动成本"
+              }
+            }
+          ],
+          "elapsed_ms": 2.983
+        },
+        {
+          "id": "P03",
+          "query": "已知前驱时链表插入与只给位置时的成本有何区别？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-linked-insert",
+              "start": 87,
+              "end": 95,
+              "excerpt": "寻找前驱需要遍历"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-linked-insert",
+              "chunk_id": "chunk-15e3973451e3830cc15d5e94",
+              "score": 0.428571,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 114,
+                "chapter": "单链表插入与前驱节点"
+              }
+            }
+          ],
+          "elapsed_ms": 2.92
+        },
+        {
+          "id": "P04",
+          "query": "删除单链表前驱后面的节点应怎样改变next指针？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-linked-delete",
+              "start": 46,
+              "end": 61,
+              "excerpt": "让 p.next=q.next"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-linked-delete",
+              "chunk_id": "chunk-f8652ddda1c6efbd3bcf545e",
+              "score": 0.5,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 120,
+                "chapter": "链表删除的指针顺序"
+              }
+            },
+            {
+              "resource_id": "c-note-linked-insert",
+              "chunk_id": "chunk-15e3973451e3830cc15d5e94",
+              "score": 0.277778,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 114,
+                "chapter": "单链表插入与前驱节点"
+              }
+            }
+          ],
+          "elapsed_ms": 1.754
+        },
+        {
+          "id": "P05",
+          "query": "二叉树中序遍历按什么次序访问根和左右子树？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-tree-traversal",
+              "start": 29,
+              "end": 39,
+              "excerpt": "中序遍历按左、根、右"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-tree-traversal",
+              "chunk_id": "chunk-f91b6c1149ff6fdb86f91819",
+              "score": 0.368421,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 92,
+                "chapter": "二叉树的三种深度遍历"
+              }
+            },
+            {
+              "resource_id": "c-note-tree-level",
+              "chunk_id": "chunk-d87e654a6cc4b2c2845a5d03",
+              "score": 0.263158,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 86,
+                "chapter": "二叉树层序遍历与队列"
+              }
+            }
+          ],
+          "elapsed_ms": 1.839
+        },
+        {
+          "id": "P06",
+          "query": "二叉树层序遍历怎样使用队列？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-tree-level",
+              "start": 42,
+              "end": 64,
+              "excerpt": "每次出队访问，再依次把非空左孩子和右孩子入队"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-tree-level",
+              "chunk_id": "chunk-d87e654a6cc4b2c2845a5d03",
+              "score": 0.583333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 86,
+                "chapter": "二叉树层序遍历与队列"
+              }
+            },
+            {
+              "resource_id": "c-note-tree-traversal",
+              "chunk_id": "chunk-f91b6c1149ff6fdb86f91819",
+              "score": 0.333333,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 92,
+                "chapter": "二叉树的三种深度遍历"
+              }
+            }
+          ],
+          "elapsed_ms": 1.659
+        },
+        {
+          "id": "P07",
+          "query": "图的广度优先搜索为什么应在顶点入队时做访问标记？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-graph-visited",
+              "start": 43,
+              "end": 55,
+              "excerpt": "避免重复展开甚至无限循环"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-queue-bfs",
+              "chunk_id": "chunk-d8bb5bf5bc82a5f878ff8303",
+              "score": 0.681818,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 321,
+                "chapter": "广度优先搜索为什么使用队列"
+              }
+            },
+            {
+              "resource_id": "c-note-graph-visited",
+              "chunk_id": "chunk-49614ace9a8c5aa6d5a0e0ae",
+              "score": 0.272727,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 105,
+                "chapter": "图遍历的访问标记"
+              }
+            },
+            {
+              "resource_id": "c-note-queue-compare",
+              "chunk_id": "chunk-38cbbc52a7e8532f0124316c",
+              "score": 0.227273,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 276,
+                "chapter": "栈与队列的顺序对照"
+              }
+            }
+          ],
+          "elapsed_ms": 2.327
+        },
+        {
+          "id": "P08",
+          "query": "稀疏图使用邻接表比邻接矩阵的空间优势是什么？",
+          "hit": true,
+          "expected": [
+            {
+              "resource_id": "c-note-graph-storage",
+              "start": 58,
+              "end": 73,
+              "excerpt": "邻接表空间通常为 O(V+E)"
+            }
+          ],
+          "mode": "keyword_demo",
+          "retrieved": [
+            {
+              "resource_id": "c-note-graph-storage",
+              "chunk_id": "chunk-975a7deab97c8f8b2dc79f60",
+              "score": 0.368421,
+              "location": {
+                "kind": "text",
+                "start": 0,
+                "end": 101,
+                "chapter": "邻接表与邻接矩阵"
+              }
+            }
+          ],
+          "elapsed_ms": 1.618
+        }
+      ],
+      "failed_question_ids": [
+        "Q11"
+      ],
+      "unanswerable": [
+        {
+          "id": "N1",
+          "query": "火星环绕周期是多少天",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        },
+        {
+          "id": "N2",
+          "query": "化学反应活化能的实验数据",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        },
+        {
+          "id": "N3",
+          "query": "本班期末考试具体时间及教室",
+          "empty": true,
+          "top_score": null,
+          "mode": "keyword_demo"
+        }
+      ]
+    }
+  ]
+}

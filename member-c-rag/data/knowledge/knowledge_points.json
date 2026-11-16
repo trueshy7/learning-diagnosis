@@ -1,0 +1,58 @@
+[
+  {
+    "id": "demo-kp-stack-concept",
+    "name": "栈的基本概念",
+    "status": "confirmed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "ts SQL seed"
+  },
+  {
+    "id": "demo-kp-stack-operations",
+    "name": "栈的基本操作",
+    "status": "confirmed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "ts SQL seed"
+  },
+  {
+    "id": "demo-kp-queue-concept",
+    "name": "队列的基本概念",
+    "status": "confirmed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "ts SQL seed"
+  },
+  {
+    "id": "demo-kp-queue-operations",
+    "name": "队列的基本操作",
+    "status": "confirmed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "ts SQL seed"
+  },
+  {
+    "id": "proposed-kp-array",
+    "name": "顺序表与数组",
+    "status": "proposed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "C proposal not in B"
+  },
+  {
+    "id": "proposed-kp-linked-list",
+    "name": "链表",
+    "status": "proposed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "C proposal not in B"
+  },
+  {
+    "id": "proposed-kp-tree",
+    "name": "二叉树",
+    "status": "proposed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "C proposal not in B"
+  },
+  {
+    "id": "proposed-kp-graph",
+    "name": "图与遍历",
+    "status": "proposed",
+    "course_id": "demo-course-ds-teacher-2",
+    "authority": "C proposal not in B"
+  }
+]

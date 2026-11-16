@@ -1,0 +1,6 @@
+[
+  {"id": "q-stack-1", "query": "栈为什么是后进先出", "expected_resource_id": "res-stack"},
+  {"id": "q-stack-2", "query": "括号匹配使用什么结构", "expected_resource_id": "res-stack"},
+  {"id": "q-queue-1", "query": "队列的入队和出队顺序", "expected_resource_id": "res-queue"},
+  {"id": "q-queue-2", "query": "循环队列如何判断队满", "expected_resource_id": "res-queue"}
+]

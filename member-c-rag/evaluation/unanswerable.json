@@ -1,0 +1,17 @@
+[
+  {
+    "id": "N1",
+    "query": "火星环绕周期是多少天",
+    "course_id": "demo-course-ds-teacher-2"
+  },
+  {
+    "id": "N2",
+    "query": "化学反应活化能的实验数据",
+    "course_id": "demo-course-ds-teacher-2"
+  },
+  {
+    "id": "N3",
+    "query": "本班期末考试具体时间及教室",
+    "course_id": "demo-course-ds-teacher-2"
+  }
+]

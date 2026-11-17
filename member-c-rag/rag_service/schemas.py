@@ -42,7 +42,7 @@ class Evidence(StrictModel):
     knowledge_point_ids: list[str]
     text: str
     score: float
-    location: str
+    location: str | dict
     source: str
     title: str
 

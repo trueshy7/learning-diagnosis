@@ -1,0 +1,149 @@
+{
+  "generated_at": 1794837831,
+  "transport": "real_loopback_http",
+  "backend": "chroma",
+  "llm_called": false,
+  "note": "D 当前为规则模板 不代表已完成真实 LLM 闭环",
+  "request": {
+    "attempt_id": "attempt-demo-001",
+    "course_id": "course-ds",
+    "graded_answers": [
+      {
+        "question_id": "q-stack-1",
+        "knowledge_point_ids": [
+          "kp-stack"
+        ],
+        "correct": true
+      },
+      {
+        "question_id": "q-stack-2",
+        "knowledge_point_ids": [
+          "kp-stack"
+        ],
+        "correct": false
+      },
+      {
+        "question_id": "q-stack-3",
+        "knowledge_point_ids": [
+          "kp-stack"
+        ],
+        "correct": false
+      },
+      {
+        "question_id": "q-queue-1",
+        "knowledge_point_ids": [
+          "kp-queue"
+        ],
+        "correct": true
+      },
+      {
+        "question_id": "q-queue-2",
+        "knowledge_point_ids": [
+          "kp-queue"
+        ],
+        "correct": true
+      },
+      {
+        "question_id": "q-queue-3",
+        "knowledge_point_ids": [
+          "kp-queue"
+        ],
+        "correct": true
+      }
+    ],
+    "knowledge_points": [
+      {
+        "id": "kp-stack",
+        "name": "栈"
+      },
+      {
+        "id": "kp-queue",
+        "name": "队列"
+      }
+    ],
+    "resource_catalog": [
+      {
+        "resource_id": "res-stack",
+        "title": "栈示例材料",
+        "knowledge_point_ids": [
+          "kp-stack"
+        ]
+      },
+      {
+        "resource_id": "res-queue",
+        "title": "队列示例材料",
+        "knowledge_point_ids": [
+          "kp-queue"
+        ]
+      }
+    ]
+  },
+  "response": {
+    "attempt_id": "attempt-demo-001",
+    "mode": "rule_template_demo",
+    "knowledge_points": [
+      {
+        "knowledge_point_id": "kp-stack",
+        "name": "栈",
+        "correct_count": 1,
+        "sample_count": 3,
+        "accuracy": 0.333333,
+        "status": "weak"
+      },
+      {
+        "knowledge_point_id": "kp-queue",
+        "name": "队列",
+        "correct_count": 3,
+        "sample_count": 3,
+        "accuracy": 1.0,
+        "status": "mastered"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev-d73bfc99f34383ee09110f4f",
+        "document_id": "doc-stack",
+        "resource_id": "res-stack",
+        "chunk_id": "chunk-ee0648e1c47571c5f0742698",
+        "knowledge_point_ids": [
+          "kp-stack"
+        ],
+        "text": "栈是一种后进先出（LIFO）的线性数据结构。插入和删除通常发生在栈顶。\n\n入栈 push 将元素放到栈顶，出栈 pop 移除并返回栈顶元素。读取栈顶 peek 不删除元素。例如按顺序将 A、B、C 入栈，连续出栈得到 C、B、A。空栈不能出栈，应返回明确的错误或空状态。\n\n顺序栈可以使用数组保存元素，链栈使用链表保存元素。基本入栈和出栈操作通常为 O(1)。栈适合括号匹配、函数调用管理和撤销操作。括号匹配时遇到左括号入栈，遇到右括号检查并弹出对应左括号。",
+        "score": 0.639304,
+        "location": {
+          "kind": "text",
+          "start": 0,
+          "end": 229,
+          "chapter": "正文"
+        },
+        "source": "原创课程样例/栈基础.txt",
+        "title": "栈：后进先出的线性结构"
+      }
+    ],
+    "recommendations": [
+      {
+        "knowledge_point_id": "kp-stack",
+        "resource_id": "res-stack",
+        "title": "栈示例材料",
+        "reason": "规则建议：栈共 3 题，答对 1 题，建议复习该知识点并补充练习。检索返回了该目录资源的相关片段；请结合原材料核对。"
+      }
+    ],
+    "explanation": "本报告由固定的诊断→检索→推荐三阶段规则流程生成，mode=rule_template_demo，未接入真实大语言模型。知识点有效题少于 3 道时标记为证据不足，不生成该知识点的推荐或提升判断。复测仅展示双方样本均不少于 3 题的同知识点准确率差值，该差值不能证明推荐造成学习提升。",
+    "comparison": [],
+    "trace": [
+      {
+        "agent": "diagnosis",
+        "status": "completed"
+      },
+      {
+        "agent": "retrieval",
+        "status": "completed:vector_rag:rag-0375256da8647cf0a360"
+      },
+      {
+        "agent": "recommendation",
+        "status": "completed"
+      }
+    ],
+    "fallback_status": null
+  }
+}

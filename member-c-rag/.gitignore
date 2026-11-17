@@ -5,3 +5,10 @@ __pycache__/
 .pytest_cache/
 data/*.json
 data/chroma/
+data/backend-chroma/
+data/models/
+data/imports/
+data/eval-*/
+data/snapshots/
+data/test-temp/
+data/*.txt

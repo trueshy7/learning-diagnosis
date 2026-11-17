@@ -1,5 +1,9 @@
 # 四人课程设计初始项目
 
+> 当前 B/C 整合以 B 的 `b-internal-1` 接口为准，已引入 yjy 的新版 C。
+> 启动配置和真实 MySQL + HTTP 验收命令见 [B/C 联调验证](docs/BC联调验证.md)。
+> 下文为初始骨架说明；旧 `start_services.py` / `check_integration.py` 尚不适用于新版 B，请使用 `python scripts/check_bc_integration.py` 验收 B/C。
+
 项目题目：基于 RAG 与多智能体协作的个性化学习诊断与推荐系统。
 
 四个目录可分别交给四位成员继续开发，合在一起可以运行一条最小的本地流程：学生登录 → 六道样例题测验 → 确定性计分 → 规则诊断 → C的真实HTTP关键词检索 → 目录资源推荐 → 复测比较。

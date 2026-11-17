@@ -1,0 +1,662 @@
+{
+  "format": "catalog-2",
+  "documents": {
+    "doc-6705be2bd96e013b20ccda573d57e5fd": {
+      "resource_id": "c-note-stack-lifo",
+      "document_id": "doc-6705be2bd96e013b20ccda573d57e5fd",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "后进先出与栈顶栈底",
+      "text": "# 后进先出与栈顶栈底\n\n## 概念与约定\n\n栈是一种受限的线性结构，插入和删除都限定在同一端。这一端称为栈顶，另一端称为栈底。后进先出表示最近压入的元素最先被弹出，英文缩写为 LIFO。栈内元素有确定的逻辑顺序，不能因为底层用了数组，就把任意下标删除也当作栈的基本操作。\n\n## 状态推演\n\n依次压入 A、B、C 后，栈底为 A，栈顶为 C。连续弹出得到 C、B、A；若只弹出一次，再压入 D，之后首先弹出 D。追踪操作时可以把栈底写在左边，用 [A,B,C] 表示当前状态，避免把书写方向误当作实际出栈顺序。\n\n## 边界与自查\n\n栈与队列都可用数组或链表实现。区分它们应看允许的操作位置和弹出顺序，而不是只看物理存储。判定某段过程是否使用栈时，检查每次删除是否作用于最近插入而尚未移除的元素。",
+      "source": "项目自编教学摘要 texts/stack-lifo.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-concept"
+      ],
+      "content_hash": "e9630ecb78e77f8848e913ddfc760a8fbd619ce43cffeb6a23d15ec3b635e0d6",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "6aa0bcb3b2390a6fcec657fe022c322d3b1a8804054be2cbeab17f1249682037",
+      "chunks": [
+        {
+          "chunk_id": "chunk-aed198c4e3a6be1ed5068161",
+          "text": "# 后进先出与栈顶栈底\n\n## 概念与约定\n\n栈是一种受限的线性结构，插入和删除都限定在同一端。这一端称为栈顶，另一端称为栈底。后进先出表示最近压入的元素最先被弹出，英文缩写为 LIFO。栈内元素有确定的逻辑顺序，不能因为底层用了数组，就把任意下标删除也当作栈的基本操作。\n\n## 状态推演\n\n依次压入 A、B、C 后，栈底为 A，栈顶为 C。连续弹出得到 C、B、A；若只弹出一次，再压入 D，之后首先弹出 D。追踪操作时可以把栈底写在左边，用 [A,B,C] 表示当前状态，避免把书写方向误当作实际出栈顺序。\n\n## 边界与自查\n\n栈与队列都可用数组或链表实现。区分它们应看允许的操作位置和弹出顺序，而不是只看物理存储。判定某段过程是否使用栈时，检查每次删除是否作用于最近插入而尚未移除的元素。",
+          "start": 0,
+          "end": 349,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 349,
+            "chapter": "后进先出与栈顶栈底"
+          },
+          "content_hash": "095fa9ee419eef8871cfc2abb30a338e388f57660435735b8e3caf1a633d1d28"
+        }
+      ]
+    },
+    "doc-43e6aab9da01ed7984b00799d67597ad": {
+      "resource_id": "c-note-stack-sequence",
+      "document_id": "doc-43e6aab9da01ed7984b00799d67597ad",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "交错入栈与出栈序列",
+      "text": "# 交错入栈与出栈序列\n\n## 概念与约定\n\n入栈和出栈可以交错进行。判断输出序列是否合法，要保留一个模拟栈，按输入顺序逐个压入，在栈顶等于期望输出时弹出。仅把全部输入逆序，只适用于先全部入栈再全部出栈的特殊情况。\n\n## 状态推演\n\n输入依次为 1、2、3，可以先压入 1 和 2，再弹出 2，压入 3 后弹出 3，最后弹出 1，因此输出 2、3、1 合法。输出 3、1、2 不合法：为了先输出 3 必须已经压入 1、2、3，弹出 3 后栈顶是 2，不能越过 2 直接弹出 1。\n\n## 边界与自查\n\n模拟过程中，每个元素最多入栈一次、出栈一次，输入长度为 n 时可在线性时间内验证候选序列。若记录显示试图从空栈弹出，应报告操作非法，不应补造一个值继续推演。",
+      "source": "项目自编教学摘要 texts/stack-sequence.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-concept"
+      ],
+      "content_hash": "5fc8396c293c4c9efbafaec91ea3de53a8317353cfd6ea9f55c37103a6cb8a0d",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "491ad5cb11538cf11614ae9a429d8ec65852f009ccf26a15ac2f1faecbed6264",
+      "chunks": [
+        {
+          "chunk_id": "chunk-55680d8343169b2f038b7b39",
+          "text": "# 交错入栈与出栈序列\n\n## 概念与约定\n\n入栈和出栈可以交错进行。判断输出序列是否合法，要保留一个模拟栈，按输入顺序逐个压入，在栈顶等于期望输出时弹出。仅把全部输入逆序，只适用于先全部入栈再全部出栈的特殊情况。\n\n## 状态推演\n\n输入依次为 1、2、3，可以先压入 1 和 2，再弹出 2，压入 3 后弹出 3，最后弹出 1，因此输出 2、3、1 合法。输出 3、1、2 不合法：为了先输出 3 必须已经压入 1、2、3，弹出 3 后栈顶是 2，不能越过 2 直接弹出 1。\n\n## 边界与自查\n\n模拟过程中，每个元素最多入栈一次、出栈一次，输入长度为 n 时可在线性时间内验证候选序列。若记录显示试图从空栈弹出，应报告操作非法，不应补造一个值继续推演。",
+          "start": 0,
+          "end": 330,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 330,
+            "chapter": "交错入栈与出栈序列"
+          },
+          "content_hash": "897c851f4c8fd86a1fb571caba0b09e5d50f2c1bb69f737f10055576a7e16bd3"
+        }
+      ]
+    },
+    "doc-30c875899f5c71d4214308f8750033af": {
+      "resource_id": "c-note-stack-call",
+      "document_id": "doc-30c875899f5c71d4214308f8750033af",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "函数调用栈与递归返回",
+      "text": "# 函数调用栈与递归返回\n\n## 概念与约定\n\n函数调用会保存返回位置和局部状态。调用进入更深层函数时，新状态压到旧状态之上；当前调用完成后，先恢复最近尚未完成的调用。这种嵌套返回关系适合用栈描述。递归与栈有关，但递归不等于算法时间复杂度高，仍需分析调用次数和每次工作量。\n\n## 状态推演\n\n计算 factorial(3) 时先等待 factorial(2)，后者又等待 factorial(1)。到达终止条件后，返回顺序为 factorial(1)、factorial(2)、factorial(3)。每一层都应保存自己的参数，不能用一个共享参数覆盖全部层的状态。\n\n## 边界与自查\n\n递归应有能到达的终止条件，并使问题向更小规模推进。深度过大可能耗尽调用栈空间；在必要时可改写为显式栈。显式栈仍需要保存恢复计算所需的信息，不能只保存函数名。",
+      "source": "项目自编教学摘要 texts/stack-call.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-concept"
+      ],
+      "content_hash": "54fa4a4936163c0c23bd9c6fca6960768c874ce43054abe95e706eb74a3d0ce4",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "d932a00286382f1c9260dc97da92ccf2db0374a4238efa13067bca286dae3272",
+      "chunks": [
+        {
+          "chunk_id": "chunk-cad097eca2816b6f9cc6f073",
+          "text": "# 函数调用栈与递归返回\n\n## 概念与约定\n\n函数调用会保存返回位置和局部状态。调用进入更深层函数时，新状态压到旧状态之上；当前调用完成后，先恢复最近尚未完成的调用。这种嵌套返回关系适合用栈描述。递归与栈有关，但递归不等于算法时间复杂度高，仍需分析调用次数和每次工作量。\n\n## 状态推演\n\n计算 factorial(3) 时先等待 factorial(2)，后者又等待 factorial(1)。到达终止条件后，返回顺序为 factorial(1)、factorial(2)、factorial(3)。每一层都应保存自己的参数，不能用一个共享参数覆盖全部层的状态。\n\n## 边界与自查\n\n递归应有能到达的终止条件，并使问题向更小规模推进。深度过大可能耗尽调用栈空间；在必要时可改写为显式栈。显式栈仍需要保存恢复计算所需的信息，不能只保存函数名。",
+          "start": 0,
+          "end": 374,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 374,
+            "chapter": "函数调用栈与递归返回"
+          },
+          "content_hash": "36221b1b5fea6d0378a473fc483c049c7af3587f872893917de77c4c35fd8339"
+        }
+      ]
+    },
+    "doc-599f4a2a50bc860583c74f8120cd717f": {
+      "resource_id": "c-note-stack-undo",
+      "document_id": "doc-599f4a2a50bc860583c74f8120cd717f",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "撤销与重做的双栈模型",
+      "text": "# 撤销与重做的双栈模型\n\n## 概念与约定\n\n撤销操作通常需要恢复最近一次尚未撤销的修改，因此适合以栈保存历史操作。执行一次撤销时，从撤销栈弹出最近操作，执行其逆操作，再把它压入重做栈。重做则按相反方向迁移记录。\n\n## 状态推演\n\n先输入 A，再输入 B，撤销一次后只保留 A，重做一次又恢复 AB。若撤销 B 后又输入 C，常见编辑器会清空原有重做记录，因为当前历史分支已变化。具体产品可以采用不同历史策略，应在实现前说明。\n\n## 边界与自查\n\n历史记录可能存储逆操作、变更前状态或命令对象。保存整份快照实现较直观，但可能消耗较多空间。解释复杂度时，应区分栈的压入弹出开销和执行实际撤销操作的开销，不能把所有编辑动作都笼统称为常数时间。",
+      "source": "项目自编教学摘要 texts/stack-undo.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-concept"
+      ],
+      "content_hash": "73f296ef564ffabb66cd8a554ae4ad6fa0e1dc1454dd398368442b6d040dca46",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "bbd1db2c57a60197639bfb13a9b0b95dbecf73d82354bbfac1cd7eb1baeb0146",
+      "chunks": [
+        {
+          "chunk_id": "chunk-fe076d7afea5503251c9e6b4",
+          "text": "# 撤销与重做的双栈模型\n\n## 概念与约定\n\n撤销操作通常需要恢复最近一次尚未撤销的修改，因此适合以栈保存历史操作。执行一次撤销时，从撤销栈弹出最近操作，执行其逆操作，再把它压入重做栈。重做则按相反方向迁移记录。\n\n## 状态推演\n\n先输入 A，再输入 B，撤销一次后只保留 A，重做一次又恢复 AB。若撤销 B 后又输入 C，常见编辑器会清空原有重做记录，因为当前历史分支已变化。具体产品可以采用不同历史策略，应在实现前说明。\n\n## 边界与自查\n\n历史记录可能存储逆操作、变更前状态或命令对象。保存整份快照实现较直观，但可能消耗较多空间。解释复杂度时，应区分栈的压入弹出开销和执行实际撤销操作的开销，不能把所有编辑动作都笼统称为常数时间。",
+          "start": 0,
+          "end": 322,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 322,
+            "chapter": "撤销与重做的双栈模型"
+          },
+          "content_hash": "fb831a9a345bc8cd1458ae95d4a0b879bdfabc1def078d1b63913d127b6971f7"
+        }
+      ]
+    },
+    "doc-64b12c1cd9769d69e59e9795d6acbc46": {
+      "resource_id": "c-note-stack-expression",
+      "document_id": "doc-64b12c1cd9769d69e59e9795d6acbc46",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "表达式求值中的操作数栈",
+      "text": "# 表达式求值中的操作数栈\n\n## 概念与约定\n\n后缀表达式把运算符写在操作数之后，可以用栈依次求值。读取数字时压入操作数栈；遇到二元运算符时先弹出右操作数，再弹出左操作数，计算后把结果压回。减法和除法对顺序敏感，不能交换两个弹出值。\n\n## 状态推演\n\n后缀表达式 8 3 - 2 * 的执行过程为压入 8、压入 3，遇减号弹出 3 作为右操作数、8 作为左操作数，得到 5 并压回；再压入 2，遇乘号得到 10。最终栈中恰好剩下一个结果。\n\n## 边界与自查\n\n遇到运算符时若不足两个操作数，表达式不合法。全部输入处理后若栈中不止一个结果，也应拒绝。实现除法还应检查除数为零，并事先规定整数除法或实数除法的语义。",
+      "source": "项目自编教学摘要 texts/stack-expression.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-concept"
+      ],
+      "content_hash": "132a9e107c099e5dd118002a5a6ccc50bcdb408977377f7190a985118b7d3312",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "bc0d2cf61fc91002c8e0cac02503c14ceef2233eb25864c498ca548c0d8ee92f",
+      "chunks": [
+        {
+          "chunk_id": "chunk-445e6c18be565d46ffa15f47",
+          "text": "# 表达式求值中的操作数栈\n\n## 概念与约定\n\n后缀表达式把运算符写在操作数之后，可以用栈依次求值。读取数字时压入操作数栈；遇到二元运算符时先弹出右操作数，再弹出左操作数，计算后把结果压回。减法和除法对顺序敏感，不能交换两个弹出值。\n\n## 状态推演\n\n后缀表达式 8 3 - 2 * 的执行过程为压入 8、压入 3，遇减号弹出 3 作为右操作数、8 作为左操作数，得到 5 并压回；再压入 2，遇乘号得到 10。最终栈中恰好剩下一个结果。\n\n## 边界与自查\n\n遇到运算符时若不足两个操作数，表达式不合法。全部输入处理后若栈中不止一个结果，也应拒绝。实现除法还应检查除数为零，并事先规定整数除法或实数除法的语义。",
+          "start": 0,
+          "end": 308,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 308,
+            "chapter": "表达式求值中的操作数栈"
+          },
+          "content_hash": "72789f5bdba0eaa452fd93429789ffb83bc267e86976e31ac7127ebda6238787"
+        }
+      ]
+    },
+    "doc-85d198518c1453bddec591604f3c3abe": {
+      "resource_id": "c-note-stack-api",
+      "document_id": "doc-85d198518c1453bddec591604f3c3abe",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "push pop peek 的区别",
+      "text": "# push pop peek 的区别\n\n## 概念与约定\n\npush 把新元素加入栈顶；pop 删除并返回当前栈顶；peek 只读取当前栈顶而不删除。接口也可使用 top 作为读取操作的名称。无论具体名称如何，都应明确读取是否改变容器状态。\n\n## 状态推演\n\n初始空栈，push(A)、push(B) 后栈为 [A,B]。peek 返回 B，栈仍为 [A,B]；pop 返回 B，栈变为 [A]；再次 peek 返回 A。若把 peek 当作 pop，后续所有状态和返回值都会推演错误。\n\n## 边界与自查\n\n空栈上的 pop 和 peek 都需要明确定义失败行为，例如抛出约定异常或返回一个与合法值不同的空状态。不能在可能存储整数零的栈中，把返回零无条件解释为空栈。调用者需要根据接口约定检查结果。",
+      "source": "项目自编教学摘要 texts/stack-api.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-operations"
+      ],
+      "content_hash": "53a721b023df5b12ce64ac76ad14b19e17174bce0629e6a4a80bac0d3752be2f",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "450790cc0feadcc00fcb5b282669514e4454c15200d431424cba922f62443176",
+      "chunks": [
+        {
+          "chunk_id": "chunk-ac34aeb7292e9ee24cadc2e0",
+          "text": "# push pop peek 的区别\n\n## 概念与约定\n\npush 把新元素加入栈顶；pop 删除并返回当前栈顶；peek 只读取当前栈顶而不删除。接口也可使用 top 作为读取操作的名称。无论具体名称如何，都应明确读取是否改变容器状态。\n\n## 状态推演\n\n初始空栈，push(A)、push(B) 后栈为 [A,B]。peek 返回 B，栈仍为 [A,B]；pop 返回 B，栈变为 [A]；再次 peek 返回 A。若把 peek 当作 pop，后续所有状态和返回值都会推演错误。\n\n## 边界与自查\n\n空栈上的 pop 和 peek 都需要明确定义失败行为，例如抛出约定异常或返回一个与合法值不同的空状态。不能在可能存储整数零的栈中，把返回零无条件解释为空栈。调用者需要根据接口约定检查结果。",
+          "start": 0,
+          "end": 352,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 352,
+            "chapter": "push pop peek 的区别"
+          },
+          "content_hash": "695044ecf8d3a8582271af80720087551a27180688c93b834908fc55f552af15"
+        }
+      ]
+    },
+    "doc-1b48067bd89477483297ce5a978d776f": {
+      "resource_id": "c-note-stack-array",
+      "document_id": "doc-1b48067bd89477483297ce5a978d776f",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "顺序栈的 top 与容量检查",
+      "text": "# 顺序栈的 top 与容量检查\n\n## 概念与约定\n\n顺序栈通常用数组和栈顶下标保存状态。若约定 top 指向当前最后一个有效元素，空栈 top=-1，当前元素数为 top+1。压入前先检查 top 是否等于 capacity-1；弹出前先检查 top 是否为 -1。另一种约定用 top 指向下一空位，其边界公式不同，两种写法不能混用。\n\n## 状态推演\n\n容量为 3、top 初始 -1，压入 A 时先把 top 增为 0，再写入数组第 0 项；继续压入 B、C 后 top 为 2，再压入必须报告满栈或扩容。弹出时先读 array[top]，再把 top 减一，不能先减一而漏掉原栈顶。\n\n## 边界与自查\n\n固定容量数组压入和弹出均可为 O(1)。动态数组扩容时可能复制已有元素，因此单次压入不保证最坏 O(1)；采用按倍数扩容时，一系列压入的均摊成本可以为 O(1)。复杂度说明应区分最坏和均摊口径。",
+      "source": "项目自编教学摘要 texts/stack-array.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-operations"
+      ],
+      "content_hash": "de22acb8fa596e59605d003b81f184dce6de93dc73c2329692379effdf38f0ce",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "afddfb635df451c58d5603439d2c53df5f2690c86914850c48a9b7ec7d2c342a",
+      "chunks": [
+        {
+          "chunk_id": "chunk-9102dda6e972f1a49d10c206",
+          "text": "# 顺序栈的 top 与容量检查\n\n## 概念与约定\n\n顺序栈通常用数组和栈顶下标保存状态。若约定 top 指向当前最后一个有效元素，空栈 top=-1，当前元素数为 top+1。压入前先检查 top 是否等于 capacity-1；弹出前先检查 top 是否为 -1。另一种约定用 top 指向下一空位，其边界公式不同，两种写法不能混用。\n\n## 状态推演\n\n容量为 3、top 初始 -1，压入 A 时先把 top 增为 0，再写入数组第 0 项；继续压入 B、C 后 top 为 2，再压入必须报告满栈或扩容。弹出时先读 array[top]，再把 top 减一，不能先减一而漏掉原栈顶。\n\n## 边界与自查\n\n",
+          "start": 0,
+          "end": 309,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 309,
+            "chapter": "顺序栈的 top 与容量检查"
+          },
+          "content_hash": "bbe5b6a8395a591f568f9d9b31f3b2a8f617cf4c975eb397ff9fa1057c466335"
+        },
+        {
+          "chunk_id": "chunk-71a168e32f7de21e20979a71",
+          "text": "须报告满栈或扩容。弹出时先读 array[top]，再把 top 减一，不能先减一而漏掉原栈顶。\n\n## 边界与自查\n\n固定容量数组压入和弹出均可为 O(1)。动态数组扩容时可能复制已有元素，因此单次压入不保证最坏 O(1)；采用按倍数扩容时，一系列压入的均摊成本可以为 O(1)。复杂度说明应区分最坏和均摊口径。",
+          "start": 249,
+          "end": 406,
+          "location": {
+            "kind": "text",
+            "start": 249,
+            "end": 406,
+            "chapter": "状态推演"
+          },
+          "content_hash": "fe4462e2b91c017130206e69e457c8894a8921be123d3488792ea2340d98268c"
+        }
+      ]
+    },
+    "doc-451d28a92fc1c0fb6cf557e91bde9513": {
+      "resource_id": "c-note-stack-linked",
+      "document_id": "doc-451d28a92fc1c0fb6cf557e91bde9513",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "链栈为什么在链表头部操作",
+      "text": "# 链栈为什么在链表头部操作\n\n## 概念与约定\n\n单链表实现栈时，通常把链表头作为栈顶。入栈先新建节点，让新节点 next 指向旧头，再把头指针改为新节点。出栈保存旧头的值和 next，把头移到 next，再释放或解除旧节点的引用。\n\n## 状态推演\n\n原链为 B→A，压入 C 后为 C→B→A；弹出 C 后恢复 B→A。头指针为空表示空栈。链栈无需像固定数组那样预先规定容量上限，但仍可能因为内存分配失败而无法继续压入。\n\n## 边界与自查\n\n头部压入和删除都不需要遍历，单次操作通常为 O(1)。若把单链表尾部当栈顶，即使保存尾指针，删除尾节点仍可能需要寻找它的前驱，成本可达 O(n)。这说明物理实现位置会影响基本操作成本。",
+      "source": "项目自编教学摘要 texts/stack-linked.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-operations"
+      ],
+      "content_hash": "856716086dea4e601ef30b9c2f3af0ea6b8a62a0789aced543d0d7eaa1a4518d",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "8dbafb5ae0d582efcbd31342f5c27d635aaa9ef06c287c0bd2dbd2e734ae8212",
+      "chunks": [
+        {
+          "chunk_id": "chunk-ed2a64f383ba89ef95e1c24a",
+          "text": "# 链栈为什么在链表头部操作\n\n## 概念与约定\n\n单链表实现栈时，通常把链表头作为栈顶。入栈先新建节点，让新节点 next 指向旧头，再把头指针改为新节点。出栈保存旧头的值和 next，把头移到 next，再释放或解除旧节点的引用。\n\n## 状态推演\n\n原链为 B→A，压入 C 后为 C→B→A；弹出 C 后恢复 B→A。头指针为空表示空栈。链栈无需像固定数组那样预先规定容量上限，但仍可能因为内存分配失败而无法继续压入。\n\n## 边界与自查\n\n头部压入和删除都不需要遍历，单次操作通常为 O(1)。若把单链表尾部当栈顶，即使保存尾指针，删除尾节点仍可能需要寻找它的前驱，成本可达 O(n)。这说明物理实现位置会影响基本操作成本。",
+          "start": 0,
+          "end": 317,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 317,
+            "chapter": "链栈为什么在链表头部操作"
+          },
+          "content_hash": "5f4acdbdf38e0b8b0e01c98cdfd411625678d483b1f44aecc38d3aa8e5545550"
+        }
+      ]
+    },
+    "doc-ed2052091683e965d5b739ef062415fe": {
+      "resource_id": "c-note-stack-brackets",
+      "document_id": "doc-ed2052091683e965d5b739ef062415fe",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "括号匹配与不匹配定位",
+      "text": "# 括号匹配与不匹配定位\n\n## 概念与约定\n\n括号匹配可以用栈记录尚未匹配的左括号及其位置。遇到左括号就压入；遇到右括号时，栈必须非空，且栈顶左括号类型必须与它对应，满足条件才能弹出。遍历结束后栈仍非空，说明有左括号缺少对应右括号。\n\n## 状态推演\n\n序列 ([{}]) 可依次配对。序列 ([)] 虽然左右括号数量相等，但遇到 ) 时栈顶是 [，类型不匹配，应立即报告该位置错误。因此只统计括号数量或分别计数，不能验证嵌套顺序正确。\n\n## 边界与自查\n\n仅检查括号字符时，对长度 n 的输入时间为 O(n)，最坏辅助空间 O(n)。若要处理完整程序，还必须由词法规则识别字符串和注释中的括号，不能把里面的括号无条件当作代码结构。",
+      "source": "项目自编教学摘要 texts/stack-brackets.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-operations"
+      ],
+      "content_hash": "a4d8f91ec49b6b995a56f9c73a38402fdb36d5eafab5f54723de2a0373e0ce0b",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "01405dcb593376e1ae89e510a3e9406a0f5bc2382cf5f340f38878a6b08fcb0e",
+      "chunks": [
+        {
+          "chunk_id": "chunk-5162ceee56c00d27c81acb46",
+          "text": "# 括号匹配与不匹配定位\n\n## 概念与约定\n\n括号匹配可以用栈记录尚未匹配的左括号及其位置。遇到左括号就压入；遇到右括号时，栈必须非空，且栈顶左括号类型必须与它对应，满足条件才能弹出。遍历结束后栈仍非空，说明有左括号缺少对应右括号。\n\n## 状态推演\n\n序列 ([{}]) 可依次配对。序列 ([)] 虽然左右括号数量相等，但遇到 ) 时栈顶是 [，类型不匹配，应立即报告该位置错误。因此只统计括号数量或分别计数，不能验证嵌套顺序正确。\n\n## 边界与自查\n\n仅检查括号字符时，对长度 n 的输入时间为 O(n)，最坏辅助空间 O(n)。若要处理完整程序，还必须由词法规则识别字符串和注释中的括号，不能把里面的括号无条件当作代码结构。",
+          "start": 0,
+          "end": 318,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 318,
+            "chapter": "括号匹配与不匹配定位"
+          },
+          "content_hash": "668063e535f4a32034d541f03331fa8dc7d1bc0fdde0605c585b9bc0d41e7ca1"
+        }
+      ]
+    },
+    "doc-8555725c1d8acf3fa1628ef863bd774b": {
+      "resource_id": "c-note-stack-errors",
+      "document_id": "doc-8555725c1d8acf3fa1628ef863bd774b",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "空栈异常与状态不变条件",
+      "text": "# 空栈异常与状态不变条件\n\n## 概念与约定\n\n空栈弹出称为下溢，固定容量栈满后继续压入可能产生上溢。实现应先验证前置条件，再修改状态。失败操作不应减少元素数、移动栈顶或覆盖有效元素，否则一次错误会破坏之后的所有操作。\n\n## 状态推演\n\n对空栈连续调用两次 pop，两次都应按约定失败，元素数始终为零。对容量为 1 且已有 A 的栈压入 B，如果策略是拒绝，操作后仍应保留 A；如果策略是扩容，应先成功取得新空间再提交状态改变。\n\n## 边界与自查\n\n测试需要同时核对返回值、元素数和下一次 peek 的结果。只断言出现错误消息不足以说明状态没有损坏。接口应避免把容器错误与合法数据混淆，并明确是否允许存储空值。",
+      "source": "项目自编教学摘要 texts/stack-errors.md",
+      "knowledge_point_ids": [
+        "demo-kp-stack-operations"
+      ],
+      "content_hash": "1cd1f528f13602b23a72b050918e61dac2b89fd73d314a988bf608dd44a83dcf",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "7e6bdb4b970a967b384d457ea67af94c2c7e6019b67dfa4ed4fcc19251a659d9",
+      "chunks": [
+        {
+          "chunk_id": "chunk-e5173f9622587f896aea466a",
+          "text": "# 空栈异常与状态不变条件\n\n## 概念与约定\n\n空栈弹出称为下溢，固定容量栈满后继续压入可能产生上溢。实现应先验证前置条件，再修改状态。失败操作不应减少元素数、移动栈顶或覆盖有效元素，否则一次错误会破坏之后的所有操作。\n\n## 状态推演\n\n对空栈连续调用两次 pop，两次都应按约定失败，元素数始终为零。对容量为 1 且已有 A 的栈压入 B，如果策略是拒绝，操作后仍应保留 A；如果策略是扩容，应先成功取得新空间再提交状态改变。\n\n## 边界与自查\n\n测试需要同时核对返回值、元素数和下一次 peek 的结果。只断言出现错误消息不足以说明状态没有损坏。接口应避免把容器错误与合法数据混淆，并明确是否允许存储空值。",
+          "start": 0,
+          "end": 308,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 308,
+            "chapter": "空栈异常与状态不变条件"
+          },
+          "content_hash": "94fcb2d2d5a913e6aa2589bc2ce0499dd4290208d83c87395fc5b93e46dbafff"
+        }
+      ]
+    },
+    "doc-6777e26feffb84437ce1f6ffc39b45d4": {
+      "resource_id": "c-note-queue-fifo",
+      "document_id": "doc-6777e26feffb84437ce1f6ffc39b45d4",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "先进先出与队头队尾",
+      "text": "# 先进先出与队头队尾\n\n## 概念与约定\n\n队列是一种受限线性结构，通常在队尾插入，在队头删除。先进先出表示较早进入且尚未移除的元素优先离开，英文缩写为 FIFO。队头是下一次出队的位置，队尾是下一次入队的一端。\n\n## 状态推演\n\n依次让 A、B、C 入队，连续出队得到 A、B、C。若先让 A、B 入队，再出队 A，然后让 C 入队，剩余顺序仍为 B、C。新元素不能因为最近到达就插到所有旧元素前面。\n\n## 边界与自查\n\n普通队列、优先队列和双端队列有不同操作约定。优先队列按优先级选择元素，不保证一般的先来先出；双端队列允许两端插入删除。不能仅因名称中含有队列，就把所有容器的顺序规则混为一谈。",
+      "source": "项目自编教学摘要 texts/queue-fifo.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-concept"
+      ],
+      "content_hash": "5afefa959a08597280bf664f2cb102b791360805ea5e41fbb3c5de61d12b0b0c",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "188114932e2128ce75f04f68324d435ddb649da0f66dd0be723ec7193dc2ff7d",
+      "chunks": [
+        {
+          "chunk_id": "chunk-84af86565dbc53252cae5d7c",
+          "text": "# 先进先出与队头队尾\n\n## 概念与约定\n\n队列是一种受限线性结构，通常在队尾插入，在队头删除。先进先出表示较早进入且尚未移除的元素优先离开，英文缩写为 FIFO。队头是下一次出队的位置，队尾是下一次入队的一端。\n\n## 状态推演\n\n依次让 A、B、C 入队，连续出队得到 A、B、C。若先让 A、B 入队，再出队 A，然后让 C 入队，剩余顺序仍为 B、C。新元素不能因为最近到达就插到所有旧元素前面。\n\n## 边界与自查\n\n普通队列、优先队列和双端队列有不同操作约定。优先队列按优先级选择元素，不保证一般的先来先出；双端队列允许两端插入删除。不能仅因名称中含有队列，就把所有容器的顺序规则混为一谈。",
+          "start": 0,
+          "end": 302,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 302,
+            "chapter": "先进先出与队头队尾"
+          },
+          "content_hash": "7fd9c6fbac952e7d399950e4b050354b31352f7f8bbd24d5b5ae5e7611218d1f"
+        }
+      ]
+    },
+    "doc-359630b1abf44ac90edb58982dbbeb0f": {
+      "resource_id": "c-note-queue-bfs",
+      "document_id": "doc-359630b1abf44ac90edb58982dbbeb0f",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "广度优先搜索为什么使用队列",
+      "text": "# 广度优先搜索为什么使用队列\n\n## 概念与约定\n\n广度优先搜索从起点出发，先访问距离起点一条边的顶点，再访问两条边的顶点。FIFO 队列保存已经发现但尚未展开的顶点，使较早发现的同层顶点先被处理，从而保持按层推进。\n\n## 状态推演\n\n从 A 出发，A 邻接 B、C，B 邻接 D，C 邻接 E。展开 A 后队列为 [B,C]；展开 B 时把 D 放到队尾，队列为 [C,D]，不会跳过 C 先展开 D。随后展开 C 放入 E，得到 [D,E]。\n\n## 边界与自查\n\n通常在顶点入队时标记已发现，避免同一顶点被不同前驱重复入队。在无权图或所有边等权的图中，BFS 可求从起点出发按边数计的最短距离；不能直接把这条结论用于任意带权最短路。",
+      "source": "项目自编教学摘要 texts/queue-bfs.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-concept"
+      ],
+      "content_hash": "68efcef10ed756fb9fecbe098f1a62ff6cf14c07cf652b1a1b29913fde2c7dda",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "a8187e8b57a325742efb00faceb1563332919b22af1cdf6013dcd03b42ab85f0",
+      "chunks": [
+        {
+          "chunk_id": "chunk-d8bb5bf5bc82a5f878ff8303",
+          "text": "# 广度优先搜索为什么使用队列\n\n## 概念与约定\n\n广度优先搜索从起点出发，先访问距离起点一条边的顶点，再访问两条边的顶点。FIFO 队列保存已经发现但尚未展开的顶点，使较早发现的同层顶点先被处理，从而保持按层推进。\n\n## 状态推演\n\n从 A 出发，A 邻接 B、C，B 邻接 D，C 邻接 E。展开 A 后队列为 [B,C]；展开 B 时把 D 放到队尾，队列为 [C,D]，不会跳过 C 先展开 D。随后展开 C 放入 E，得到 [D,E]。\n\n## 边界与自查\n\n通常在顶点入队时标记已发现，避免同一顶点被不同前驱重复入队。在无权图或所有边等权的图中，BFS 可求从起点出发按边数计的最短距离；不能直接把这条结论用于任意带权最短路。",
+          "start": 0,
+          "end": 321,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 321,
+            "chapter": "广度优先搜索为什么使用队列"
+          },
+          "content_hash": "cc359e0265c542ec93e4074a0fbc4fc83e7b744586f938b80459d1cbf37bff51"
+        }
+      ]
+    },
+    "doc-0c0b8ebff20ad650136ef4aec058c5c9": {
+      "resource_id": "c-note-queue-schedule",
+      "document_id": "doc-0c0b8ebff20ad650136ef4aec058c5c9",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "任务缓冲与生产者消费者",
+      "text": "# 任务缓冲与生产者消费者\n\n## 概念与约定\n\n队列可以把任务提交与任务处理分开。生产者把任务放入队尾，消费者从队头获取，普通 FIFO 策略保持待处理任务的到达顺序。完成顺序还可能受执行时间和并发程度影响，不能仅由出队顺序推断。\n\n## 状态推演\n\n单消费者按顺序取出打印任务 A、B、C 时，通常依次处理。若两个消费者分别领取 A 和 B，B 的处理耗时更短，它可能先完成；这不说明队列违反 FIFO，因为取出顺序和完成顺序是两个不同事件。\n\n## 边界与自查\n\n实际缓冲区需要容量限制或背压策略，满时可选择等待、拒绝或按业务规则丢弃。课程中的顺序队列操作本身不自动提供线程安全；多个线程并发修改队头队尾时，应由锁或专用并发队列协调。",
+      "source": "项目自编教学摘要 texts/queue-schedule.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-concept"
+      ],
+      "content_hash": "faf79bb771e4f7c138aaf0080e3edc3bda46cbb8fdbdd909c25f3440cceadf0b",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "9adba5b093f80f866ac7128f798ee07c219cb8175c3826829d9a0d93f641d0dd",
+      "chunks": [
+        {
+          "chunk_id": "chunk-081c6ed8f26bfab5d093564f",
+          "text": "# 任务缓冲与生产者消费者\n\n## 概念与约定\n\n队列可以把任务提交与任务处理分开。生产者把任务放入队尾，消费者从队头获取，普通 FIFO 策略保持待处理任务的到达顺序。完成顺序还可能受执行时间和并发程度影响，不能仅由出队顺序推断。\n\n## 状态推演\n\n单消费者按顺序取出打印任务 A、B、C 时，通常依次处理。若两个消费者分别领取 A 和 B，B 的处理耗时更短，它可能先完成；这不说明队列违反 FIFO，因为取出顺序和完成顺序是两个不同事件。\n\n## 边界与自查\n\n实际缓冲区需要容量限制或背压策略，满时可选择等待、拒绝或按业务规则丢弃。课程中的顺序队列操作本身不自动提供线程安全；多个线程并发修改队头队尾时，应由锁或专用并发队列协调。",
+          "start": 0,
+          "end": 320,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 320,
+            "chapter": "任务缓冲与生产者消费者"
+          },
+          "content_hash": "5cf27b71b9b7edb80590913f4dd7754e47b50924e46efbce9c1de28730e7bbe0"
+        }
+      ]
+    },
+    "doc-ce959d145811d0ced781c5f92c8d4353": {
+      "resource_id": "c-note-queue-deque",
+      "document_id": "doc-ce959d145811d0ced781c5f92c8d4353",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "普通队列与双端队列的边界",
+      "text": "# 普通队列与双端队列的边界\n\n## 概念与约定\n\n普通队列只在队尾入队、队头出队。双端队列允许在两端进行插入和删除，因此可以按不同接口限制模拟队列或栈。容器名字不能代替具体操作序列的分析。\n\n## 状态推演\n\n用双端队列尾部追加、头部弹出，得到 FIFO 行为；若都在尾部追加和弹出，则得到 LIFO 行为。模拟时先标清左右两端分别对应什么角色，再逐条执行，不能中途交换含义。\n\n## 边界与自查\n\nPython 的 collections.deque 提供 append、appendleft、pop、popleft 等方法，可用于课程实验。按索引随机访问不是双端队列最主要的优势。选择容器时应根据所需操作及其成本，不能只比较某一次运行时间。",
+      "source": "项目自编教学摘要 texts/queue-deque.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-concept"
+      ],
+      "content_hash": "aa28a12bbde0581d9340ee2de69fb38a7203b4a461d3c64310a0fe87a5a6f81b",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "2a598a2cd06694938a2e15e91eb6911601387472aeb85a30a21f93a55a9a8b52",
+      "chunks": [
+        {
+          "chunk_id": "chunk-8e6f1e735b5b998d799e4251",
+          "text": "# 普通队列与双端队列的边界\n\n## 概念与约定\n\n普通队列只在队尾入队、队头出队。双端队列允许在两端进行插入和删除，因此可以按不同接口限制模拟队列或栈。容器名字不能代替具体操作序列的分析。\n\n## 状态推演\n\n用双端队列尾部追加、头部弹出，得到 FIFO 行为；若都在尾部追加和弹出，则得到 LIFO 行为。模拟时先标清左右两端分别对应什么角色，再逐条执行，不能中途交换含义。\n\n## 边界与自查\n\nPython 的 collections.deque 提供 append、appendleft、pop、popleft 等方法，可用于课程实验。按索引随机访问不是双端队列最主要的优势。选择容器时应根据所需操作及其成本，不能只比较某一次运行时间。",
+          "start": 0,
+          "end": 323,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 323,
+            "chapter": "普通队列与双端队列的边界"
+          },
+          "content_hash": "679b7bcdc079147749268fed271b2c96847594adedf82010ee99b0853fe260ab"
+        }
+      ]
+    },
+    "doc-ba064fb1f566028114327a6851680eb3": {
+      "resource_id": "c-note-queue-compare",
+      "document_id": "doc-ba064fb1f566028114327a6851680eb3",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "栈与队列的顺序对照",
+      "text": "# 栈与队列的顺序对照\n\n## 概念与约定\n\n栈在同一端插入删除，遵循后进先出；普通队列在队尾插入、队头删除，遵循先进先出。两者都属于线性结构，核心区别在于操作约束，而不是是否能装入相同数据。\n\n## 状态推演\n\n向空结构依次加入 1、2、3，若之后统一移除，栈输出 3、2、1，队列输出 1、2、3。交错操作时仍需按各自规则逐步模拟，不能总是简单逆序或照抄输入。\n\n## 边界与自查\n\n深度优先搜索适合显式栈或递归，广度优先搜索适合队列。选择这些结构是为了保存算法尚未处理的状态，并保持所需的处理顺序；不能把栈直接替换成队列后仍假设遍历行为完全相同。",
+      "source": "项目自编教学摘要 texts/queue-compare.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-concept"
+      ],
+      "content_hash": "05363b784faa48fbec0f9bc9b4279b8c7e60de11c6b3b3953c2e3ddd61d7c8f2",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "40ede859c9cbbedf38cafe5c910303d7ec944de33d0a46c51ebbbcbb7b38fbbd",
+      "chunks": [
+        {
+          "chunk_id": "chunk-38cbbc52a7e8532f0124316c",
+          "text": "# 栈与队列的顺序对照\n\n## 概念与约定\n\n栈在同一端插入删除，遵循后进先出；普通队列在队尾插入、队头删除，遵循先进先出。两者都属于线性结构，核心区别在于操作约束，而不是是否能装入相同数据。\n\n## 状态推演\n\n向空结构依次加入 1、2、3，若之后统一移除，栈输出 3、2、1，队列输出 1、2、3。交错操作时仍需按各自规则逐步模拟，不能总是简单逆序或照抄输入。\n\n## 边界与自查\n\n深度优先搜索适合显式栈或递归，广度优先搜索适合队列。选择这些结构是为了保存算法尚未处理的状态，并保持所需的处理顺序；不能把栈直接替换成队列后仍假设遍历行为完全相同。",
+          "start": 0,
+          "end": 276,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 276,
+            "chapter": "栈与队列的顺序对照"
+          },
+          "content_hash": "bc998066259a648e4df80599690fbf8478e1b5b20ae7c18a1476dcd8316a4972"
+        }
+      ]
+    },
+    "doc-94f055c2390c2dd377479da82b97b11c": {
+      "resource_id": "c-note-queue-api",
+      "document_id": "doc-94f055c2390c2dd377479da82b97b11c",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "enqueue dequeue 与读取队头",
+      "text": "# enqueue dequeue 与读取队头\n\n## 概念与约定\n\nenqueue 把新元素追加到队尾；dequeue 删除并返回队头元素；front 或 peek 只读取队头，不删除。队列是否为空，应通过约定状态或长度判断，而不是通过队头元素是否等于零来猜测。\n\n## 状态推演\n\n空队列依次 enqueue(A)、enqueue(B)，读取队头返回 A，队列仍为 [A,B]；dequeue 返回 A，队列剩余 [B]。继续加入 C 后为 [B,C]，下一次出队仍返回 B。\n\n## 边界与自查\n\n空队列出队要明确失败方式。对动态链队列，入队还可能因为分配失败而失败；对固定数组队列，还需检查容量。接口测试应同时验证结果和状态，避免返回值看似正确但头尾指针已经错位。",
+      "source": "项目自编教学摘要 texts/queue-api.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-operations"
+      ],
+      "content_hash": "09d131142b54a1a0f2936f40334d788fa319190c9acc84ae2230e30d649c4121",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "bc1a31368c8ea49d5fb9bd3326857d8a147663a7b0a5eae399a7cd8ac8ad2d88",
+      "chunks": [
+        {
+          "chunk_id": "chunk-8cdaf4ae24c1aee4b20984c6",
+          "text": "# enqueue dequeue 与读取队头\n\n## 概念与约定\n\nenqueue 把新元素追加到队尾；dequeue 删除并返回队头元素；front 或 peek 只读取队头，不删除。队列是否为空，应通过约定状态或长度判断，而不是通过队头元素是否等于零来猜测。\n\n## 状态推演\n\n空队列依次 enqueue(A)、enqueue(B)，读取队头返回 A，队列仍为 [A,B]；dequeue 返回 A，队列剩余 [B]。继续加入 C 后为 [B,C]，下一次出队仍返回 B。\n\n## 边界与自查\n\n空队列出队要明确失败方式。对动态链队列，入队还可能因为分配失败而失败；对固定数组队列，还需检查容量。接口测试应同时验证结果和状态，避免返回值看似正确但头尾指针已经错位。",
+          "start": 0,
+          "end": 336,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 336,
+            "chapter": "enqueue dequeue 与读取队头"
+          },
+          "content_hash": "655424f5ac9452e31605f92b76b4c5577e38d7f3dce789b77fd1106319f4c863"
+        }
+      ]
+    },
+    "doc-85fec4e31fa4448c01c0e19a1a033452": {
+      "resource_id": "c-note-queue-circular",
+      "document_id": "doc-85fec4e31fa4448c01c0e19a1a033452",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "循环队列保留空位的判空判满",
+      "text": "# 循环队列保留空位的判空判满\n\n## 概念与约定\n\n循环队列把数组的首尾在逻辑上连接。若 front 指向当前队头，rear 指向下一次写入位置，且保留一个空位，则队空为 front == rear，队满为 (rear + 1) % capacity == front。这里 capacity 是实际数组长度，可容纳元素数最多为 capacity-1。\n\n## 状态推演\n\n数组长度为 4，初始 front=rear=0。依次入队 A、B、C 后 rear=3，队列已满；出队 A 后 front=1，再入队 D 写入下标 3 后 rear 回到 0，形成跨数组尾部的逻辑连续队列。\n\n## 边界与自查\n\n这组公式依赖保留空位和指针含义。若采用额外计数器或满标志位，可以使用全部数组单元，但判满规则要同步改变。讲解时先说明约定，再写公式，不能从另一种实现中随意搬来条件。",
+      "source": "项目自编教学摘要 texts/queue-circular.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-operations"
+      ],
+      "content_hash": "a6b8ae7998b694a7e6b24fc312bb1be0f5d162e3aafdedc14fb20ed8ccbb18f0",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "e9f00d29dee4fde51f90b65e6e92f565718b57efab90ba1ef96c8371b77000bb",
+      "chunks": [
+        {
+          "chunk_id": "chunk-a8896bd3d23bb13725615c83",
+          "text": "# 循环队列保留空位的判空判满\n\n## 概念与约定\n\n循环队列把数组的首尾在逻辑上连接。若 front 指向当前队头，rear 指向下一次写入位置，且保留一个空位，则队空为 front == rear，队满为 (rear + 1) % capacity == front。这里 capacity 是实际数组长度，可容纳元素数最多为 capacity-1。\n\n## 状态推演\n\n数组长度为 4，初始 front=rear=0。依次入队 A、B、C 后 rear=3，队列已满；出队 A 后 front=1，再入队 D 写入下标 3 后 rear 回到 0，形成跨数组尾部的逻辑连续队列。\n\n## 边界与自查\n\n这组公式依赖保留空位和指针含义。若采用额外计数器或满标志位，可以使用全部数组单元，但判满规则要同步改变。讲解时先说明约定，再写公式，不能从另一种实现中随意搬来条件。",
+          "start": 0,
+          "end": 386,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 386,
+            "chapter": "循环队列保留空位的判空判满"
+          },
+          "content_hash": "141d5df7766f876fcc2727a2cc3fc6b97a577feed5ffaebd4691eaf97eb32310"
+        }
+      ]
+    },
+    "doc-99098af43853a4a78e06bb6d7fce995e": {
+      "resource_id": "c-note-queue-count",
+      "document_id": "doc-99098af43853a4a78e06bb6d7fce995e",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "使用计数器的循环队列",
+      "text": "# 使用计数器的循环队列\n\n## 概念与约定\n\n循环队列可额外维护 count 表示当前元素数。这样空队列为 count==0，满队列为 count==capacity，可以利用全部数组容量。front 和 rear 即使相等，也不能单凭它们判断是空还是满，需要结合 count。\n\n## 状态推演\n\n数组长度为 3，初始 count=0。成功入队时写入 rear、移动 rear，并把 count 加一；成功出队时读取 front、移动 front，并把 count 减一。装入三个元素后 count=3，front 与 rear 可能再次相等，但此时是满队列。\n\n## 边界与自查\n\n失败的入队和出队都不得改变 count。任何时刻都应满足 0≤count≤capacity。维护计数器会增加一个需保持一致的状态变量，测试中应核对元素数量、指针移动和访问值，而不仅是是否抛出异常。",
+      "source": "项目自编教学摘要 texts/queue-count.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-operations"
+      ],
+      "content_hash": "faa194b0b7b31616bc328e7d915d4d9894e0c320b4bb29b4ad8cedb3afad0a77",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "f33c9afc94b3a27203eaad9dd7c2a391fe402ac09bc62cce560ea320f1845b23",
+      "chunks": [
+        {
+          "chunk_id": "chunk-ed676862bf6bc8b135206042",
+          "text": "# 使用计数器的循环队列\n\n## 概念与约定\n\n循环队列可额外维护 count 表示当前元素数。这样空队列为 count==0，满队列为 count==capacity，可以利用全部数组容量。front 和 rear 即使相等，也不能单凭它们判断是空还是满，需要结合 count。\n\n## 状态推演\n\n数组长度为 3，初始 count=0。成功入队时写入 rear、移动 rear，并把 count 加一；成功出队时读取 front、移动 front，并把 count 减一。装入三个元素后 count=3，front 与 rear 可能再次相等，但此时是满队列。\n\n## 边界与自查\n\n失败的入队和出队都不得改变 count。任何时刻都应满足 0≤count≤capacity。维护计数器会增加一个需保持一致的状态变量，测试中应核对元素数量、指针移动和访问值，而不仅是是否抛出异常。",
+          "start": 0,
+          "end": 392,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 392,
+            "chapter": "使用计数器的循环队列"
+          },
+          "content_hash": "a7057ead25a33441e62be8c21b7975ee576ff3eb7baa5fa25d8d9f4a6dea9442"
+        }
+      ]
+    },
+    "doc-5c500e9a3838996c8b8716383806ee43": {
+      "resource_id": "c-note-queue-linked",
+      "document_id": "doc-5c500e9a3838996c8b8716383806ee43",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "链队列最后一个元素出队",
+      "text": "# 链队列最后一个元素出队\n\n## 概念与约定\n\n链队列通常维护头指针和尾指针。入队把新节点接到尾部；出队移除头部节点。若没有哨兵节点，空队列常约定头尾均为空。只有一个元素时出队，会使结构从非空变为空，需要同时更新头尾。\n\n## 状态推演\n\n队列仅有节点 A，head 和 tail 都指向 A。弹出 A 后，应把 head 和 tail 都置为空。若只移动 head 而保留旧 tail，下一次入队可能错误地连接到已经移除的节点，造成结构损坏。\n\n## 边界与自查\n\n使用哨兵头节点的链队列有另一套空状态约定，通常保留哨兵并让尾指针回到哨兵。两种实现都可以，但必须统一。维护尾指针可使链队列在尾部入队无需遍历，常见基本入队和出队为 O(1)。",
+      "source": "项目自编教学摘要 texts/queue-linked.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-operations"
+      ],
+      "content_hash": "ee658a75b6425494ebc999ab7a897a0d6bb00e3dd3365c4196e47e477dee8773",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "d6f85033261658f7c890c8dcc61c289e0921473203bce5183325d357e354a74a",
+      "chunks": [
+        {
+          "chunk_id": "chunk-2574781a698ce1abf47afd31",
+          "text": "# 链队列最后一个元素出队\n\n## 概念与约定\n\n链队列通常维护头指针和尾指针。入队把新节点接到尾部；出队移除头部节点。若没有哨兵节点，空队列常约定头尾均为空。只有一个元素时出队，会使结构从非空变为空，需要同时更新头尾。\n\n## 状态推演\n\n队列仅有节点 A，head 和 tail 都指向 A。弹出 A 后，应把 head 和 tail 都置为空。若只移动 head 而保留旧 tail，下一次入队可能错误地连接到已经移除的节点，造成结构损坏。\n\n## 边界与自查\n\n使用哨兵头节点的链队列有另一套空状态约定，通常保留哨兵并让尾指针回到哨兵。两种实现都可以，但必须统一。维护尾指针可使链队列在尾部入队无需遍历，常见基本入队和出队为 O(1)。",
+          "start": 0,
+          "end": 322,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 322,
+            "chapter": "链队列最后一个元素出队"
+          },
+          "content_hash": "43ba9ec0f52751efc4fb47a7c0d010f97f24ddbb8859c2d9b0038185b4c2c742"
+        }
+      ]
+    },
+    "doc-4ad83c4b22e50515e00ea5598b71b36d": {
+      "resource_id": "c-note-queue-length",
+      "document_id": "doc-4ad83c4b22e50515e00ea5598b71b36d",
+      "course_id": "demo-course-ds-teacher-2",
+      "resource_version": 1,
+      "title": "循环队列长度与跨尾计算",
+      "text": "# 循环队列长度与跨尾计算\n\n## 概念与约定\n\n保留一个空位的循环队列，若 front 指向队头、rear 指向下一写入位置，当前长度可用 (rear-front+capacity)%capacity 计算。加 capacity 再取模避免 rear 小于 front 时出现负差值。此公式与额外 count 方案不能不加区分地混用。\n\n## 状态推演\n\n数组长度为 8、front=6、rear=2，逻辑元素位于下标 6、7、0、1，共 4 个，公式为 (2-6+8)%8=4。直接使用 rear-front 得到 -4，不能代表队列长度。\n\n## 边界与自查\n\n当 front==rear 时，此约定下长度为零；保留空位意味着永远不会出现长度等于 capacity 的有效状态。若采用计数器方案，装满时头尾也可以相等，长度应直接读取 count。说明和测试都要保持同一组约定。",
+      "source": "项目自编教学摘要 texts/queue-length.md",
+      "knowledge_point_ids": [
+        "demo-kp-queue-operations"
+      ],
+      "content_hash": "e7f69ac8cd7dda5927f8558954b1aaa819471f596f17fbf9e3ef483bd4903a26",
+      "origin": "local_file",
+      "pages": [],
+      "license": "本交付新编文本 可供本课程设计使用 非外站原文摘录 待教师复核",
+      "input_hash": "e8d7e8024ccad5e0c5255cf743005c46b4634aaaacd108eefd671cb006ed7c61",
+      "chunks": [
+        {
+          "chunk_id": "chunk-569d5b9be9038bd9823f556a",
+          "text": "# 循环队列长度与跨尾计算\n\n## 概念与约定\n\n保留一个空位的循环队列，若 front 指向队头、rear 指向下一写入位置，当前长度可用 (rear-front+capacity)%capacity 计算。加 capacity 再取模避免 rear 小于 front 时出现负差值。此公式与额外 count 方案不能不加区分地混用。\n\n## 状态推演\n\n数组长度为 8、front=6、rear=2，逻辑元素位于下标 6、7、0、1，共 4 个，公式为 (2-6+8)%8=4。直接使用 rear-front 得到 -4，不能代表队列长度。\n\n## 边界与自查\n\n当 front==rear 时，此约定下长度为零；保留空位意味着永远不会出现长度等于 capacity 的有效状态。若采用计数器方案，装满时头尾也可以相等，长度应直接读取 count。说明和测试都要保持同一组约定。",
+          "start": 0,
+          "end": 391,
+          "location": {
+            "kind": "text",
+            "start": 0,
+            "end": 391,
+            "chapter": "循环队列长度与跨尾计算"
+          },
+          "content_hash": "61cc3fbc7fddc0d67ec68f449934d1b9e0a69c7d89ab9d3423c097a4157e240e"
+        }
+      ]
+    }
+  },
+  "tombstones": {},
+  "index_version": "rag-2c08b3ab1d260861c951",
+  "storage_signature": "fastembed:BAAI/bge-small-zh-v1.5:46fbe35fd4374a00fee7de77dfddaeb6dd6a2c59:512:",
+  "built_at": 1794837748
+}
